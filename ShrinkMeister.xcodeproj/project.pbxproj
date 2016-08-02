@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
 		4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */; };
 		4BEF0D7F1D508BA400E7782A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7E1D508BA400E7782A /* ViewController.swift */; };
 		4BEF0D821D508BA400E7782A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEF0D801D508BA400E7782A /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.debug.xcconfig"; sourceTree = "<group>"; };
+		32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.release.xcconfig"; sourceTree = "<group>"; };
 		4BEF0D791D508BA100E7782A /* ShrinkMeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShrinkMeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BEF0D7E1D508BA400E7782A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		4BEF0D831D508BA500E7782A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEF0D861D508BA500E7782A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BEF0D881D508BA500E7782A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShrinkMeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				4BEF0D7B1D508BA300E7782A /* ShrinkMeister */,
 				4BEF0D7A1D508BA100E7782A /* Products */,
+				D36A32F1A9C65DB7D1692670 /* Pods */,
+				E01589477C3BAF565B272C61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = ShrinkMeister;
 			sourceTree = "<group>";
 		};
+		D36A32F1A9C65DB7D1692670 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */,
+				32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E01589477C3BAF565B272C61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BEF0D8B1D508BA500E7782A /* Build configuration list for PBXNativeTarget "ShrinkMeister" */;
 			buildPhases = (
+				26BFBA2C70B03280DD8C1FC5 /* [CP] Check Pods Manifest.lock */,
 				4BEF0D751D508BA100E7782A /* Sources */,
 				4BEF0D761D508BA100E7782A /* Frameworks */,
 				4BEF0D771D508BA100E7782A /* Resources */,
+				81BE772DE42791564BB4D65D /* [CP] Embed Pods Frameworks */,
+				DCA22799EF8578D9ABEF32B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26BFBA2C70B03280DD8C1FC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		81BE772DE42791564BB4D65D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCA22799EF8578D9ABEF32B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4BEF0D751D508BA100E7782A /* Sources */ = {
@@ -247,6 +322,7 @@
 		};
 		4BEF0D8C1D508BA500E7782A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShrinkMeister/Info.plist;
@@ -258,6 +334,7 @@
 		};
 		4BEF0D8D1D508BA500E7782A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShrinkMeister/Info.plist;
@@ -286,6 +363,7 @@
 				4BEF0D8D1D508BA500E7782A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
