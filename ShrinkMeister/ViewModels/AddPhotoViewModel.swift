@@ -1,5 +1,5 @@
 //
-//  MainViewModel.swift
+//  AddPhotoViewModel.swift
 //  ShrinkMeister
 //
 //  Created by Jackie Zhang on 16/8/3.
@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import UIKit
 
-class MainViewModel : ViewModel {
+
+class AddPhotoViewModel : ViewModel {
     
-    var vara : Int = 3
+    
     
 }

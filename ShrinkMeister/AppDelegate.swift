@@ -13,15 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var viewLocator = ViewLocator()
+    var viewModelLocator = ViewModelLocator()
+    
+    var mainViewModel : ViewModel!
+    var mainViewController : BaseViewController!
+    
+    func initMainViewController() {
+        mainViewModel = viewModelLocator.getViewModel("Main")
+        
+        mainViewController = viewLocator.getView("Main")
+        mainViewController.setViewModel(mainViewModel)
 
+
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let viewController = ViewController()
+      
+        initMainViewController()
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.rootViewController = viewController
+        window!.rootViewController = mainViewController
         window!.makeKeyAndVisible()
 
-        
         
         return true
     }

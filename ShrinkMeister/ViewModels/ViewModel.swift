@@ -1,5 +1,5 @@
 //
-//  MainViewModel.swift
+//  ViewModel.swift
 //  ShrinkMeister
 //
 //  Created by Jackie Zhang on 16/8/3.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class MainViewModel : ViewModel {
+
+class ViewModel {
     
-    var vara : Int = 3
-    
+
 }
