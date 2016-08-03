@@ -12,7 +12,11 @@ import SnapKit
 
 class MainViewController: BaseViewController {
 
+    var mainViewModel : MainViewModel!
+    
     var processBtn : UIButton!
+    
+    var label : UILabel!
     
     func initUI()
     {
@@ -24,14 +28,22 @@ class MainViewController: BaseViewController {
         processBtn.snp_makeConstraints { make -> Void in
             make.center.equalTo(self.view)
         }
+        
+        label = UILabel()
+        label.text = String(mainViewModel.vara)
+        view.addSubview(label)
+        label.snp_makeConstraints { make -> Void in
+            make.centerX.equalTo(self.view)
+            make.centerY.equalTo(self.view).offset(20)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        mainViewModel = viewModel as! MainViewModel
+
         initUI()
-        let vm = viewModel as! MainViewModel
-        print (vm.vara)
         
     }
 
