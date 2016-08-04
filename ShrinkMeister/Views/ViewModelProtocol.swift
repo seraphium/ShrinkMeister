@@ -9,5 +9,8 @@
 import Foundation
 
 protocol ViewModelProtocol {
+    
     func bindViewModel() -> Void
+    
+
 }

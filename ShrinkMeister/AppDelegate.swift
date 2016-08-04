@@ -13,28 +13,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var viewLocator = ViewLocator()
-    var viewModelLocator = ViewModelLocator()
+    static var viewLocator : ViewLocator!
+    static var viewModelLocator : ViewModelLocator!
+    
+    var navigationController : UINavigationController!
     
     var mainViewModel : ViewModel!
     var mainViewController : BaseViewController!
     
-    func initMainViewController() {
-        mainViewModel = viewModelLocator.getViewModel("Main")
-        
-        mainViewController = viewLocator.getView("Main")
-        mainViewController.viewModel = mainViewModel
-
-
-    }
+    static var viewService : ViewControllerService!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-      
-        initMainViewController()
+        
+        navigationController = UINavigationController()
+        navigationController.navigationBar.barTintColor = UIColor.redColor()
+      //  navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController.title = "Shrink Master"
+        
+        AppDelegate.viewService = ViewControllerServicesImp(navigationController: navigationController)
+        
+        //should init service first , then init locator
+        
+        AppDelegate.viewLocator = ViewLocator()
+        AppDelegate.viewModelLocator = ViewModelLocator()
+        
+        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")
+        mainViewController = AppDelegate.viewLocator.getView("Main")
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.rootViewController = mainViewController
+        window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
+
+        navigationController.pushViewController(mainViewController, animated: false)
 
         
         return true

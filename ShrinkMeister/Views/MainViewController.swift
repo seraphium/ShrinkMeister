@@ -61,6 +61,8 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     
     
     func bindViewModel() {
+        
+        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
         label.text = String(mainViewModel.vara)
         
         processBtn.rac_command = mainViewModel.executeCommand
@@ -83,12 +85,24 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainViewModel = viewModel as! MainViewModel
-
         initUI()
+        
         bindViewModel()
+
+        initNotification()
     }
 
+    func initNotification() {
+    
+        NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
+            _ in
+            print("PushAddPhoto")
+            self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
+        }
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

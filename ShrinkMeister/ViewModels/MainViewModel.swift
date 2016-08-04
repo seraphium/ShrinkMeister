@@ -40,6 +40,8 @@ class MainViewModel : ViewModel {
             
             self.result = "finished"
 
+            NotificationHelper.postNotification("PushAddPhoto", objects: nil)
+            
             subscriber.sendCompleted()
             return RACDisposable(){
                 

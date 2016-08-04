@@ -9,18 +9,17 @@
 import Foundation
 import UIKit
 
-class BaseViewController : UIViewController {
-    internal var viewModel : ViewModel!
+class BaseViewController : UIViewController{
+    internal var viewService : ViewControllerService?
     
-    
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, withViewModel vm: ViewModel) {
-        self.viewModel = vm
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, WithViewService vs : ViewControllerService) {
+        self.viewService = vs
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
+
     }
     
-    required init(withViewModel vm: ViewModel? = nil) {
-        self.viewModel = vm
+    required init(withViewService vs: ViewControllerService? = nil) {
+        self.viewService = vs
         super.init(nibName: nil, bundle: nil)
     }
     
