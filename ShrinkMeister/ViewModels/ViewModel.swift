@@ -12,5 +12,8 @@ import UIKit
 
 class ViewModel {
     
+    init() {
+        
+    }
 
 }

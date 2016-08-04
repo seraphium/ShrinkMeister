@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
+		4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */; };
 		4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12021D5186B000A84EC1 /* RAC.swift */; };
 		4BEE12071D5186B000A84EC1 /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12031D5186B000A84EC1 /* RACObserve.swift */; };
 		4BEE12081D5186B000A84EC1 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.debug.xcconfig"; sourceTree = "<group>"; };
 		32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.release.xcconfig"; sourceTree = "<group>"; };
+		4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		4BEE12021D5186B000A84EC1 /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		4BEE12031D5186B000A84EC1 /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				4BEF0D7E1D508BA400E7782A /* MainViewController.swift */,
 				4BEE12211D51E97800A84EC1 /* ViewLocator.swift */,
+				4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */,
 				4BEE12251D51F02D00A84EC1 /* BaseViewController.swift */,
 				4BEE12271D51F4BE00A84EC1 /* AddPhotoViewController.swift */,
 			);
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */,
 				4BEE12261D51F02D00A84EC1 /* BaseViewController.swift in Sources */,
 				4BEE12201D51E57700A84EC1 /* ViewModel.swift in Sources */,
 				4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */,

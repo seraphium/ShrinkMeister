@@ -10,7 +10,7 @@ import UIKit
 import ReactiveCocoa
 import SnapKit
 
-class MainViewController: BaseViewController {
+class MainViewController: BaseViewController, ViewModelProtocol {
 
     var mainViewModel : MainViewModel!
     
@@ -30,12 +30,17 @@ class MainViewController: BaseViewController {
         }
         
         label = UILabel()
-        label.text = String(mainViewModel.vara)
         view.addSubview(label)
         label.snp_makeConstraints { make -> Void in
             make.centerX.equalTo(self.view)
             make.centerY.equalTo(self.view).offset(20)
         }
+    }
+    
+    
+    func bindViewModel() {
+        label.text = String(mainViewModel.vara)
+        processBtn.rac_command = mainViewModel.executeProcess
     }
     
     override func viewDidLoad() {
@@ -44,7 +49,7 @@ class MainViewController: BaseViewController {
         mainViewModel = viewModel as! MainViewModel
 
         initUI()
-        
+        bindViewModel()
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,9 +8,35 @@
 
 import Foundation
 import UIKit
+import ReactiveCocoa
 
 class MainViewModel : ViewModel {
     
-    var vara : Int = 3
+    var vara = 3
     
+    var executeProcess: RACCommand?
+
+    override init() {
+        super.init()
+        executeProcess = RACCommand() {
+            (any: AnyObject!) -> RACSignal in
+            return self.executeProcessSignal()
+        }
+        
+    }
+    
+    //MARK: private methods
+    
+    private func executeProcessSignal() -> RACSignal {
+        return RACSignal.createSignal({
+            (subscriber: RACSubscriber!) -> RACDisposable! in
+            print ("execute process")
+            
+            
+            subscriber.sendCompleted()
+            return RACDisposable(){
+                
+            }
+        })
+    }
 }
