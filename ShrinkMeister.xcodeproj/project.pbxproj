@@ -12,6 +12,7 @@
 		4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4071D531A0E00519610 /* ViewControllerService.swift */; };
 		4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */; };
 		4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A40B1D5321FB00519610 /* NotificationHelper.swift */; };
+		4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67A40F1D53490C00519610 /* Launch Screen.storyboard */; };
 		4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12021D5186B000A84EC1 /* RAC.swift */; };
 		4BEE12071D5186B000A84EC1 /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12031D5186B000A84EC1 /* RACObserve.swift */; };
 		4BEE12081D5186B000A84EC1 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */; };
@@ -37,6 +38,7 @@
 		4B67A4071D531A0E00519610 /* ViewControllerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerService.swift; path = ../ViewModels/ViewControllerService.swift; sourceTree = "<group>"; };
 		4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServicesImp.swift; sourceTree = "<group>"; };
 		4B67A40B1D5321FB00519610 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		4B67A40F1D53490C00519610 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4BEE12021D5186B000A84EC1 /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		4BEE12031D5186B000A84EC1 /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4BEF0D831D508BA500E7782A /* Assets.xcassets */,
+				4B67A40F1D53490C00519610 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
 				4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

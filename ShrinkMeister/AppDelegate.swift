@@ -26,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         navigationController = UINavigationController()
-        navigationController.navigationBar.barTintColor = UIColor.redColor()
       //  navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController.title = "Shrink Master"
         
         AppDelegate.viewService = ViewControllerServicesImp(navigationController: navigationController)
         

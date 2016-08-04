@@ -12,7 +12,7 @@ import UIKit
 // provides common services to view models
 class ViewControllerServicesImp: ViewControllerService {
   
-    private let navigationController : UINavigationController!
+    internal let navigationController : UINavigationController!
     
     init(navigationController : UINavigationController)
     {
@@ -26,6 +26,15 @@ class ViewControllerServicesImp: ViewControllerService {
         navigationController.pushViewController(viewController, animated: animated)
 
     }
+    
+    func getNavigationController() -> UINavigationController {
+        return navigationController
+    }
+    
+    func setNavigationControllerTitle(title: String) {
+        navigationController.navigationBar.topItem?.title = title
+    }
+
   
 
   

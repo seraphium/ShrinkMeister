@@ -26,6 +26,9 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     {
         
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        viewService?.setNavigationControllerTitle("test")
+        
         processBtn = UIButton(type: .ContactAdd)
         processBtn.setTitle("Process", forState: .Normal)
         view.addSubview(processBtn)

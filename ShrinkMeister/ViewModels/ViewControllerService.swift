@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 
 // provides common services to view models
 protocol ViewControllerService {
@@ -15,6 +17,7 @@ protocol ViewControllerService {
   // one view to the next
     func pushViewController(viewController:BaseViewController, animated: Bool)
   
+    func getNavigationController() -> UINavigationController
 
-  
+    func setNavigationControllerTitle(title: String)
 }
