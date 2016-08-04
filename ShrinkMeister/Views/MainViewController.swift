@@ -95,8 +95,12 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     func initNotification() {
     
         NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
-            _ in
-            print("PushAddPhoto")
+            object in
+            let notify = object as! NSNotification
+            let value = notify.userInfo!["para"]! as! String
+            print("PushAddPhoto\(value)" )
+            let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
+            addPhotoVM.vara = value
             self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
         }
 

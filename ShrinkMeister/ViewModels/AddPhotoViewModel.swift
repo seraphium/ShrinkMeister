@@ -11,6 +11,8 @@ import Foundation
 
 class AddPhotoViewModel : ViewModel {
     
+    var vara : String?
+    
     
     
 }

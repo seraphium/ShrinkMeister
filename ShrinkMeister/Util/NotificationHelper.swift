@@ -11,8 +11,8 @@ import ReactiveCocoa
 
 class NotificationHelper {
     
-    static func postNotification(name: String, objects : AnyObject?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: objects)
+    static func postNotification(name: String, objects : AnyObject?, userInfo: [NSObject : AnyObject]?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name, object: objects, userInfo: userInfo)
 
     }
     

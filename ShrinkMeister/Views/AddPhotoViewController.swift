@@ -19,6 +19,8 @@ class AddPhotoViewController : BaseViewController, ViewModelProtocol {
     
     func initUI()
     {
+        view.backgroundColor = UIColor.whiteColor()
+        
         label = UILabel()
         view.addSubview(label)
         label.snp_makeConstraints { make -> Void in
@@ -37,6 +39,11 @@ class AddPhotoViewController : BaseViewController, ViewModelProtocol {
     
     func bindViewModel() {
         addPhotoViewModel = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
+        
+        RACObserve(addPhotoViewModel, keyPath: "vara").subscribeNextAs {
+            (value:String) -> () in
+            self.label.text = value
+        }
 
     }
     
