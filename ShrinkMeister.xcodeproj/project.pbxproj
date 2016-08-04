@@ -13,6 +13,7 @@
 		4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */; };
 		4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A40B1D5321FB00519610 /* NotificationHelper.swift */; };
 		4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67A40F1D53490C00519610 /* Launch Screen.storyboard */; };
+		4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE16E021D537BFE00AD1B29 /* Assets.xcassets */; };
 		4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12021D5186B000A84EC1 /* RAC.swift */; };
 		4BEE12071D5186B000A84EC1 /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12031D5186B000A84EC1 /* RACObserve.swift */; };
 		4BEE12081D5186B000A84EC1 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */; };
@@ -28,7 +29,6 @@
 		4BEE122A1D51F4DE00A84EC1 /* AddPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12291D51F4DE00A84EC1 /* AddPhotoViewModel.swift */; };
 		4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */; };
 		4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7E1D508BA400E7782A /* MainViewController.swift */; };
-		4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEF0D831D508BA500E7782A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +39,7 @@
 		4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServicesImp.swift; sourceTree = "<group>"; };
 		4B67A40B1D5321FB00519610 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		4B67A40F1D53490C00519610 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4BE16E021D537BFE00AD1B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEE12021D5186B000A84EC1 /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		4BEE12031D5186B000A84EC1 /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		4BEE12041D5186B000A84EC1 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		4BEF0D791D508BA100E7782A /* ShrinkMeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShrinkMeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BEF0D7E1D508BA400E7782A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		4BEF0D831D508BA500E7782A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEF0D881D508BA500E7782A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShrinkMeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,8 +122,8 @@
 		4BEE121A1D518C8300A84EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4BEF0D831D508BA500E7782A /* Assets.xcassets */,
 				4B67A40F1D53490C00519610 /* Launch Screen.storyboard */,
+				4BE16E021D537BFE00AD1B29 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -247,8 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */,
 				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
-				4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +420,7 @@
 			baseConfigurationReference = 19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = ShrinkMeister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackiezhang.ShrinkMeister;
@@ -432,6 +433,7 @@
 			baseConfigurationReference = 32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = ShrinkMeister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackiezhang.ShrinkMeister;
