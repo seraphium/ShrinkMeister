@@ -18,6 +18,10 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     
     var label : UILabel!
     
+    var textField: UITextField!
+    
+    var resultLabel: UILabel!
+    
     func initUI()
     {
         
@@ -35,12 +39,45 @@ class MainViewController: BaseViewController, ViewModelProtocol {
             make.centerX.equalTo(self.view)
             make.centerY.equalTo(self.view).offset(20)
         }
+        
+        resultLabel = UILabel()
+        view.addSubview(resultLabel)
+        resultLabel.snp_makeConstraints { make -> Void in
+            make.centerX.equalTo(self.view)
+            make.centerY.equalTo(self.view).offset(60)
+        }
+        
+        textField = UITextField()
+        textField.borderStyle = .RoundedRect
+        view.addSubview(textField)
+        textField.snp_makeConstraints() {
+            make -> Void in
+            make.centerX.equalTo(self.view)
+            make.centerY.equalTo(self.view).offset(100)
+            make.width.equalTo(150.0)
+        }
+        
     }
     
     
     func bindViewModel() {
         label.text = String(mainViewModel.vara)
-        processBtn.rac_command = mainViewModel.executeProcess
+        
+        processBtn.rac_command = mainViewModel.executeCommand
+        
+        textField.rac_textSignal() ~> RAC(mainViewModel, "vara")
+        
+        RACObserve(mainViewModel, keyPath: "vara").subscribeNextAs {
+            (value:String) -> () in
+            self.label.text = value
+        }
+        
+        RACObserve(mainViewModel, keyPath: "result").subscribeNextAs {
+            (value:String) -> () in
+            self.resultLabel.text = value
+        }
+
+        
     }
     
     override func viewDidLoad() {

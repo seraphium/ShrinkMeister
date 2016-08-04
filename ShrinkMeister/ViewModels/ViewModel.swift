@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 
-class ViewModel {
+class ViewModel : NSObject
+{
     
-    init() {
+    override init() {
+        super.init()
         
     }
 

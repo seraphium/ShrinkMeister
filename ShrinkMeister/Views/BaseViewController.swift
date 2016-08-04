@@ -12,10 +12,6 @@ import UIKit
 class BaseViewController : UIViewController {
     internal var viewModel : ViewModel!
     
-    internal func setViewModel(vm : ViewModel)
-    {
-        viewModel = vm
-    }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, withViewModel vm: ViewModel) {
         self.viewModel = vm

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainViewModel = viewModelLocator.getViewModel("Main")
         
         mainViewController = viewLocator.getView("Main")
-        mainViewController.setViewModel(mainViewModel)
+        mainViewController.viewModel = mainViewModel
 
 
     }

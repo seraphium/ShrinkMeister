@@ -12,13 +12,19 @@ import ReactiveCocoa
 
 class MainViewModel : ViewModel {
     
-    var vara = 3
+    dynamic var vara : String = "default" {
+        didSet {
+            print ("vara=\(vara)")
+        }
+    }
     
-    var executeProcess: RACCommand?
+    dynamic var result : String = "pending"
+    
+    var executeCommand: RACCommand?
 
     override init() {
         super.init()
-        executeProcess = RACCommand() {
+        executeCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in
             return self.executeProcessSignal()
         }
@@ -32,7 +38,8 @@ class MainViewModel : ViewModel {
             (subscriber: RACSubscriber!) -> RACDisposable! in
             print ("execute process")
             
-            
+            self.result = "finished"
+
             subscriber.sendCompleted()
             return RACDisposable(){
                 
