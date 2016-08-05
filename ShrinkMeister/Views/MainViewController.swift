@@ -8,8 +8,6 @@
 
 import UIKit
 import ReactiveCocoa
-import SnapKit
-
 
 class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate {
 
@@ -17,7 +15,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     @IBOutlet weak var processCollection: UICollectionView!
 
-    @IBOutlet weak var imageScrollView: ImageScrollView!
+    @IBOutlet var imageScrollView: ImageScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -180,12 +178,12 @@ extension MainViewController : UIImagePickerControllerDelegate {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         //put image into cache
-    /*    imageStore.setImage(image, forKey: item.itemKey)
+     //   imageStore.setImage(image, forKey: item.itemKey)
         
         //put the image into imageview
         imageView.image = image
-        scrollView.imageView.image = image
-      */
+       // scrollView.imageView.image = image
+      
         //take imagePicker off screen
         dismissViewControllerAnimated(true, completion: nil)
     }
