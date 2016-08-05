@@ -33,7 +33,7 @@ class MainViewModel : ViewModel {
             
 
 
-            let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
+        //    let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
             
             NotificationHelper.postNotification("PushAddPhoto", objects: nil, userInfo: nil)
             

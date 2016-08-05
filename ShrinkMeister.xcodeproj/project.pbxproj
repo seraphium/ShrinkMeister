@@ -31,6 +31,8 @@
 		4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEF0D831D508BA500E7782A /* Assets.xcassets */; };
 		4BF0DEB51D54647B000D2665 /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB41D54647B000D2665 /* ResourceStore.swift */; };
 		4BF0DEB81D546893000D2665 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB71D546893000D2665 /* MainViewController.xib */; };
+		4BF0DEBA1D54759A000D2665 /* ProcessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB91D54759A000D2665 /* ProcessCell.xib */; };
+		4BF0DEBC1D5477CD000D2665 /* ProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		4BEF0D881D508BA500E7782A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF0DEB41D54647B000D2665 /* ResourceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceStore.swift; sourceTree = "<group>"; };
 		4BF0DEB71D546893000D2665 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		4BF0DEB91D54759A000D2665 /* ProcessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessCell.xib; sourceTree = "<group>"; };
+		4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessCell.swift; sourceTree = "<group>"; };
 		C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShrinkMeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 				4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */,
 				4BEE12251D51F02D00A84EC1 /* BaseViewController.swift */,
 				4BEE12271D51F4BE00A84EC1 /* AddPhotoViewController.swift */,
+				4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF0DEB71D546893000D2665 /* MainViewController.xib */,
+				4BF0DEB91D54759A000D2665 /* ProcessCell.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
 				4BF0DEB81D546893000D2665 /* MainViewController.xib in Resources */,
 				4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */,
+				4BF0DEBA1D54759A000D2665 /* ProcessCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +345,7 @@
 				4BEE12191D518BC400A84EC1 /* ImageViewModel.swift in Sources */,
 				4BEE12091D5186B000A84EC1 /* TableViewBindingHelper.swift in Sources */,
 				4BEE12131D518B4D00A84EC1 /* ImageStore.swift in Sources */,
+				4BF0DEBC1D5477CD000D2665 /* ProcessCell.swift in Sources */,
 				4BEE12071D5186B000A84EC1 /* RACObserve.swift in Sources */,
 				4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */,
 				4BEE12081D5186B000A84EC1 /* RACSignal+Extensions.swift in Sources */,

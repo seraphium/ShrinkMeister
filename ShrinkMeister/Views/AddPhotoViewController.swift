@@ -12,21 +12,13 @@ import ReactiveCocoa
 
 class AddPhotoViewController : BaseViewController, ViewModelProtocol {
     
-    var label : UILabel!
-
     var addPhotoViewModel : AddPhotoViewModel!
     
     
     func initUI()
     {
         view.backgroundColor = UIColor.whiteColor()
-        
-        label = UILabel()
-        view.addSubview(label)
-        label.snp_makeConstraints { make -> Void in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view).offset(20)
-        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +30,9 @@ class AddPhotoViewController : BaseViewController, ViewModelProtocol {
     }
     
     func bindViewModel() {
+        
         addPhotoViewModel = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
         
-        RACObserve(addPhotoViewModel, keyPath: "vara").subscribeNextAs {
-            (value:String) -> () in
-            self.label.text = value
-        }
 
     }
     

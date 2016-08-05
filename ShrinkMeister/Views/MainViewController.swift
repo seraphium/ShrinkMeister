@@ -10,41 +10,57 @@ import UIKit
 import ReactiveCocoa
 import SnapKit
 
+
 class MainViewController: BaseViewController, ViewModelProtocol {
 
     var mainViewModel : MainViewModel!
     
     @IBOutlet weak var processCollection: UICollectionView!
+
+    var addBarButton : UIBarButtonItem!
+    
+    let collectionCellID = "ProcessCellID"
+    let collectionNibName = "ProcessCell"
     
     func initUI()
     {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        viewService?.setNavigationControllerTitle("test")
+        initNavigationBar()
         
+        initCollection()
+
+    }
+    
+    func initNavigationBar()
+    {
+        viewService?.setNavigationControllerTitle("test")
+
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(AddPhoto))
+        navigationItem.rightBarButtonItem = addBarButton
         
     }
     
+    func initCollection()
+    {
+        processCollection.delegate = self
+        processCollection.dataSource = self
+        processCollection.showsHorizontalScrollIndicator = false
+        processCollection.backgroundColor = UIColor.whiteColor()
+        let cellNib = UINib(nibName: String(collectionNibName), bundle: nil)
+        processCollection.registerNib(cellNib, forCellWithReuseIdentifier: collectionCellID)
+
+    }
     
     func bindViewModel() {
         
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
-        
-/*        processBtn.rac_command = mainViewModel.executeCommand
-        
-        textField.rac_textSignal() ~> RAC(mainViewModel, "vara")
-        
-        RACObserve(mainViewModel, keyPath: "vara").subscribeNextAs {
+    
+        /*RACObserve(mainViewModel, keyPath: "vara").subscribeNextAs {
             (value:String) -> () in
-            self.label.text = value
-        }
-        
-        RACObserve(mainViewModel, keyPath: "result").subscribeNextAs {
-            (value:String) -> () in
-            self.resultLabel.text = value
-        }
-*/
+           
+        }*/
         
     }
     
@@ -56,6 +72,7 @@ class MainViewController: BaseViewController, ViewModelProtocol {
         bindViewModel()
 
         initNotification()
+        
     }
 
     func initNotification() {
@@ -72,7 +89,42 @@ class MainViewController: BaseViewController, ViewModelProtocol {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: UI Command
+    func AddPhoto() {
+        mainViewModel.executeCommand?.execute(nil)
+    }
+    
+    
 
+}
+
+//MARK: collection delegate
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionCellID, forIndexPath: indexPath) as! ProcessCell
+
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+       
+    
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(90, 90)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(5, 2.5, 5, 2.5)
+    }
 
 }
 
