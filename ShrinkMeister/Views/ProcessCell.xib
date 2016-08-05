@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProcessCell" customModule="ShrinkMeister" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Large" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0i-oM-VvV">
+                    <rect key="frame" x="23" y="69" width="44" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="7DS-s7-0ou">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7DS-s7-0ou" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="83f-JZ-s33"/>
+                <constraint firstAttribute="bottom" secondItem="d0i-oM-VvV" secondAttribute="bottom" id="Plz-tD-9dU"/>
+                <constraint firstItem="7DS-s7-0ou" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Tlm-dq-OyA"/>
+                <constraint firstItem="d0i-oM-VvV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xfs-u7-3dH"/>
+                <constraint firstAttribute="bottom" secondItem="7DS-s7-0ou" secondAttribute="bottom" constant="20" id="jJH-Ae-cya"/>
+                <constraint firstAttribute="trailing" secondItem="7DS-s7-0ou" secondAttribute="trailing" id="nAl-z9-uej"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="image" destination="7DS-s7-0ou" id="nju-h3-ZAc"/>
+                <outlet property="label" destination="d0i-oM-VvV" id="pnC-DC-a9S"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="122"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sample" width="1080" height="1920"/>
+    </resources>
+</document>

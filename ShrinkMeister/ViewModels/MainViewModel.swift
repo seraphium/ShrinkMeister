@@ -12,13 +12,6 @@ import ReactiveCocoa
 
 class MainViewModel : ViewModel {
     
-    dynamic var vara : String = "default" {
-        didSet {
-            print ("vara=\(vara)")
-        }
-    }
-    
-    dynamic var result : String = "pending"
     
     var executeCommand: RACCommand?
 
@@ -38,10 +31,9 @@ class MainViewModel : ViewModel {
             (subscriber: RACSubscriber!) -> RACDisposable! in
             print ("execute process")
             
-            self.result = "finished"
 
-            let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
-            addPhotoVM.vara = self.vara
+
+        //    let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
             
             NotificationHelper.postNotification("PushAddPhoto", objects: nil, userInfo: nil)
             
