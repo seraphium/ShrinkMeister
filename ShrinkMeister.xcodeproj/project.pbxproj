@@ -33,6 +33,7 @@
 		4BF0DEB81D546893000D2665 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB71D546893000D2665 /* MainViewController.xib */; };
 		4BF0DEBA1D54759A000D2665 /* ProcessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB91D54759A000D2665 /* ProcessCell.xib */; };
 		4BF0DEBC1D5477CD000D2665 /* ProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */; };
+		4BF0DEBE1D5494AF000D2665 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		4BF0DEB71D546893000D2665 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		4BF0DEB91D54759A000D2665 /* ProcessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessCell.xib; sourceTree = "<group>"; };
 		4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessCell.swift; sourceTree = "<group>"; };
+		4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShrinkMeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				4BEE12251D51F02D00A84EC1 /* BaseViewController.swift */,
 				4BEE12271D51F4BE00A84EC1 /* AddPhotoViewController.swift */,
 				4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */,
+				4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				4BEE12201D51E57700A84EC1 /* ViewModel.swift in Sources */,
 				4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */,
 				4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */,
+				4BF0DEBE1D5494AF000D2665 /* ImageScrollView.swift in Sources */,
 				4BEE12221D51E97800A84EC1 /* ViewLocator.swift in Sources */,
 				4BEE12281D51F4BE00A84EC1 /* AddPhotoViewController.swift in Sources */,
 				4BF0DEB51D54647B000D2665 /* ResourceStore.swift in Sources */,

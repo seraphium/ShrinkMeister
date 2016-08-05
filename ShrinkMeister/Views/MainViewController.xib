@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="ShrinkMeister" customModuleProvider="target">
             <connections>
+                <outlet property="imageScrollView" destination="SZ2-xc-5AQ" id="bUO-yI-5Ra"/>
+                <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
                 <outlet property="processCollection" destination="CAt-ZF-fx6" id="lGg-1W-nhY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1ct-xC-eJ6"/>
             </connections>
@@ -16,9 +18,20 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
-                    <rect key="frame" x="5" y="8" width="590" height="490"/>
-                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
+                    <rect key="frame" x="5" y="5" width="590" height="495"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
+                            <rect key="frame" x="0.0" y="0.0" width="1080" height="1920"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="JP5-8N-f06" secondAttribute="trailing" id="JNN-gC-CBZ"/>
+                        <constraint firstItem="JP5-8N-f06" firstAttribute="top" secondItem="SZ2-xc-5AQ" secondAttribute="top" id="S0T-KU-kTl"/>
+                        <constraint firstItem="JP5-8N-f06" firstAttribute="leading" secondItem="SZ2-xc-5AQ" secondAttribute="leading" id="kwU-hI-lnd"/>
+                        <constraint firstAttribute="bottom" secondItem="JP5-8N-f06" secondAttribute="bottom" id="y0w-lb-Mm1"/>
+                    </constraints>
+                </scrollView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CAt-ZF-fx6">
                     <rect key="frame" x="0.0" y="500" width="600" height="100"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,19 +49,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="CAt-ZF-fx6" secondAttribute="bottom" id="2es-zo-XZD"/>
-                <constraint firstItem="CAt-ZF-fx6" firstAttribute="top" secondItem="JP5-8N-f06" secondAttribute="bottom" constant="5" id="DcY-aF-tNv"/>
-                <constraint firstAttribute="trailing" secondItem="JP5-8N-f06" secondAttribute="trailing" constant="5" id="Oab-o7-Vnm"/>
-                <constraint firstItem="JP5-8N-f06" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="UcG-Fy-cqk"/>
+                <constraint firstItem="SZ2-xc-5AQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="CA3-ZU-26q"/>
+                <constraint firstAttribute="bottom" secondItem="SZ2-xc-5AQ" secondAttribute="bottom" constant="100" id="JdQ-Fe-zmj"/>
                 <constraint firstItem="CAt-ZF-fx6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vzv-qd-MUt"/>
-                <constraint firstItem="JP5-8N-f06" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="am7-0d-AW5"/>
-                <constraint firstAttribute="bottom" secondItem="JP5-8N-f06" secondAttribute="bottom" constant="100" id="gLP-V4-rFE"/>
+                <constraint firstItem="SZ2-xc-5AQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="c8X-hK-727"/>
+                <constraint firstAttribute="trailing" secondItem="SZ2-xc-5AQ" secondAttribute="trailing" constant="5" id="uh9-z9-5qj"/>
                 <constraint firstAttribute="trailing" secondItem="CAt-ZF-fx6" secondAttribute="trailing" id="yVf-dG-iui"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="gLP-V4-rFE"/>
-                </mask>
-            </variation>
         </view>
     </objects>
     <resources>

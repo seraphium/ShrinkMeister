@@ -11,11 +11,17 @@ import ReactiveCocoa
 import SnapKit
 
 
-class MainViewController: BaseViewController, ViewModelProtocol {
+class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate {
 
     var mainViewModel : MainViewModel!
     
     @IBOutlet weak var processCollection: UICollectionView!
+
+    @IBOutlet weak var imageScrollView: ImageScrollView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
 
     var addBarButton : UIBarButtonItem!
     
@@ -37,7 +43,7 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     {
         viewService?.setNavigationControllerTitle("test")
 
-        addBarButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(AddPhoto))
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(AddPhoto))
         navigationItem.rightBarButtonItem = addBarButton
         
     }
@@ -74,6 +80,30 @@ class MainViewController: BaseViewController, ViewModelProtocol {
         initNotification()
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        //need to put code to use scrollview frame here due to it will be 600x600 in viewwillappear
+        if imageView.image != nil {
+            imageScrollView.contentSize = imageView.image!.size
+            let scrollViewFrame = imageScrollView.frame
+            let scaleWidth = scrollViewFrame.size.width / imageScrollView.contentSize.width
+            let scaleHeight = scrollViewFrame.size.height / imageScrollView.contentSize.height;
+            let minScale = min(scaleWidth, scaleHeight);
+            imageScrollView.minimumZoomScale = minScale;
+            
+            imageScrollView.maximumZoomScale = 1.0;
+            imageScrollView.setZoomScale(minScale, animated: true)
+            
+        }
+        
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        imageScrollView.imageView = imageView
+
+    }
 
     func initNotification() {
     
@@ -90,16 +120,10 @@ class MainViewController: BaseViewController, ViewModelProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: UI Command
-    func AddPhoto() {
-        mainViewModel.executeCommand?.execute(nil)
-    }
-    
-    
+
 
 }
 
-//MARK: collection delegate
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -111,13 +135,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    // MARK: - UICollectionViewDelegate
+// MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
     
     }
     
-    // MARK: - UICollectionViewDelegateFlowLayout
+
+// MARK: UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(90, 90)
     }
@@ -125,6 +150,75 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(5, 2.5, 5, 2.5)
     }
+
+}
+
+//MARK: Scrollview delegate
+extension MainViewController : UIScrollViewDelegate {
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+        
+    }
+}
+
+//MARK: Image picker delegate
+extension MainViewController : UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+        //TODO: why popViewController doesn't work ?
+        navigationController?.popToRootViewControllerAnimated(true)
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        //get image from info directory
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //put image into cache
+    /*    imageStore.setImage(image, forKey: item.itemKey)
+        
+        //put the image into imageview
+        imageView.image = image
+        scrollView.imageView.image = image
+      */
+        //take imagePicker off screen
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func choosePicture(){
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        let choosePictureString = "Choose"
+        if(imagePicker.sourceType == UIImagePickerControllerSourceType.Camera){
+            let button = UIBarButtonItem(title: choosePictureString, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(choosePicture))
+            viewController.navigationItem.rightBarButtonItem = button
+            viewController.navigationController?.navigationBarHidden = false
+            viewController.navigationController?.navigationBar.translucent = true
+        }
+    }
+
+    func AddPhoto() {
+        //see if camera supported, if not , pick from library
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePicker.sourceType  = .Camera
+        }
+        else {
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        
+        imagePicker.delegate = self
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    
 
 }
 
