@@ -14,13 +14,7 @@ class MainViewController: BaseViewController, ViewModelProtocol {
 
     var mainViewModel : MainViewModel!
     
-    var processBtn : UIButton!
-    
-    var label : UILabel!
-    
-    var textField: UITextField!
-    
-    var resultLabel: UILabel!
+    @IBOutlet weak var processCollection: UICollectionView!
     
     func initUI()
     {
@@ -29,36 +23,6 @@ class MainViewController: BaseViewController, ViewModelProtocol {
         
         viewService?.setNavigationControllerTitle("test")
         
-        processBtn = UIButton(type: .ContactAdd)
-        processBtn.setTitle("Process", forState: .Normal)
-        view.addSubview(processBtn)
-        processBtn.snp_makeConstraints { make -> Void in
-            make.center.equalTo(self.view)
-        }
-        
-        label = UILabel()
-        view.addSubview(label)
-        label.snp_makeConstraints { make -> Void in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view).offset(20)
-        }
-        
-        resultLabel = UILabel()
-        view.addSubview(resultLabel)
-        resultLabel.snp_makeConstraints { make -> Void in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view).offset(60)
-        }
-        
-        textField = UITextField()
-        textField.borderStyle = .RoundedRect
-        view.addSubview(textField)
-        textField.snp_makeConstraints() {
-            make -> Void in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view).offset(100)
-            make.width.equalTo(150.0)
-        }
         
     }
     
@@ -66,9 +30,8 @@ class MainViewController: BaseViewController, ViewModelProtocol {
     func bindViewModel() {
         
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
-        label.text = String(mainViewModel.vara)
         
-        processBtn.rac_command = mainViewModel.executeCommand
+/*        processBtn.rac_command = mainViewModel.executeCommand
         
         textField.rac_textSignal() ~> RAC(mainViewModel, "vara")
         
@@ -81,7 +44,7 @@ class MainViewController: BaseViewController, ViewModelProtocol {
             (value:String) -> () in
             self.resultLabel.text = value
         }
-
+*/
         
     }
     

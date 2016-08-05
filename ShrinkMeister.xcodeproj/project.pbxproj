@@ -29,6 +29,8 @@
 		4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */; };
 		4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7E1D508BA400E7782A /* MainViewController.swift */; };
 		4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEF0D831D508BA500E7782A /* Assets.xcassets */; };
+		4BF0DEB51D54647B000D2665 /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB41D54647B000D2665 /* ResourceStore.swift */; };
+		4BF0DEB81D546893000D2665 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB71D546893000D2665 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,7 @@
 		4BEE12051D5186B000A84EC1 /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		4BEE12101D518A7D00A84EC1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4BEE12121D518B4D00A84EC1 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageStore.swift; path = Models/ImageStore.swift; sourceTree = "<group>"; };
-		4BEE12181D518BC400A84EC1 /* ImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewModel.swift; path = Models/ImageViewModel.swift; sourceTree = "<group>"; };
+		4BEE12181D518BC400A84EC1 /* ImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewModel.swift; path = ../Models/ImageViewModel.swift; sourceTree = "<group>"; };
 		4BEE121D1D518E5C00A84EC1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		4BEE121F1D51E57600A84EC1 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4BEE12211D51E97800A84EC1 /* ViewLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLocator.swift; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		4BEF0D7E1D508BA400E7782A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BEF0D831D508BA500E7782A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEF0D881D508BA500E7782A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BF0DEB41D54647B000D2665 /* ResourceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceStore.swift; sourceTree = "<group>"; };
+		4BF0DEB71D546893000D2665 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShrinkMeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,7 @@
 		4BEE120C1D5189E500A84EC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4BF0DEB61D54687D000D2665 /* Xib */,
 				4BEF0D7E1D508BA400E7782A /* MainViewController.swift */,
 				4BEE12211D51E97800A84EC1 /* ViewLocator.swift */,
 				4B67A4071D531A0E00519610 /* ViewControllerService.swift */,
@@ -106,6 +111,7 @@
 				4BEE121F1D51E57600A84EC1 /* ViewModel.swift */,
 				4BEE12231D51EBE700A84EC1 /* ViewModelLocator.swift */,
 				4BEE12291D51F4DE00A84EC1 /* AddPhotoViewModel.swift */,
+				4BEE12181D518BC400A84EC1 /* ImageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -114,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				4BEE12121D518B4D00A84EC1 /* ImageStore.swift */,
-				4BEE12181D518BC400A84EC1 /* ImageViewModel.swift */,
+				4BF0DEB41D54647B000D2665 /* ResourceStore.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -167,6 +173,14 @@
 				4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */,
 			);
 			path = ShrinkMeister;
+			sourceTree = "<group>";
+		};
+		4BF0DEB61D54687D000D2665 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0DEB71D546893000D2665 /* MainViewController.xib */,
+			);
+			name = Xib;
 			sourceTree = "<group>";
 		};
 		D36A32F1A9C65DB7D1692670 /* Pods */ = {
@@ -248,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
+				4BF0DEB81D546893000D2665 /* MainViewController.xib in Resources */,
 				4BEF0D841D508BA500E7782A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +329,7 @@
 				4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */,
 				4BEE12221D51E97800A84EC1 /* ViewLocator.swift in Sources */,
 				4BEE12281D51F4BE00A84EC1 /* AddPhotoViewController.swift in Sources */,
+				4BF0DEB51D54647B000D2665 /* ResourceStore.swift in Sources */,
 				4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */,
 				4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */,
 				4BEE122A1D51F4DE00A84EC1 /* AddPhotoViewModel.swift in Sources */,
