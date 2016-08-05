@@ -12,35 +12,38 @@ import ReactiveCocoa
 
 class MainViewModel : ViewModel {
     
+    dynamic var imageViewModel : ImageViewModel?  
     
-    var executeCommand: RACCommand?
+    var imageStore : ImageStore!
+    
+    var addPhotoCommand: RACCommand?
 
     override init() {
         super.init()
-        executeCommand = RACCommand() {
-            (any: AnyObject!) -> RACSignal in
-            return self.executeProcessSignal()
-        }
         
+        imageStore = AppDelegate.imageStore
+        
+        addPhotoCommand = RACCommand() {
+            (any: AnyObject!) -> RACSignal in
+
+            let image = any as! UIImage
+            //put image into viewmodel
+            
+            self.addPhotoToStore(image, forKey: NSUUID().UUIDString)
+            
+            return RACSignal.empty()
+        }
     }
+
     
     //MARK: private methods
     
-    private func executeProcessSignal() -> RACSignal {
-        return RACSignal.createSignal({
-            (subscriber: RACSubscriber!) -> RACDisposable! in
-            print ("execute process")
-            
 
+    func addPhotoToStore(image: UIImage, forKey key: String)
+    {
+        self.imageViewModel = ImageViewModel(image: image, key: key)
+        
+        imageStore.setImage(image, forKey: key)
 
-        //    let addPhotoVM = AppDelegate.viewModelLocator.getViewModel("AddPhoto") as! AddPhotoViewModel
-            
-            NotificationHelper.postNotification("PushAddPhoto", objects: nil, userInfo: nil)
-            
-            subscriber.sendCompleted()
-            return RACDisposable(){
-                
-            }
-        })
     }
 }

@@ -61,11 +61,13 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
     
-        /*RACObserve(mainViewModel, keyPath: "vara").subscribeNextAs {
-            (value:String) -> () in
-           
-        }*/
-        
+        RACObserve(mainViewModel, keyPath: "imageViewModel").skip(1)
+            .subscribeNextAs {
+                (imageViewModel:ImageViewModel) -> () in
+                    self.imageView.image = imageViewModel.image
+
+        }
+       
     }
     
     override func viewDidLoad() {
@@ -177,14 +179,9 @@ extension MainViewController : UIImagePickerControllerDelegate {
         //get image from info directory
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        //put image into cache
-     //   imageStore.setImage(image, forKey: item.itemKey)
+        mainViewModel.addPhotoCommand?.execute(image)
         
-        //put the image into imageview
-        imageView.image = image
-       // scrollView.imageView.image = image
-      
-        //take imagePicker off screen
+               //take imagePicker off screen
         dismissViewControllerAnimated(true, completion: nil)
     }
     

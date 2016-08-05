@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static var viewService : ViewControllerService!
     
+    static var imageStore = ImageStore()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         navigationController = UINavigationController()
