@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
-class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate {
+class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
 
     var mainViewModel : MainViewModel!
     
@@ -143,8 +143,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-       
+        let cell = self.processCollection.cellForItemAtIndexPath(indexPath)
+        let processVC = AppDelegate.viewLocator.getView("Process")
+        processVC?.modalPresentationStyle = .Popover
+        processVC?.preferredContentSize = CGSizeMake(50, 100)
+        let popupVC = processVC?.popoverPresentationController
+        popupVC?.permittedArrowDirections = .Any
+        popupVC?.sourceView = self.view
+        let cellX = processCollection.frame.origin.x + (cell?.frame.midX)!
+        let cellY = processCollection.frame.origin.y + cell!.frame.midY
+        popupVC?.sourceRect = CGRectMake(cellX, cellY, 50, 100)
+        popupVC?.delegate = self
+        self.presentViewController(processVC!, animated: true, completion: nil)
+    }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
     
 
@@ -167,7 +181,7 @@ extension MainViewController : UIScrollViewDelegate {
     }
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-        
+    
     }
 }
 

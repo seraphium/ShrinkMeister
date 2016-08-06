@@ -32,6 +32,6 @@ class ViewLocator {
     {
         self.addView("Main", withViewController: MainViewController(withViewService: AppDelegate.viewService))
         self.addView("AddPhoto", withViewController: AddPhotoViewController(withViewService: AppDelegate.viewService))
-    }
-    
+        self.addView("Process", withViewController: ProcessViewController(withViewService: AppDelegate.viewService))    }
+
 }
