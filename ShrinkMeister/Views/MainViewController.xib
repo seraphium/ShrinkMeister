@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="ShrinkMeister" customModuleProvider="target">
             <connections>
+                <outlet property="doubleTapGestureRecognizer" destination="J90-ph-Aip" id="2Sc-2U-TAD"/>
                 <outlet property="imageScrollView" destination="SZ2-xc-5AQ" id="Jdj-9F-vOu"/>
                 <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
                 <outlet property="processCollection" destination="CAt-ZF-fx6" id="lGg-1W-nhY"/>
+                <outlet property="twoFingerTapGestureRecognizer" destination="BDA-bX-CgY" id="WMz-33-1Mf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kKr-SF-l94"/>
             </connections>
         </placeholder>
@@ -20,7 +23,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
                             <rect key="frame" x="0.0" y="0.0" width="1080" height="1920"/>
                         </imageView>
                     </subviews>
@@ -30,6 +33,11 @@
                         <constraint firstItem="JP5-8N-f06" firstAttribute="leading" secondItem="SZ2-xc-5AQ" secondAttribute="leading" id="kwU-hI-lnd"/>
                         <constraint firstAttribute="bottom" secondItem="JP5-8N-f06" secondAttribute="bottom" id="y0w-lb-Mm1"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="HL1-vm-r5i"/>
+                        <outletCollection property="gestureRecognizers" destination="BDA-bX-CgY" appends="YES" id="3Dz-tg-tLE"/>
+                        <outletCollection property="gestureRecognizers" destination="J90-ph-Aip" appends="YES" id="3Bg-Lg-yMM"/>
+                    </connections>
                 </scrollView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CAt-ZF-fx6">
                     <rect key="frame" x="0.0" y="500" width="600" height="100"/>
@@ -56,6 +64,17 @@
                 <constraint firstAttribute="trailing" secondItem="CAt-ZF-fx6" secondAttribute="trailing" id="yVf-dG-iui"/>
             </constraints>
         </view>
+        <tapGestureRecognizer numberOfTouchesRequired="2" id="BDA-bX-CgY" userLabel="Two FInger Tap Gesture Recognizer">
+            <connections>
+                <action selector="twoFingerTapped:" destination="-1" id="QHK-4y-2ET"/>
+                <outlet property="delegate" destination="-1" id="fAC-zG-oSx"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="J90-ph-Aip">
+            <connections>
+                <action selector="doubleTapped:" destination="-1" id="Zb8-Kl-i6C"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="sample" width="1080" height="1920"/>

@@ -13,11 +13,16 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
     var mainViewModel : MainViewModel!
     
+    @IBOutlet var twoFingerTapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    
     @IBOutlet weak var processCollection: UICollectionView!
 
     @IBOutlet var imageScrollView: ImageScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
+    
     
     let imagePicker = UIImagePickerController()
 
@@ -217,3 +222,39 @@ extension MainViewController : UIImagePickerControllerDelegate {
 
 }
 
+//MARK： gesture recognizer
+extension MainViewController {
+    
+
+    @IBAction func twoFingerTapped(sender: UITapGestureRecognizer) {
+        var newZoomScale = imageScrollView.zoomScale / 1.5
+        newZoomScale = max(newZoomScale, imageScrollView.minimumZoomScale);
+        //imageView.alpha = 0
+        imageScrollView.setZoomScale(newZoomScale, animated: true)
+        
+    }
+
+    @IBAction func doubleTapped(sender: UITapGestureRecognizer) {
+        
+        let pointInView = sender.locationInView(imageView)
+        
+        var newZoomScale = imageScrollView.zoomScale * 1.5;
+        newZoomScale = min(newZoomScale, imageScrollView.maximumZoomScale);
+        
+        let scrollViewSize = imageScrollView.bounds.size;
+        
+        let w = scrollViewSize.width / newZoomScale;
+        let h = scrollViewSize.height / newZoomScale;
+        let x = pointInView.x - (w / 2.0);
+        let y = pointInView.y - (h / 2.0);
+        
+        let rectToZoomTo = CGRectMake(x, y, w, h);
+        
+        //imageView.alpha = 0
+        imageScrollView.zoomToRect(rectToZoomTo, animated: true)
+        
+    }
+    
+    
+    
+}
