@@ -44,7 +44,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     func initNavigationBar()
     {
-        viewService?.setNavigationControllerTitle("test")
+        let title = NSLocalizedString("NavigationTitle", comment: "")
+        viewService?.setNavigationControllerTitle(title)
 
         addBarButton = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(AddPhoto))
         navigationItem.rightBarButtonItem = addBarButton
