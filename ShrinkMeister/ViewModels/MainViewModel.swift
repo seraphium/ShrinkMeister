@@ -18,6 +18,12 @@ class MainViewModel : ViewModel {
     
     var addPhotoCommand: RACCommand?
 
+    var processViewTitles = ["Level", "Custom"]
+    
+    
+    //TODO: should include viewmodel for each cell
+    
+    
     override init() {
         super.init()
         

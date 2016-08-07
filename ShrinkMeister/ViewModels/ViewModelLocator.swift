@@ -30,7 +30,6 @@ class ViewModelLocator {
     {
         self.addViewModel("Main", withViewModel: MainViewModel())
         self.addViewModel("AddPhoto", withViewModel: AddPhotoViewModel())
-        self.addViewModel("Process", withViewModel: ProcessViewModel())
 
     }
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import ReactiveCocoa
+import SnapKit
 
-class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate {
 
     var mainViewModel : MainViewModel!
     
@@ -23,6 +24,9 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var processViews = [BaseProcessView]()
+    
+    var currentProcessView : BaseProcessView?
     
     let imagePicker = UIImagePickerController()
 
@@ -31,6 +35,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
+    let processViewClasses : [String] = ["ProcessViewLevel", "ProcessViewCustom"]
     func initUI()
     {
         
@@ -39,8 +44,32 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         initNavigationBar()
         
         initCollection()
+        
+        initProcessViews()
+       
+    }
+    
+    func initProcessViews(){
+        
+        for index in 0..<2 {
+            let processView = NSBundle.mainBundle().loadNibNamed(processViewClasses[index], owner: nil, options: nil).first as! BaseProcessView
+            
+            processViews.append(processView)
+            
+            self.view.addSubview(processView)
+            processView.snp_makeConstraints() {
+                make in
+                make.centerX.equalTo(self.view)
+                make.bottom.equalTo(self.processCollection.snp_top)
+                make.width.equalTo(self.view)
+                make.height.equalTo(CGFloat(50))
+            }
+            processView.hidden = true
+        }
+        
 
     }
+    
     
     func initNavigationBar()
     {
@@ -73,6 +102,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
                     self.imageView.image = imageViewModel.image
 
         }
+        
+        //TODO: should observe and bind cell viewmodel
        
     }
     
@@ -101,6 +132,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             imageScrollView.setZoomScale(minScale, animated: true)
             
         }
+        
         
     }
 
@@ -136,31 +168,49 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(collectionCellID, forIndexPath: indexPath) as! ProcessCell
+        
+        //cell initialize
+        let index = indexPath.row
+        if index < mainViewModel.processViewTitles.count {
+            
+            cell.updateCell(mainViewModel.processViewTitles[indexPath.row])
 
+        }
+        
         return cell
     }
     
 // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = self.processCollection.cellForItemAtIndexPath(indexPath)
-        let processVC = AppDelegate.viewLocator.getView("Process")
-        processVC?.modalPresentationStyle = .Popover
-        processVC?.preferredContentSize = CGSizeMake(50, 100)
-        let popupVC = processVC?.popoverPresentationController
-        popupVC?.permittedArrowDirections = .Any
-        popupVC?.sourceView = self.view
-        let cellX = processCollection.frame.origin.x + (cell?.frame.midX)!
-        let cellY = processCollection.frame.origin.y + cell!.frame.midY
-        popupVC?.sourceRect = CGRectMake(cellX, cellY, 50, 100)
-        popupVC?.delegate = self
-        self.presentViewController(processVC!, animated: true, completion: nil)
+        
+        //trigger process view showing
+        let index = indexPath.row
+
+        if index < processViews.count {
+            //if already have one opened
+            if let current = currentProcessView {
+                //close current openned
+                current.hidden = true
+                currentProcessView = nil
+                if current != processViews[index] { //if selected a new
+                    currentProcessView = processViews[index]
+                    currentProcessView!.hidden = false
+                }
+            } else { //if no one opened
+                currentProcessView = processViews[index]
+                currentProcessView!.hidden = false
+                
+            }
+            
+
+        }
+
+        
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
-    }
-    
+
 
 // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

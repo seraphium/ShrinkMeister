@@ -15,5 +15,7 @@ class ProcessCell : UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     
-    
+    func updateCell(title: String) {
+        label.text = title
+    }
 }
