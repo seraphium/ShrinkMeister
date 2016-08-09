@@ -25,7 +25,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     @IBOutlet weak var imageView: UIImageView!
     
     var processViews = [BaseProcessView]()
-    
+        
     var currentProcessView : BaseProcessView?
     
     let imagePicker = UIImagePickerController()
@@ -36,6 +36,10 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     let collectionNibName = "ProcessCell"
     
     let processViewClasses : [String] = ["ProcessViewLevel", "ProcessViewCustom"]
+
+    var processViewCount : Int!
+    
+    //MARK: init
     func initUI()
     {
         
@@ -51,7 +55,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     func initProcessViews(){
         
-        for index in 0..<2 {
+        for index in 0 ..< processViewCount{
             let processView = NSBundle.mainBundle().loadNibNamed(processViewClasses[index], owner: nil, options: nil).first as! BaseProcessView
             
             processViews.append(processView)
@@ -65,6 +69,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
                 make.height.equalTo(CGFloat(50))
             }
             processView.hidden = true
+            
         }
         
 
@@ -103,16 +108,28 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
         }
         
-        //TODO: should observe and bind cell viewmodel
+        self.processViewCount = mainViewModel.processViewModels.count
        
     }
     
+    func initNotification() {
+        
+        NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
+            _ in //passed in NSNotification
+            self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
+        }
+        
+    }
+    
+    
+    
+    //MARK: view delegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initUI()
-        
         bindViewModel()
+
+        initUI()
 
         initNotification()
         
@@ -143,16 +160,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
     }
 
-    func initNotification() {
-    
-        NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
-            _ in //passed in NSNotification
-            self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
-        }
 
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -163,8 +171,11 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // MARK: UICollectionViewDelegate
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return processViewCount
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -173,16 +184,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         //cell initialize
         let index = indexPath.row
-        if index < mainViewModel.processViewTitles.count {
+        if index < processViewCount {
             
-            cell.updateCell(mainViewModel.processViewTitles[indexPath.row])
+            cell.bind(mainViewModel.processViewModels[index])
 
         }
         
         return cell
     }
     
-// MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //trigger process view showing
@@ -212,7 +222,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 
 
-// MARK: UICollectionViewDelegateFlowLayout
+// MARK: UICollectionViewDelegate
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(90, 90)
     }
@@ -223,9 +234,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 }
 
-//MARK: Scrollview delegate
 extension MainViewController : UIScrollViewDelegate {
     
+    //MARK: Scrollview delegate
+
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
@@ -235,9 +247,10 @@ extension MainViewController : UIScrollViewDelegate {
     }
 }
 
-//MARK: Image picker delegate
 extension MainViewController : UIImagePickerControllerDelegate {
     
+    //MARK: Image picker delegate
+
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
         //TODO: why popViewController doesn't work ?
@@ -287,9 +300,9 @@ extension MainViewController : UIImagePickerControllerDelegate {
 
 }
 
-//MARK： gesture recognizer
 extension MainViewController {
     
+    //MARK: gesture recognizer
 
     @IBAction func twoFingerTapped(sender: UITapGestureRecognizer) {
         var newZoomScale = imageScrollView.zoomScale / 1.5

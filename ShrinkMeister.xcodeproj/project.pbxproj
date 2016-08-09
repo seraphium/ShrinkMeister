@@ -10,12 +10,14 @@
 		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
 		4B4042791D55B815007E6312 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B40427B1D55B815007E6312 /* Localizable.strings */; };
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
+		4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */; };
+		4B50848F1D59D81C005ADAB6 /* ProcessViewModelCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */; };
 		4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */; };
 		4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4071D531A0E00519610 /* ViewControllerService.swift */; };
 		4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */; };
 		4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A40B1D5321FB00519610 /* NotificationHelper.swift */; };
 		4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67A40F1D53490C00519610 /* Launch Screen.storyboard */; };
-		4B6FEB371D55EBBE005D7DA5 /* ProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FEB361D55EBBE005D7DA5 /* ProcessViewModel.swift */; };
+		4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */; };
 		4BC418861D54E0C000FC7BBD /* ProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */; };
 		4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */; };
 		4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB41D54647B000D2665 /* ResourceStore.swift */; };
@@ -53,12 +55,14 @@
 		4B40427F1D55BA03007E6312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainViewController.xib; sourceTree = "<group>"; };
 		4B4042821D55BA05007E6312 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainViewController.strings; sourceTree = "<group>"; };
 		4B4042841D55BA07007E6312 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainViewController.strings"; sourceTree = "<group>"; };
+		4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelLevel.swift; sourceTree = "<group>"; };
+		4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCustom.swift; sourceTree = "<group>"; };
 		4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		4B67A4071D531A0E00519610 /* ViewControllerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerService.swift; path = ../ViewModels/ViewControllerService.swift; sourceTree = "<group>"; };
 		4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServicesImp.swift; sourceTree = "<group>"; };
 		4B67A40B1D5321FB00519610 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		4B67A40F1D53490C00519610 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		4B6FEB361D55EBBE005D7DA5 /* ProcessViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModel.swift; sourceTree = "<group>"; };
+		4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProcessViewModel.swift; sourceTree = "<group>"; };
 		4BE16E021D537BFE00AD1B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewLevel.xib; sourceTree = "<group>"; };
 		4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewLevel.swift; sourceTree = "<group>"; };
@@ -103,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B50848B1D59D737005ADAB6 /* ProcessViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */,
+				4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */,
+				4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */,
+			);
+			name = ProcessViewModels;
+			sourceTree = "<group>";
+		};
 		4BE16E041D54DD5900AD1B29 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,12 +188,12 @@
 		4BEE120F1D518A2100A84EC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4B50848B1D59D737005ADAB6 /* ProcessViewModels */,
 				4BEE12101D518A7D00A84EC1 /* MainViewModel.swift */,
 				4BEE121F1D51E57600A84EC1 /* ViewModel.swift */,
 				4BEE12231D51EBE700A84EC1 /* ViewModelLocator.swift */,
 				4BEE12291D51F4DE00A84EC1 /* AddPhotoViewModel.swift */,
 				4BEE12181D518BC400A84EC1 /* ImageViewModel.swift */,
-				4B6FEB361D55EBBE005D7DA5 /* ProcessViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -389,13 +403,14 @@
 				4BC4188A1D54E1F600FC7BBD /* ProcessCell.xib in Sources */,
 				4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */,
 				4BE8FD561D571BF200183F12 /* ProcessViewProtocol.swift in Sources */,
+				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */,
 				4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */,
 				4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */,
 				4BC418861D54E0C000FC7BBD /* ProcessCell.swift in Sources */,
 				4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */,
 				4BEE12261D51F02D00A84EC1 /* BaseViewController.swift in Sources */,
 				4BEE12201D51E57700A84EC1 /* ViewModel.swift in Sources */,
-				4B6FEB371D55EBBE005D7DA5 /* ProcessViewModel.swift in Sources */,
+				4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */,
 				4BEE12061D5186B000A84EC1 /* RAC.swift in Sources */,
 				4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */,
 				4BE8FD541D571A4C00183F12 /* ProcessViewLevel.swift in Sources */,
@@ -411,6 +426,7 @@
 				4BEE12091D5186B000A84EC1 /* TableViewBindingHelper.swift in Sources */,
 				4BEE12131D518B4D00A84EC1 /* ImageStore.swift in Sources */,
 				4BE8FD591D571EB500183F12 /* ProcessViewCustom.swift in Sources */,
+				4B50848F1D59D81C005ADAB6 /* ProcessViewModelCustom.swift in Sources */,
 				4BEE12071D5186B000A84EC1 /* RACObserve.swift in Sources */,
 				4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */,
 				4BEE12081D5186B000A84EC1 /* RACSignal+Extensions.swift in Sources */,

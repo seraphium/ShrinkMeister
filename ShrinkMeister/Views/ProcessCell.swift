@@ -15,7 +15,33 @@ class ProcessCell : UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     
-    func updateCell(title: String) {
-        label.text = title
+    var viewModel : BaseProcessViewModel!
+    
+    func bind(vm : BaseProcessViewModel) {
+        
+        self.viewModel = vm
+        
+        bindViewModel()
+    }
+    
+    
+    
+    func bindViewModel() {
+        
+        RACObserve(self.viewModel, keyPath: "title")
+            .subscribeNextAs {
+                (title:String) -> () in
+                self.label.text = title
+                
+        }
+        
+        RACObserve(self.viewModel, keyPath: "image")
+            .subscribeNextAs {
+                (image:UIImage) -> () in
+                self.image.image = image
+                
+        }
+        
+        
     }
 }

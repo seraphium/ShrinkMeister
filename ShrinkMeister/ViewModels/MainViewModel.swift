@@ -17,19 +17,24 @@ class MainViewModel : ViewModel {
     var imageStore : ImageStore!
     
     var addPhotoCommand: RACCommand?
-
-    var processViewTitles = ["Level", "Custom"]
     
+    var processViewModels = [BaseProcessViewModel]()
     
     //TODO: should include viewmodel for each cell
     
+    func initProcessViewModel() {
+        processViewModels.append(ProcessViewModelLevel())
+        processViewModels.append(ProcessViewModelCustom())
+    }
     
     override init() {
         super.init()
         
+        initProcessViewModel()
+        
         imageStore = AppDelegate.imageStore
         
-        addPhotoCommand = RACCommand() {
+               addPhotoCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in
 
             let image = any as! UIImage

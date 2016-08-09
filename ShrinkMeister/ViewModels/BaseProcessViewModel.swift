@@ -8,9 +8,14 @@
 //
 
 import Foundation
+import UIKit
 
-
-class ProcessViewModel : ViewModel {
+class BaseProcessViewModel : ViewModel {
     
+    var title : String?
+    
+    var image : UIImage?
+    
+
     
 }
