@@ -28,4 +28,6 @@ class BaseProcessView : UIView, ProcessViewProtocol {
     func didConfirm() {
         
     }
+    
+
 }

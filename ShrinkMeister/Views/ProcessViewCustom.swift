@@ -15,6 +15,9 @@ class ProcessViewCustom : BaseProcessView {
     @IBOutlet var heightField: UITextField!
     @IBOutlet var confirmButton: UIButton!
     
+    var mainViewModel : MainViewModel!
+    var viewModel : ProcessViewModelCustom!
+    
     override func didConfirm() {
         print("did confirm custom")
     }
@@ -26,11 +29,21 @@ class ProcessViewCustom : BaseProcessView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        bindViewModel()
+        
         widthField.backgroundColor = UIColor.clearColor()
         heightField.backgroundColor = UIColor.clearColor()
         
         widthField.placeholder = "width"
         heightField.placeholder = "height"
         confirmButton.setTitle("Confirm", forState: .Normal)
+    }
+    
+    func bindViewModel() {
+        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+        self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelCustom
+        
+        
     }
 }
