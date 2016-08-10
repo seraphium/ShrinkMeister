@@ -10,7 +10,7 @@
 import UIKit
 import ReactiveCocoa
 
-class BaseProcessViewModel : ViewModel {
+class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var title : String?
     
@@ -18,10 +18,27 @@ class BaseProcessViewModel : ViewModel {
     
     var confirmCommand : RACCommand!
     
+    dynamic var sourceImageViewModel : ImageViewModel?
+
     init(title: String?, image: UIImage?)
     {
         self.title = title
         self.image = image
+        
+        super.init()
+        
+        self.confirmCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            self.confirm()
+            return RACSignal.empty()
+        }
+        
+
     }
     
+    
+    func confirm() {
+        fatalError("confirm has not been implemented")
+
+    }
 }

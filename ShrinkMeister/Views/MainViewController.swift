@@ -101,15 +101,16 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
     
+        self.processViewCount = mainViewModel.processViewModels.count
+
+        
         RACObserve(mainViewModel, keyPath: "imageViewModel").skip(1)
             .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
                     self.imageView.image = imageViewModel.image
 
         }
-        
-        self.processViewCount = mainViewModel.processViewModels.count
-       
+ 
     }
     
     func initNotification() {

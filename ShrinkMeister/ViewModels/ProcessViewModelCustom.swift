@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
-class ProcessViewModelCustom : BaseProcessViewModel, ProcessViewModelProtocol {
+class ProcessViewModelCustom : BaseProcessViewModel {
     
     dynamic var width : Int
     dynamic var height : Int
@@ -18,18 +18,16 @@ class ProcessViewModelCustom : BaseProcessViewModel, ProcessViewModelProtocol {
         width = 50
         height = 50
         super.init(title: "Custom", image: UIImage(named: "sample"))
-
-        self.confirmCommand = RACCommand() {
-            (any:AnyObject!) -> RACSignal in
-            self.confirm()
-            return RACSignal.empty()
-        }
-
-        
     }
     
-    func confirm() {
-        print("custom confirmed:\(width) : \(height)")
+    override func confirm() {
+        
+        //actual processing logic
+        if let sourceImage = self.sourceImageViewModel?.image {
+            print("custom confirmed on image \(sourceImage) with \(width) : \(height)")
+
+        }
+        
 
     }
 }

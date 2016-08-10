@@ -16,6 +16,8 @@ class MainViewModel : ViewModel {
     
     var imageStore : ImageStore!
     
+    dynamic var processEnabled : Bool = false
+    
     var addPhotoCommand: RACCommand?
     
     var processViewModels = [BaseProcessViewModel]()
@@ -23,8 +25,17 @@ class MainViewModel : ViewModel {
     //TODO: should include viewmodel for each cell
     
     func initProcessViewModel() {
-        processViewModels.append(ProcessViewModelLevel())
-        processViewModels.append(ProcessViewModelCustom())
+        let processViewModelLevel = ProcessViewModelLevel()
+        let processViewModelCustom = ProcessViewModelCustom()
+
+        RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
+            (imageViewModel:ImageViewModel) -> () in
+            processViewModelLevel.sourceImageViewModel = imageViewModel
+            processViewModelCustom.sourceImageViewModel = imageViewModel
+        }
+        
+        processViewModels.append(processViewModelLevel)
+        processViewModels.append(processViewModelCustom)
     }
     
     override init() {
@@ -34,7 +45,7 @@ class MainViewModel : ViewModel {
         
         imageStore = AppDelegate.imageStore
         
-               addPhotoCommand = RACCommand() {
+        addPhotoCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in
 
             let image = any as! UIImage
@@ -47,14 +58,13 @@ class MainViewModel : ViewModel {
     }
 
     
-    //MARK: private methods
-    
-
     func addPhotoToStore(image: UIImage, forKey key: String)
     {
-        self.imageViewModel = ImageViewModel(image: image, key: key)
+        imageViewModel = ImageViewModel(image: image, key: key)
         
         imageStore.setImage(image, forKey: key)
+        
+        processEnabled = true
 
     }
 }

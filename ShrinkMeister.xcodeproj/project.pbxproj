@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
+		4B2576CD1D5B1CA400348851 /* ProcessViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */; };
 		4B4042791D55B815007E6312 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B40427B1D55B815007E6312 /* Localizable.strings */; };
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
 		4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.debug.xcconfig"; sourceTree = "<group>"; };
 		32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.release.xcconfig"; sourceTree = "<group>"; };
+		4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewProtocol.swift; sourceTree = "<group>"; };
 		4B40427A1D55B815007E6312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B40427C1D55B81B007E6312 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B40427D1D55B82C007E6312 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */,
 				4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */,
 				4BE8FD5C1D57209B00183F12 /* BaseProcessView.swift */,
+				4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */,
 			);
 			name = ProcessViews;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2576CD1D5B1CA400348851 /* ProcessViewProtocol.swift in Sources */,
 				4BC4188A1D54E1F600FC7BBD /* ProcessCell.xib in Sources */,
 				4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */,
 				4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */,

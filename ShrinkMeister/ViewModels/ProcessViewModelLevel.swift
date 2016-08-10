@@ -8,16 +8,42 @@
 
 import Foundation
 import UIKit
+import ReactiveCocoa
 
-class ProcessViewModelLevel : BaseProcessViewModel , ProcessViewModelProtocol {
-    
-     init() {
-        super.init(title: "Level", image: UIImage(named: "sample"))
 
+class ProcessViewModelLevel : BaseProcessViewModel {
+
+    dynamic var imageLevel : Int = 0 {
+        didSet {
+            print ("imageLevel:\(imageLevel)")
+        }
     }
     
-    func confirm() {
+    init() {
+        
+        super.init(title: "Level", image: UIImage(named: "sample"))
+        
+        self.confirmCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            self.confirm()
+            return RACSignal.empty()
+        }
+        
         
     }
+    
+    override func confirm() {
+      
+        //actual processing logic
+        if let sourceImage = self.sourceImageViewModel?.image {
+            print ("processing image \(sourceImage) with level:\(imageLevel)")
+
+        } else {
+            print ("no image")
+        }
+        
+        
+    }
+
     
 }

@@ -6,3 +6,6 @@
   Copyright © 2016年 Jackie Zhang. All rights reserved.
 */
 "NavigationTitle" = "ShrinkMeister";
+"ProcessLevelLargeButtonTitle" = "Large";
+"ProcessLevelMediumButtonTitle" = "Medium";
+"ProcessLevelSmallButtonTitle" = "Small";

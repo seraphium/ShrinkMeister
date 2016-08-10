@@ -8,7 +8,11 @@
 
 import UIKit
 
-class BaseProcessView : UIView {
+class BaseProcessView : UIView, ProcessViewProtocol {
+    
+    var mainViewModel : MainViewModel!
+
+    @IBOutlet weak var confirmButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +27,26 @@ class BaseProcessView : UIView {
             make.edges.equalTo(self)
         }
       
+    }
+    
+    func bindViewModel()
+    {
+        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+        
+        RACObserve(mainViewModel, keyPath: "processEnabled")
+            .subscribeNextAs {
+                (enabled : Bool) -> () in
+                if !enabled {
+                    self.confirmButton.alpha = 0.3
+                    self.confirmButton.userInteractionEnabled = false
+                } else {
+                    self.confirmButton.alpha = 1.0
+                    self.confirmButton.userInteractionEnabled = true
+                    
+                }
+        }
+
+
     }
     
 

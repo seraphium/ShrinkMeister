@@ -13,12 +13,9 @@ class ProcessViewCustom : BaseProcessView {
     @IBOutlet var widthField: UITextField!
     
     @IBOutlet var heightField: UITextField!
-    @IBOutlet var confirmButton: UIButton!
     
-    var mainViewModel : MainViewModel!
     var viewModel : ProcessViewModelCustom!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,8 +29,9 @@ class ProcessViewCustom : BaseProcessView {
         confirmButton.setTitle("Confirm", forState: .Normal)
     }
     
-    func bindViewModel() {
-        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+    override func bindViewModel() {
+        super.bindViewModel()
+        
         self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelCustom
         
         RACObserve(viewModel, keyPath: "width")

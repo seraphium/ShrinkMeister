@@ -10,23 +10,35 @@ import UIKit
 
 class ProcessViewLevel : BaseProcessView {
     
-    var mainViewModel : MainViewModel!
     var viewModel : ProcessViewModelLevel!
     
-    @IBOutlet var levelButton: UIButton!
-    
+    @IBOutlet weak var levelSelector: UISegmentedControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         bindViewModel()
+    
+        initUI()
     }
     
-    func bindViewModel() {
-        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+    func initUI() {
+
+        levelSelector.setTitle(NSLocalizedString("ProcessLevelLargeButtonTitle", comment: ""), forSegmentAtIndex: 0)
+        levelSelector.setTitle(NSLocalizedString("ProcessLevelMediumButtonTitle", comment: ""), forSegmentAtIndex: 1)
+        levelSelector.setTitle(NSLocalizedString("ProcessLevelSmallButtonTitle", comment: ""), forSegmentAtIndex: 2)
+        levelSelector.selectedSegmentIndex = 0
+        
+    }
+    
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+        
         self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelLevel
         
-        
+        levelSelector.rac_newSelectedSegmentIndexChannelWithNilValue(0) ~> RAC(viewModel, "imageLevel")
+        confirmButton.rac_command = viewModel.confirmCommand
     }
     
 }

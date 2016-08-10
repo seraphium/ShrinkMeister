@@ -6,3 +6,6 @@
   Copyright © 2016年 Jackie Zhang. All rights reserved.
 */
 "NavigationTitle" = "缩图大师";
+"ProcessLevelLargeButtonTitle" = "大型";
+"ProcessLevelMediumButtonTitle" = "中型";
+"ProcessLevelSmallButtonTitle" = "小型";

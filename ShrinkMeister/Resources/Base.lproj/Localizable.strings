@@ -7,3 +7,6 @@
 */
 
 "NavigationTitle" = "ShrinkMeister";
+"ProcessLevelLargeButtonTitle" = "Large";
+"ProcessLevelMediumButtonTitle" = "Medium";
+"ProcessLevelSmallButtonTitle" = "Small";
