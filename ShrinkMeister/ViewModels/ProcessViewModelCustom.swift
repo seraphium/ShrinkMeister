@@ -14,12 +14,11 @@ class ProcessViewModelCustom : BaseProcessViewModel, ProcessViewModelProtocol {
     dynamic var width : Int
     dynamic var height : Int
     
-    override init() {
+     init() {
         width = 50
         height = 50
-        super.init()
-        self.title = "Custom"
-        self.image = UIImage(named: "sample")
+        super.init(title: "Custom", image: UIImage(named: "sample"))
+
         self.confirmCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
             self.confirm()

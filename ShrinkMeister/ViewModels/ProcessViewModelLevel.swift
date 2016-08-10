@@ -11,10 +11,9 @@ import UIKit
 
 class ProcessViewModelLevel : BaseProcessViewModel , ProcessViewModelProtocol {
     
-    override init() {
-        super.init()
-        self.title = "Level"
-        self.image = UIImage(named: "sample")
+     init() {
+        super.init(title: "Level", image: UIImage(named: "sample"))
+
     }
     
     func confirm() {
