@@ -12,7 +12,15 @@ import ReactiveCocoa
 
 class MainViewModel : ViewModel {
     
-    dynamic var imageViewModel : ImageViewModel?  
+    dynamic var imageViewModel : ImageViewModel? {
+        didSet {
+            if let _ = imageViewModel {
+                self.processEnabled = true
+            } else {
+                self.processEnabled = false
+            }
+        }
+    }
     
     var imageStore : ImageStore!
     
@@ -45,6 +53,8 @@ class MainViewModel : ViewModel {
         
         imageStore = AppDelegate.imageStore
         
+        loadImage()
+        
         addPhotoCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in
 
@@ -57,6 +67,18 @@ class MainViewModel : ViewModel {
         }
     }
 
+    //load last image from imageStore , if not exists, load default
+    func loadImage() {
+        if let latestImagekey = NSUserDefaults.standardUserDefaults().stringForKey("latestImageKey") {
+            if let latestImage = imageStore.imageForKey(latestImagekey) {
+                imageViewModel = ImageViewModel(image: latestImage, key: latestImagekey)
+
+            }
+
+        }
+        
+        
+    }
     
     func addPhotoToStore(image: UIImage, forKey key: String)
     {
@@ -64,7 +86,9 @@ class MainViewModel : ViewModel {
         
         imageStore.setImage(image, forKey: key)
         
-        processEnabled = true
+        //set userdefault with image key
+        NSUserDefaults.standardUserDefaults().setValue(key, forKey: "latestImageKey")
+        
 
     }
 }

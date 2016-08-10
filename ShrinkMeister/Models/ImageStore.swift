@@ -22,6 +22,7 @@ class  ImageStore : ResourceStore {
             //write image data to URL
             data.writeToURL(imageURL, atomically: true)
         }
+    
         
     }
     

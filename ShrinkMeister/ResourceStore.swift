@@ -12,11 +12,11 @@ import UIKit
 class ResourceStore {
     private let cache = NSCache()
     
-    func setResource(resource: AnyObject, forKey key: String) {
+     func setResource(resource: AnyObject, forKey key: String) {
         cache.setObject(resource, forKey: key)
     }
     
-    func getResource(key: String) -> AnyObject?{
+     func getResource(key: String) -> AnyObject?{
         return cache.objectForKey(key)
     }
     

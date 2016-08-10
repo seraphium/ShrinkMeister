@@ -103,11 +103,12 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
         self.processViewCount = mainViewModel.processViewModels.count
 
-        
-        RACObserve(mainViewModel, keyPath: "imageViewModel").skip(1)
-            .subscribeNextAs {
+        RACObserve(mainViewModel, keyPath: "imageViewModel").filter {
+            (next: AnyObject?) -> Bool in
+                return next != nil
+            } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
-                    self.imageView.image = imageViewModel.image
+            self.imageView.image = imageViewModel.image
 
         }
  
