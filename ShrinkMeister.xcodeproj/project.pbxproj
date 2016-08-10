@@ -25,7 +25,7 @@
 		4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE16E021D537BFE00AD1B29 /* Assets.xcassets */; };
 		4BE8FD501D57122600183F12 /* ProcessViewLevel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */; };
 		4BE8FD541D571A4C00183F12 /* ProcessViewLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */; };
-		4BE8FD561D571BF200183F12 /* ProcessViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD551D571BF200183F12 /* ProcessViewProtocol.swift */; };
+		4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */; };
 		4BE8FD591D571EB500183F12 /* ProcessViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */; };
 		4BE8FD5B1D571EDC00183F12 /* ProcessViewCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */; };
 		4BE8FD5D1D57209B00183F12 /* BaseProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD5C1D57209B00183F12 /* BaseProcessView.swift */; };
@@ -66,7 +66,7 @@
 		4BE16E021D537BFE00AD1B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewLevel.xib; sourceTree = "<group>"; };
 		4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewLevel.swift; sourceTree = "<group>"; };
-		4BE8FD551D571BF200183F12 /* ProcessViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewProtocol.swift; sourceTree = "<group>"; };
+		4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProcessViewModelProtocol.swift; path = ../Views/ProcessViewModelProtocol.swift; sourceTree = "<group>"; };
 		4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewCustom.swift; sourceTree = "<group>"; };
 		4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewCustom.xib; sourceTree = "<group>"; };
 		4BE8FD5C1D57209B00183F12 /* BaseProcessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProcessView.swift; sourceTree = "<group>"; };
@@ -111,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */,
+				4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */,
 				4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */,
 				4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */,
 			);
@@ -149,7 +150,6 @@
 		4BE8FD571D571E6C00183F12 /* ProcessViews */ = {
 			isa = PBXGroup;
 			children = (
-				4BE8FD551D571BF200183F12 /* ProcessViewProtocol.swift */,
 				4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */,
 				4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */,
 				4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */,
@@ -402,7 +402,7 @@
 			files = (
 				4BC4188A1D54E1F600FC7BBD /* ProcessCell.xib in Sources */,
 				4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */,
-				4BE8FD561D571BF200183F12 /* ProcessViewProtocol.swift in Sources */,
+				4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */,
 				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */,
 				4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */,
 				4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */,

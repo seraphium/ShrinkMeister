@@ -7,14 +7,16 @@
 //  Copyright © 2016年 Jackie Zhang. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import ReactiveCocoa
 
 class BaseProcessViewModel : ViewModel {
     
     var title : String?
     
     var image : UIImage?
+    
+    var confirmCommand : RACCommand!
     
 
     

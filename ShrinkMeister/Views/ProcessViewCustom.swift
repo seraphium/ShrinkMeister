@@ -18,15 +18,7 @@ class ProcessViewCustom : BaseProcessView {
     var mainViewModel : MainViewModel!
     var viewModel : ProcessViewModelCustom!
     
-    override func didConfirm() {
-        print("did confirm custom")
-    }
 
-    @IBAction func confirmClicked(sender: UIButton)
-    {
-        didConfirm()
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -44,6 +36,22 @@ class ProcessViewCustom : BaseProcessView {
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
         self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelCustom
         
+        RACObserve(viewModel, keyPath: "width")
+            .subscribeNextAs {
+                (width: Int) -> () in
+                self.widthField.text = String(width)
+        }
+
+        RACObserve(viewModel, keyPath: "height")
+            .subscribeNextAs {
+                (height: Int) -> () in
+                self.heightField.text = String(height)
+        }
         
+        widthField.rac_textSignal() ~> RAC(viewModel, "width")
+        heightField.rac_textSignal() ~> RAC(viewModel, "height")
+        
+        confirmButton.rac_command = viewModel.confirmCommand
+
     }
 }

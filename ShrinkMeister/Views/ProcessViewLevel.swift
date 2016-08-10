@@ -15,9 +15,6 @@ class ProcessViewLevel : BaseProcessView {
     
     @IBOutlet var levelButton: UIButton!
     
-    override func didConfirm() {
-        
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

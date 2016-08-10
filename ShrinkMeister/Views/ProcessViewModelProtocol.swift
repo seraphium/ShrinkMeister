@@ -8,10 +8,9 @@
 
 
 
-protocol ProcessViewProtocol {
+protocol ProcessViewModelProtocol {
 
-    var hidden : Bool {get set}
+    func confirm() -> Void
     
-    func didConfirm()
 
 }

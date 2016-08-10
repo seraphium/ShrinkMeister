@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 
-class ProcessViewModelLevel : BaseProcessViewModel {
+class ProcessViewModelLevel : BaseProcessViewModel , ProcessViewModelProtocol {
     
     override init() {
         super.init()
         self.title = "Level"
         self.image = UIImage(named: "sample")
+    }
+    
+    func confirm() {
+        
     }
     
 }

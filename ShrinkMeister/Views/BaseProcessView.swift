@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseProcessView : UIView, ProcessViewProtocol {
+class BaseProcessView : UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,10 +23,6 @@ class BaseProcessView : UIView, ProcessViewProtocol {
             make.edges.equalTo(self)
         }
       
-    }
-    
-    func didConfirm() {
-        
     }
     
 
