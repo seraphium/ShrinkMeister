@@ -23,25 +23,28 @@ class ProcessViewModelLevel : BaseProcessViewModel {
         
         super.init(title: "Level", image: UIImage(named: "sample"))
         
-        self.confirmCommand = RACCommand() {
-            (any:AnyObject!) -> RACSignal in
-            self.confirm()
-            return RACSignal.empty()
-        }
-        
-        
     }
     
-    override func confirm() {
-      
+    
+    override func executeProcessSignal() -> RACSignal {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
             print ("processing image \(sourceImage) with level:\(imageLevel)")
-
+            
+            processService.processImage(sourceImage, options: nil)
+            
         } else {
             print ("no image")
         }
+
+        return RACSignal.empty()
         
+    }
+    
+
+    
+    override func imageDidSet() {
+
         
     }
 

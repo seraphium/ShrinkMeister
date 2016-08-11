@@ -16,29 +16,40 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var image : UIImage?
     
+    var processService: ProcessImageService?
+
     var confirmCommand : RACCommand!
     
-    dynamic var sourceImageViewModel : ImageViewModel?
+    
+    dynamic var sourceImageViewModel : ImageViewModel? {
+        didSet {
+            self.imageDidSet()
+        }
+    }
 
     init(title: String?, image: UIImage?)
     {
         self.title = title
         self.image = image
-        
         super.init()
         
         self.confirmCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
-            self.confirm()
-            return RACSignal.empty()
+            return self.executeProcessSignal()
         }
         
 
     }
     
     
-    func confirm() {
-        fatalError("confirm has not been implemented")
+    func executeProcessSignal() -> RACSignal {
+        fatalError("imageDidSet has not been implemented")
+
+    
+    }
+    
+    func imageDidSet() {
+        fatalError("imageDidSet has not been implemented")
 
     }
 }

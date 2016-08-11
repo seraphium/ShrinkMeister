@@ -6,11 +6,11 @@
 //  Copyright © 2016年 Jackie Zhang. All rights reserved.
 //
 
-
+import ReactiveCocoa
 
 protocol ProcessViewModelProtocol {
-
-    func confirm() -> Void
     
-
+    func imageDidSet() -> Void
+    
+    func executeProcessSignal() -> RACSignal
 }

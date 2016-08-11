@@ -32,6 +32,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
     var addBarButton : UIBarButtonItem!
     
+    var saveBarButton : UIBarButtonItem!
+    
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
@@ -84,6 +86,9 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         addBarButton = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(AddPhoto))
         navigationItem.rightBarButtonItem = addBarButton
         
+        
+        saveBarButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(SavePhoto))
+        navigationItem.leftBarButtonItem = saveBarButton
     }
     
     func initCollection()
@@ -296,6 +301,10 @@ extension MainViewController : UIImagePickerControllerDelegate {
         
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func SavePhoto() {
+        mainViewModel.savePhotoCommand?.execute(nil)
     }
     
     

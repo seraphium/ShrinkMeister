@@ -28,14 +28,18 @@ class MainViewModel : ViewModel {
     
     var addPhotoCommand: RACCommand?
     
+    var savePhotoCommand: RACCommand?
+    
     var processViewModels = [BaseProcessViewModel]()
     
     //TODO: should include viewmodel for each cell
     
     func initProcessViewModel() {
+        
         let processViewModelLevel = ProcessViewModelLevel()
+        
         let processViewModelCustom = ProcessViewModelCustom()
-
+        
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
             processViewModelLevel.sourceImageViewModel = imageViewModel
@@ -63,6 +67,13 @@ class MainViewModel : ViewModel {
             
             self.addPhotoToStore(image, forKey: NSUUID().UUIDString)
             
+            return RACSignal.empty()
+        }
+        
+        savePhotoCommand = RACCommand() {
+            (any: AnyObject!) -> RACSignal in
+            print("save photo")
+
             return RACSignal.empty()
         }
     }

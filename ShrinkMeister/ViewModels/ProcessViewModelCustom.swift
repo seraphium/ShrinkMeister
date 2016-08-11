@@ -11,23 +11,39 @@ import ReactiveCocoa
 
 class ProcessViewModelCustom : BaseProcessViewModel {
     
+    let defaultWidth = 1024
+    let defaultHeight = 768
+    
     dynamic var width : Int
     dynamic var height : Int
     
-     init() {
-        width = 50
-        height = 50
-        super.init(title: "Custom", image: UIImage(named: "sample"))
-    }
     
-    override func confirm() {
+     init() {
+        width = defaultWidth
+        height = defaultHeight
         
+        super.init(title: "Custom", image: UIImage(named: "sample"))
+        
+     }
+    
+    override func executeProcessSignal() -> RACSignal {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
-            print("custom confirmed on image \(sourceImage) with \(width) : \(height)")
-
+            print ("processing image \(sourceImage) with \(width):\(height)")
+            
+        } else {
+            print ("no image")
         }
         
+        return RACSignal.empty()
+        
+    }
+    
+    override func imageDidSet() {
+        if let sourceImage = self.sourceImageViewModel?.image {
+            width = Int(sourceImage.size.width)
+            height = Int(sourceImage.size.height)
+        }
 
     }
 }
