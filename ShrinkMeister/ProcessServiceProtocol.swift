@@ -11,5 +11,5 @@ import UIKit
 
 protocol ProcessServiceProtocol {
     
-    func ProcessImage(image: UIImage, options: [AnyObject]?) -> UIImage
+    func processImage(image: UIImage, options: [AnyObject]?) -> UIImage
 }

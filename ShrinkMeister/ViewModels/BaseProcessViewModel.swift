@@ -16,7 +16,7 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var image : UIImage?
     
-    var processService: ProcessImageService?
+    var processService: ProcessServiceProtocol!
 
     var confirmCommand : RACCommand!
     
@@ -43,9 +43,17 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     
     func executeProcessSignal() -> RACSignal {
-        fatalError("imageDidSet has not been implemented")
-
-    
+        //actual processing logic
+        if let sourceImage = self.sourceImageViewModel?.image {
+            
+            processService.processImage(sourceImage, options: nil)
+            
+        } else {
+            print ("no image")
+        }
+        
+        return RACSignal.empty()
+   
     }
     
     func imageDidSet() {

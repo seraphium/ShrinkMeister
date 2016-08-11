@@ -26,18 +26,6 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         
      }
     
-    override func executeProcessSignal() -> RACSignal {
-        //actual processing logic
-        if let sourceImage = self.sourceImageViewModel?.image {
-            print ("processing image \(sourceImage) with \(width):\(height)")
-            
-        } else {
-            print ("no image")
-        }
-        
-        return RACSignal.empty()
-        
-    }
     
     override func imageDidSet() {
         if let sourceImage = self.sourceImageViewModel?.image {

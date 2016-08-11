@@ -10,8 +10,8 @@ import UIKit
 
 class ProcessImageLevel : ProcessServiceProtocol {
     
-    func ProcessImage(image: UIImage, options: [AnyObject]?) -> UIImage {
-        
+    func processImage(image: UIImage, options: [AnyObject]?) -> UIImage {
+        print ("process image for level")
         return image
     }
 

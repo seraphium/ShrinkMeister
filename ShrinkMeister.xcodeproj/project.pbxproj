@@ -11,7 +11,6 @@
 		4B2576CD1D5B1CA400348851 /* ProcessViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */; };
 		4B2A80811D5C538F00D7BFDD /* ProcessServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */; };
 		4B2A80831D5C545600D7BFDD /* ProcessImageLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */; };
-		4B2A80851D5C548C00D7BFDD /* ProcessImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80841D5C548C00D7BFDD /* ProcessImageService.swift */; };
 		4B2A80881D5C58AD00D7BFDD /* ProcessImageCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */; };
 		4B4042791D55B815007E6312 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B40427B1D55B815007E6312 /* Localizable.strings */; };
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
@@ -57,7 +56,6 @@
 		4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewProtocol.swift; sourceTree = "<group>"; };
 		4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessServiceProtocol.swift; sourceTree = "<group>"; };
 		4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageLevel.swift; sourceTree = "<group>"; };
-		4B2A80841D5C548C00D7BFDD /* ProcessImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageService.swift; sourceTree = "<group>"; };
 		4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCustom.swift; sourceTree = "<group>"; };
 		4B40427A1D55B815007E6312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B40427C1D55B81B007E6312 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */,
 				4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */,
 				4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */,
-				4B2A80841D5C548C00D7BFDD /* ProcessImageService.swift */,
 			);
 			name = ProcessServices;
 			sourceTree = "<group>";
@@ -434,7 +431,6 @@
 				4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */,
 				4BEE12261D51F02D00A84EC1 /* BaseViewController.swift in Sources */,
 				4B2A80831D5C545600D7BFDD /* ProcessImageLevel.swift in Sources */,
-				4B2A80851D5C548C00D7BFDD /* ProcessImageService.swift in Sources */,
 				4B2A80811D5C538F00D7BFDD /* ProcessServiceProtocol.swift in Sources */,
 				4BEE12201D51E57700A84EC1 /* ViewModel.swift in Sources */,
 				4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */,
