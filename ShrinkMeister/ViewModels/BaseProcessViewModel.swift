@@ -46,7 +46,11 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
             
-            processService.processImage(sourceImage, options: nil)
+            let destImage = processService.processImage(sourceImage, options: nil)
+            
+            //send result to mainviewmodel
+            NotificationHelper.postNotification("FinishProcess", objects: self,
+                                                userInfo: ["image": destImage])
             
         } else {
             print ("no image")

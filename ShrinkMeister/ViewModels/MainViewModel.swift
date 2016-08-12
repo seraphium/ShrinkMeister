@@ -22,6 +22,8 @@ class MainViewModel : ViewModel {
         }
     }
     
+    dynamic var processedImageViewModel : ImageViewModel?
+    
     var imageStore : ImageStore!
     
     dynamic var processEnabled : Bool = false
@@ -77,6 +79,13 @@ class MainViewModel : ViewModel {
             print("save photo")
 
             return RACSignal.empty()
+        }
+        
+        NotificationHelper.observeNotification("FinishProcess", object: nil, owner: self) {
+            notify in //passed in NSNotification
+            let image = notify.userInfo["image"] as! UIImage
+            self.processedImageViewModel = ImageViewModel(image: image, key: (self.imageViewModel?.key)!)
+            
         }
     }
 

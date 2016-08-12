@@ -18,7 +18,7 @@ class NotificationHelper {
     
     static func observeNotification(name: String, object: AnyObject?, owner: AnyObject, handleBlock: ((AnyObject!) -> Void)!) {
         NSNotificationCenter.defaultCenter()
-            .rac_addObserverForName("PushAddPhoto", object: object)
+            .rac_addObserverForName(name, object: object)
             .takeUntil(owner.rac_willDeallocSignal())
             .subscribeNext(handleBlock)
     }
