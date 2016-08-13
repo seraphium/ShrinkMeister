@@ -54,7 +54,7 @@ class MainViewModel : ViewModel {
             processViewModelLevel.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
-        }
+        } 
         
         processViewModels.append(processViewModelLevel)
         processViewModels.append(processViewModelCustom)
@@ -85,6 +85,12 @@ class MainViewModel : ViewModel {
             (any: AnyObject!) -> RACSignal in
             print("reload photo")
 
+            //reset processimageviewmodel 
+            self.processedImageViewModel = nil
+            if let imageVM = self.imageViewModel {
+                self.imageViewModel = ImageViewModel(image: imageVM.image, key: imageVM.key)
+            }
+     
             return RACSignal.empty()
         }
         

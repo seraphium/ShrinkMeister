@@ -32,7 +32,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
     var addBarButton : UIBarButtonItem!
     
-    var saveBarButton : UIBarButtonItem!
+    var reloadBarButton : UIBarButtonItem!
     
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
@@ -87,8 +87,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         navigationItem.rightBarButtonItem = addBarButton
         
         
-        saveBarButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(ReloadPhoto))
-        navigationItem.leftBarButtonItem = saveBarButton
+        reloadBarButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(ReloadPhoto))
+        navigationItem.leftBarButtonItem = reloadBarButton
     }
     
     func initCollection()
@@ -124,7 +124,6 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
                 self.imageView.image = imageViewModel.image
-                
         }
 
  
