@@ -145,6 +145,7 @@
 				4BEE12271D51F4BE00A84EC1 /* AddPhotoViewController.swift */,
 			);
 			name = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4BE16E051D54DD7B00AD1B29 /* Cell */ = {
@@ -195,7 +196,6 @@
 			children = (
 				4BE16E061D54DD8A00AD1B29 /* View */,
 				4BE16E051D54DD7B00AD1B29 /* Cell */,
-				4BE16E041D54DD5900AD1B29 /* ViewControllers */,
 				4BEE12211D51E97800A84EC1 /* ViewLocator.swift */,
 				4B67A4071D531A0E00519610 /* ViewControllerService.swift */,
 				4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */,
@@ -269,6 +269,7 @@
 				4BEE121C1D518E4E00A84EC1 /* Test */,
 				4BEE12171D518BA100A84EC1 /* Models */,
 				4BEE120C1D5189E500A84EC1 /* Views */,
+				4BE16E041D54DD5900AD1B29 /* ViewControllers */,
 				4BEE120F1D518A2100A84EC1 /* ViewModels */,
 				4BEE12011D5186B000A84EC1 /* Util */,
 				4BEE121A1D518C8300A84EC1 /* Resources */,

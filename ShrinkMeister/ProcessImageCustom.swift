@@ -11,7 +11,7 @@ import UIKit
 class ProcessImageCustom : ProcessServiceProtocol {
     
     func processImage(image: UIImage, options: [AnyObject]?) -> UIImage {
-        print ("process image custom")
+        print ("process image custom for \(options):")
         return image
     }
 

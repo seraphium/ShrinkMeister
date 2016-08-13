@@ -116,6 +116,17 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             self.imageView.image = imageViewModel.image
 
         }
+        
+        //if processed image , show processed image instead
+        RACObserve(mainViewModel, keyPath: "processedImageViewModel").filter {
+            (next: AnyObject?) -> Bool in
+            return next != nil
+            } .subscribeNextAs {
+                (imageViewModel:ImageViewModel) -> () in
+                self.imageView.image = imageViewModel.image
+                
+        }
+
  
     }
     

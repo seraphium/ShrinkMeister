@@ -13,4 +13,7 @@ protocol ProcessViewModelProtocol {
     func imageDidSet() -> Void
     
     func executeProcessSignal() -> RACSignal
+    
+    func beforeProcess() -> Void
+
 }

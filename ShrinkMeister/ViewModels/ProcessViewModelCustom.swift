@@ -26,6 +26,9 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         
      }
     
+    override func beforeProcess() {
+        self.parameters = [width, height]
+    }
     
     override func imageDidSet() {
         if let sourceImage = self.sourceImageViewModel?.image {

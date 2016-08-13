@@ -18,6 +18,8 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var processService: ProcessServiceProtocol!
 
+    var parameters : [AnyObject]?
+    
     var confirmCommand : RACCommand!
     
     
@@ -41,12 +43,19 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
 
     }
     
+    func beforeProcess() {
+        fatalError("beforeProcess has not been implemented")
+
+    }
     
     func executeProcessSignal() -> RACSignal {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
             
-            let destImage = processService.processImage(sourceImage, options: nil)
+            //set parameters in this delegate
+            self.beforeProcess()
+            
+            let destImage = processService.processImage(sourceImage, options: parameters)
             
             //send result to mainviewmodel
             NotificationHelper.postNotification("FinishProcess", objects: self,

@@ -11,7 +11,7 @@ import UIKit
 class ProcessImageLevel : ProcessServiceProtocol {
     
     func processImage(image: UIImage, options: [AnyObject]?) -> UIImage {
-        print ("process image for level")
+        print ("process image for options: \(options)")
         return image
     }
 
