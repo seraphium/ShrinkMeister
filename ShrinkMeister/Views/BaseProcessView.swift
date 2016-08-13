@@ -11,8 +11,9 @@ import UIKit
 class BaseProcessView : UIView, ProcessViewProtocol {
     
     var mainViewModel : MainViewModel!
-
+    
     @IBOutlet weak var confirmButton: UIButton!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

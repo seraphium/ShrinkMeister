@@ -14,6 +14,7 @@ class ProcessViewLevel : BaseProcessView {
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         

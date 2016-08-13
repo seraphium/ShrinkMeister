@@ -37,7 +37,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
-    let processViewClasses : [String] = ["ProcessViewLevel", "ProcessViewCustom"]
+    let processViewClasses : [String] = ["ProcessViewLevel", "ProcessViewCustom", "ProcessViewExport"]
 
     var processViewCount : Int!
     
@@ -87,7 +87,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         navigationItem.rightBarButtonItem = addBarButton
         
         
-        saveBarButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(SavePhoto))
+        saveBarButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(ReloadPhoto))
         navigationItem.leftBarButtonItem = saveBarButton
     }
     
@@ -314,8 +314,8 @@ extension MainViewController : UIImagePickerControllerDelegate {
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func SavePhoto() {
-        mainViewModel.savePhotoCommand?.execute(nil)
+    func ReloadPhoto() {
+        mainViewModel.reloadPhotoCommand?.execute(nil)
     }
     
     

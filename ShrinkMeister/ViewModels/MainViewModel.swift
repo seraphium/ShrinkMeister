@@ -30,7 +30,7 @@ class MainViewModel : ViewModel {
     
     var addPhotoCommand: RACCommand?
     
-    var savePhotoCommand: RACCommand?
+    var reloadPhotoCommand: RACCommand?
     
     var processViewModels = [BaseProcessViewModel]()
     
@@ -44,14 +44,21 @@ class MainViewModel : ViewModel {
         let processViewModelCustom = ProcessViewModelCustom()
         processViewModelCustom.processService = ProcessImageCustom()
         
+        
+        let processViewModelExport = ProcessViewModelExport()
+        processViewModelExport.processService = ProcessImageExport()
+    
+        
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
             processViewModelLevel.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
+            processViewModelExport.sourceImageViewModel = imageViewModel
         }
         
         processViewModels.append(processViewModelLevel)
         processViewModels.append(processViewModelCustom)
+        processViewModels.append(processViewModelExport)
     }
     
     override init() {
@@ -74,9 +81,9 @@ class MainViewModel : ViewModel {
             return RACSignal.empty()
         }
         
-        savePhotoCommand = RACCommand() {
+        reloadPhotoCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in
-            print("save photo")
+            print("reload photo")
 
             return RACSignal.empty()
         }
