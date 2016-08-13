@@ -10,8 +10,16 @@ import UIKit
 
 class ProcessImageCustom : ProcessServiceProtocol {
     
-    func processImage(image: UIImage, options: [AnyObject]?) -> UIImage {
+    // process logic here
+    func processImage(image: UIImage, options: [AnyObject]?) -> UIImage? {
+        guard let op = options else {
+            return nil
+        }
         print ("process image custom for \(options):")
+        let width = op[0]
+        let height = op[1]
+        
+        
         return image
     }
 

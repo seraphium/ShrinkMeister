@@ -22,6 +22,8 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var confirmCommand : RACCommand!
     
+    let processError = NSError(domain: "zezhang.process", code: 1, userInfo: nil)
+
     
     dynamic var sourceImageViewModel : ImageViewModel? {
         didSet {
@@ -55,11 +57,15 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
             //set parameters in this delegate
             self.beforeProcess()
             
-            let destImage = processService.processImage(sourceImage, options: parameters)
+            if let destImage = processService.processImage(sourceImage, options: parameters) {
+                //send result to mainviewmodel
+                NotificationHelper.postNotification("FinishProcess", objects: self,
+                                                    userInfo: ["image": destImage])
+                
+            } else {
+                return RACSignal.error(processError)
+            }
             
-            //send result to mainviewmodel
-            NotificationHelper.postNotification("FinishProcess", objects: self,
-                                                userInfo: ["image": destImage])
             
         } else {
             print ("no image")
