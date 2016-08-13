@@ -16,13 +16,26 @@ class ProcessViewModelCustom : BaseProcessViewModel {
     
     dynamic var width : Int
     dynamic var height : Int
+
+    var lockAspect : Bool = false
     
-    
+    var lockAspectCommand : RACCommand!
+
      init() {
         width = defaultWidth
         height = defaultHeight
         
         super.init(title: "Custom", image: UIImage(named: "sample"))
+        
+        self.lockAspectCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            //toggle lock height according to width
+            
+            self.lockAspect = !self.lockAspect
+            
+            return RACSignal.empty()
+        }
+        
         
      }
     

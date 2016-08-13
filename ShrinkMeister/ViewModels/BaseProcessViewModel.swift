@@ -41,7 +41,6 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
             (any:AnyObject!) -> RACSignal in
             return self.executeProcessSignal()
         }
-        
 
     }
     

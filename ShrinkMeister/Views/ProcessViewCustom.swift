@@ -14,6 +14,9 @@ class ProcessViewCustom : BaseProcessView {
     
     @IBOutlet var heightField: UITextField!
     
+    @IBOutlet var lockAspectButton: UIButton!
+    
+    
     var viewModel : ProcessViewModelCustom!
     
     override func awakeFromNib() {
@@ -50,6 +53,7 @@ class ProcessViewCustom : BaseProcessView {
         heightField.rac_textSignal() ~> RAC(viewModel, "height")
         
         confirmButton.rac_command = viewModel.confirmCommand
-
+        
+        lockAspectButton.rac_command = viewModel.lockAspectCommand
     }
 }

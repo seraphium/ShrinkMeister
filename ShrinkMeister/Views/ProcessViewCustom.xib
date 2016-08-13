@@ -59,6 +59,7 @@
             <connections>
                 <outlet property="confirmButton" destination="P0X-2l-cDO" id="DFS-Ct-ABN"/>
                 <outlet property="heightField" destination="QN1-UD-qUE" id="8qc-pS-VtV"/>
+                <outlet property="lockAspectButton" destination="ppv-PK-NXK" id="cNa-HC-1Nq"/>
                 <outlet property="widthField" destination="cyS-Xo-vzZ" id="7HU-jj-YWR"/>
             </connections>
             <point key="canvasLocation" x="243" y="180"/>
