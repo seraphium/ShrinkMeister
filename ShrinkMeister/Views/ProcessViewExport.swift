@@ -9,19 +9,18 @@
 import UIKit
 
 class ProcessViewExport : BaseProcessView {
-    
-    var viewModel : ProcessViewModelExport!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.viewModel = mainViewModel.processViewModels[3] as! ProcessViewModelExport
+
         bindViewModel()
     }
     
     override func bindViewModel() {
         super.bindViewModel()
         
-        self.viewModel = mainViewModel.processViewModels[3] as! ProcessViewModelExport
         
      
         

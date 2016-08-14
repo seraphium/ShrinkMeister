@@ -13,10 +13,7 @@ class ProcessImageExport : ProcessServiceProtocol {
     // process logic here
     func processImage(image: UIImage, options: [AnyObject]?) -> UIImage? {
         print ("process image for options: \(options)")
-        guard let op = options else {
-            return nil
-        }
-        
+       
         return image
     }
 

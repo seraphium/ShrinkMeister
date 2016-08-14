@@ -9,19 +9,18 @@
 import UIKit
 
 class ProcessViewCrop : BaseProcessView {
-    
-    var viewModel : ProcessViewModelCrop!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelCrop
+
         bindViewModel()
     }
     
     override func bindViewModel() {
         super.bindViewModel()
         
-        self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelCrop
         
      
         

@@ -17,8 +17,6 @@ class ProcessViewCustom : BaseProcessView {
     @IBOutlet var lockAspectButton: UIButton!
     
     
-    var viewModel : ProcessViewModelCustom!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,9 +31,11 @@ class ProcessViewCustom : BaseProcessView {
     }
     
     override func bindViewModel() {
-        super.bindViewModel()
         
         self.viewModel = mainViewModel.processViewModels[2] as! ProcessViewModelCustom
+
+        super.bindViewModel()
+        
         
         RACObserve(viewModel, keyPath: "width")
             .subscribeNextAs {
@@ -66,6 +66,6 @@ class ProcessViewCustom : BaseProcessView {
         
         confirmButton.rac_command = viewModel.confirmCommand
         
-        lockAspectButton.rac_command = viewModel.lockAspectCommand
+        lockAspectButton.rac_command = (viewModel as! ProcessViewModelCustom).lockAspectCommand
     }
 }

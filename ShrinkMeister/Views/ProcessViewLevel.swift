@@ -10,7 +10,6 @@ import UIKit
 
 class ProcessViewLevel : BaseProcessView {
     
-    var viewModel : ProcessViewModelLevel!
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
     
@@ -34,12 +33,13 @@ class ProcessViewLevel : BaseProcessView {
     
     
     override func bindViewModel() {
-        super.bindViewModel()
         
         self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelLevel
+
+        super.bindViewModel()
+        
         
         levelSelector.rac_newSelectedSegmentIndexChannelWithNilValue(0) ~> RAC(viewModel, "imageLevel")
-        confirmButton.rac_command = viewModel.confirmCommand
     }
     
 }
