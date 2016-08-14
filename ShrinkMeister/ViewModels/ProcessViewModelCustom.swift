@@ -53,6 +53,11 @@ class ProcessViewModelCustom : BaseProcessViewModel {
             //toggle lock height according to width
             
             self.lockAspect = !self.lockAspect
+            if self.lockAspect {
+                let w = self.width
+                self.width = w
+            }
+            
             NotificationHelper.postNotification("lock", objects: self, userInfo: ["lock": self.lockAspect])
             return RACSignal.empty()
         }
