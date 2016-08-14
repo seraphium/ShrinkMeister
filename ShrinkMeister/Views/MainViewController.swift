@@ -161,6 +161,14 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         
         }
         
+        NotificationHelper.observeNotification("EnterCrop", object: nil, owner: self) {
+            _ in //passed in NSNotification
+            
+            print("entering crop mode")
+        }
+        
+
+        
     }
     
     

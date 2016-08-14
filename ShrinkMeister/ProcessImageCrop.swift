@@ -13,9 +13,8 @@ class ProcessImageCrop : ProcessServiceProtocol {
     // process logic here
     func processImage(image: UIImage, options: [AnyObject]?) -> UIImage? {
         print ("process image for options: \(options)")
-        guard let op = options else {
-            return nil
-        }
+        
+        NotificationHelper.postNotification("EnterCrop", objects: self, userInfo: nil)
         
         return image
     }
