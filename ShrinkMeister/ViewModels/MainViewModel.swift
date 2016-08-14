@@ -49,9 +49,7 @@ class MainViewModel : ViewModel {
         processViewModelCustom.processService = ProcessImageCustom()
         
         
-        let processViewModelExport = ProcessViewModelExport()
-        processViewModelExport.processService = ProcessImageExport()
-    
+        let processViewModelExport = ProcessViewModelExport()    
         
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in

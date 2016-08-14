@@ -24,6 +24,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet var photoResolutionLabel: UILabel!     
+    
     var processViews = [BaseProcessView]()
         
     var currentProcessView : BaseProcessView?
@@ -46,13 +48,17 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     {
         
         self.view.backgroundColor = UIColor.whiteColor()
+        photoResolutionLabel.textColor = UIColor.blueColor()
+        photoResolutionLabel.layer.zPosition = 1000
+        self.imageScrollView.layer.zPosition = -1000
         
         initNavigationBar()
         
         initCollection()
         
         initProcessViews()
-       
+        
+        
     }
     
     func initProcessViews(){
@@ -114,6 +120,9 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
             self.imageView.image = imageViewModel.image
+            let width = Int(imageViewModel.image.size.width)
+            let height = Int(imageViewModel.image.size.height)
+            self.photoResolutionLabel.text = String("\(width)X\(height)")
 
         }
         
@@ -124,8 +133,12 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
                 self.imageView.image = imageViewModel.image
+                let width = Int(imageViewModel.image.size.width)
+                let height = Int(imageViewModel.image.size.height)
+                self.photoResolutionLabel.text = String("\(width)X\(height)")
         }
-
+        
+   
  
     }
     
@@ -134,6 +147,18 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
             _ in //passed in NSNotification
             self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
+        }
+        
+        NotificationHelper.observeNotification("ExportPhotoSucceed", object: nil, owner: self) {
+            _ in //passed in NSNotification
+            
+            let alertController = UIAlertController(title: "Saved", message: "Saved to Album", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                // ...
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        
         }
         
     }
@@ -166,7 +191,6 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             imageScrollView.setZoomScale(minScale, animated: true)
             
         }
-        
         
     }
 

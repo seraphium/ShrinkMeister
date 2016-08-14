@@ -23,7 +23,6 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     var confirmCommand : RACCommand!
     
     let processError = NSError(domain: "zezhang.process", code: 1, userInfo: nil)
-
     
     dynamic var sourceImageViewModel : ImageViewModel? {
         didSet {
@@ -41,7 +40,7 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
             (any:AnyObject!) -> RACSignal in
             return self.executeProcessSignal()
         }
-
+        
     }
     
     func beforeProcess() {

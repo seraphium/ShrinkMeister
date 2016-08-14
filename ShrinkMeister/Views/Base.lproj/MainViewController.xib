@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,6 +10,7 @@
                 <outlet property="doubleTapGestureRecognizer" destination="J90-ph-Aip" id="2Sc-2U-TAD"/>
                 <outlet property="imageScrollView" destination="SZ2-xc-5AQ" id="Jdj-9F-vOu"/>
                 <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
+                <outlet property="photoResolutionLabel" destination="sRi-3Q-Qv7" id="yp6-LK-U3a"/>
                 <outlet property="processCollection" destination="CAt-ZF-fx6" id="lGg-1W-nhY"/>
                 <outlet property="twoFingerTapGestureRecognizer" destination="BDA-bX-CgY" id="WMz-33-1Mf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kKr-SF-l94"/>
@@ -20,6 +21,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1024x768" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-3Q-Qv7">
+                    <rect key="frame" x="50" y="80" width="76.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <subviews>
@@ -55,14 +62,28 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="1Vd-s4-rhV"/>
                 <constraint firstAttribute="bottom" secondItem="CAt-ZF-fx6" secondAttribute="bottom" id="2es-zo-XZD"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="CA3-ZU-26q"/>
                 <constraint firstAttribute="bottom" secondItem="SZ2-xc-5AQ" secondAttribute="bottom" constant="100" id="JdQ-Fe-zmj"/>
                 <constraint firstItem="CAt-ZF-fx6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vzv-qd-MUt"/>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-100" id="Wwh-7K-fMc"/>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bgS-eW-ppx"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="c8X-hK-727"/>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sVo-nz-sKc"/>
                 <constraint firstAttribute="trailing" secondItem="SZ2-xc-5AQ" secondAttribute="trailing" constant="5" id="uh9-z9-5qj"/>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wt3-Vk-IbW"/>
+                <constraint firstItem="sRi-3Q-Qv7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="xoO-dC-xJz"/>
                 <constraint firstAttribute="trailing" secondItem="CAt-ZF-fx6" secondAttribute="trailing" id="yVf-dG-iui"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Wwh-7K-fMc"/>
+                    <exclude reference="bgS-eW-ppx"/>
+                    <exclude reference="sVo-nz-sKc"/>
+                    <exclude reference="wt3-Vk-IbW"/>
+                </mask>
+            </variation>
         </view>
         <tapGestureRecognizer numberOfTouchesRequired="2" id="BDA-bX-CgY" userLabel="Two FInger Tap Gesture Recognizer">
             <connections>

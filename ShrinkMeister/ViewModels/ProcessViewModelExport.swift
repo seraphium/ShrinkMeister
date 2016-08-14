@@ -32,9 +32,26 @@ class ProcessViewModelExport : BaseProcessViewModel {
        
     }
     
+    func image(image: UIImage!, didFinishSavingWithError error: NSError!, contextInfo: AnyObject!) {
+        if (error != nil) {
+            print ("photo saving to album failed")
+        } else {
+            print ("photo saved to album")
+
+            NotificationHelper.postNotification("ExportPhotoSucceed", objects: self, userInfo: nil)
+        }
+    }
+    
     func executeExportSignal() -> RACSignal {
         
-        print ("export image")
+        let mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+
+        if let image = mainViewModel.processedImageViewModel?.image {
+            
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProcessViewModelExport.image(_:didFinishSavingWithError:contextInfo:)), nil)
+
+        }
+        
         return RACSignal.empty()
     }
 }
