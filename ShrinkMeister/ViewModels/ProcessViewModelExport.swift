@@ -11,9 +11,17 @@ import ReactiveCocoa
 
 class ProcessViewModelExport : BaseProcessViewModel {
     
+    var exportCommand : RACCommand!
+    
      init() {
         
         super.init(title: "Export", image: UIImage(named: "sample"))
+        
+        exportCommand  = RACCommand() {
+                (any:AnyObject!) -> RACSignal in
+                return self.executeExportSignal()
+        }
+
         
      }
     
@@ -22,5 +30,11 @@ class ProcessViewModelExport : BaseProcessViewModel {
     
     override func imageDidSet() {
        
+    }
+    
+    func executeExportSignal() -> RACSignal {
+        
+        print ("export image")
+        return RACSignal.empty()
     }
 }

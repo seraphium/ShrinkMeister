@@ -27,7 +27,6 @@ class ProcessViewCustom : BaseProcessView {
         
         widthField.placeholder = "width"
         heightField.placeholder = "height"
-        confirmButton.setTitle("Confirm", forState: .Normal)
     }
     
     override func bindViewModel() {
@@ -63,9 +62,7 @@ class ProcessViewCustom : BaseProcessView {
         
         widthField.rac_textSignal() ~> RAC(viewModel, "width")
         heightField.rac_textSignal() ~> RAC(viewModel, "height")
-        
-        confirmButton.rac_command = viewModel.confirmCommand
-        
+                
         lockAspectButton.rac_command = (viewModel as! ProcessViewModelCustom).lockAspectCommand
     }
 }

@@ -14,7 +14,7 @@ class BaseProcessView : UIView, ProcessViewProtocol {
     
     var viewModel : BaseProcessViewModel!
 
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +29,7 @@ class BaseProcessView : UIView, ProcessViewProtocol {
             make.edges.equalTo(self)
         }
       
+        self.confirmButton?.setTitle(NSLocalizedString("ProcessViewConfirmButtonTitle", comment: ""), forState: .Normal)
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
 
     }
@@ -36,17 +37,17 @@ class BaseProcessView : UIView, ProcessViewProtocol {
     func bindViewModel()
     {
         
-        confirmButton.rac_command = viewModel.confirmCommand
+        confirmButton?.rac_command = viewModel.confirmCommand
 
         RACObserve(mainViewModel, keyPath: "processEnabled")
             .subscribeNextAs {
                 (enabled : Bool) -> () in
                 if !enabled {
-                    self.confirmButton.alpha = 0.3
-                    self.confirmButton.userInteractionEnabled = false
+                    self.confirmButton?.alpha = 0.3
+                    self.confirmButton?.userInteractionEnabled = false
                 } else {
-                    self.confirmButton.alpha = 1.0
-                    self.confirmButton.userInteractionEnabled = true
+                    self.confirmButton?.alpha = 1.0
+                    self.confirmButton?.userInteractionEnabled = true
                     
                 }
         }

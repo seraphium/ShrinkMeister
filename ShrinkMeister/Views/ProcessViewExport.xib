@@ -23,7 +23,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="confirmButton" destination="4oZ-j2-ei8" id="ptH-eT-RdW"/>
+                <outlet property="exportButton" destination="4oZ-j2-ei8" id="VcU-ze-Z4o"/>
             </connections>
         </view>
     </objects>

@@ -9,7 +9,9 @@
 import UIKit
 
 class ProcessViewExport : BaseProcessView {
-        
+    
+    @IBOutlet var exportButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -21,7 +23,7 @@ class ProcessViewExport : BaseProcessView {
     override func bindViewModel() {
         super.bindViewModel()
         
-        
+        exportButton.rac_command = (self.viewModel as! ProcessViewModelExport).exportCommand
      
         
 

@@ -12,7 +12,7 @@ class ProcessImageExport : ProcessServiceProtocol {
     
     // process logic here
     func processImage(image: UIImage, options: [AnyObject]?) -> UIImage? {
-        print ("process image for options: \(options)")
+        print ("exporting photo for image:\(image.size.width) : \(image.size.height)")
        
         return image
     }
