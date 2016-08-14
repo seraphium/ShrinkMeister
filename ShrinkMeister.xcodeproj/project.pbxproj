@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
+		4B0E0BF51D604D190013A7FD /* ProcessViewCrop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */; };
+		4B0E0BF71D604D3F0013A7FD /* ProcessViewCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */; };
+		4B0E0BF91D604D680013A7FD /* ProcessViewModelCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */; };
+		4B0E0BFB1D604DAE0013A7FD /* ProcessImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BFA1D604DAE0013A7FD /* ProcessImageCrop.swift */; };
 		4B2576CD1D5B1CA400348851 /* ProcessViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */; };
 		4B2A80811D5C538F00D7BFDD /* ProcessServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */; };
 		4B2A80831D5C545600D7BFDD /* ProcessImageLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.debug.xcconfig"; sourceTree = "<group>"; };
 		32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.release.xcconfig"; sourceTree = "<group>"; };
+		4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewCrop.xib; sourceTree = "<group>"; };
+		4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewCrop.swift; sourceTree = "<group>"; };
+		4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCrop.swift; sourceTree = "<group>"; };
+		4B0E0BFA1D604DAE0013A7FD /* ProcessImageCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCrop.swift; sourceTree = "<group>"; };
 		4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewProtocol.swift; sourceTree = "<group>"; };
 		4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessServiceProtocol.swift; sourceTree = "<group>"; };
 		4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageLevel.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 			children = (
 				4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */,
 				4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */,
+				4B0E0BFA1D604DAE0013A7FD /* ProcessImageCrop.swift */,
 				4BFAC12E1D5EFAB90093A65C /* ProcessImageExport.swift */,
 				4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */,
 			);
@@ -140,6 +149,7 @@
 				4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */,
 				4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */,
 				4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */,
+				4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */,
 				4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */,
 				4BFAC12C1D5EFA8C0093A65C /* ProcessViewModelExport.swift */,
 			);
@@ -182,7 +192,9 @@
 				4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */,
 				4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */,
 				4BFAC1321D5EFB5D0093A65C /* ProcessViewExport.swift */,
+				4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */,
 				4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */,
+				4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */,
 				4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */,
 				4BE8FD5C1D57209B00183F12 /* BaseProcessView.swift */,
 				4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */,
@@ -371,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */,
+				4B0E0BF51D604D190013A7FD /* ProcessViewCrop.xib in Resources */,
 				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
 				4BFAC1311D5EFB040093A65C /* ProcessViewExport.xib in Resources */,
 				4BE8FD501D57122600183F12 /* ProcessViewLevel.xib in Resources */,
@@ -441,7 +454,9 @@
 				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */,
 				4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */,
 				4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */,
+				4B0E0BF71D604D3F0013A7FD /* ProcessViewCrop.swift in Sources */,
 				4BC418861D54E0C000FC7BBD /* ProcessCell.swift in Sources */,
+				4B0E0BFB1D604DAE0013A7FD /* ProcessImageCrop.swift in Sources */,
 				4BFAC1331D5EFB5D0093A65C /* ProcessViewExport.swift in Sources */,
 				4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */,
 				4BEE12261D51F02D00A84EC1 /* BaseViewController.swift in Sources */,
@@ -461,6 +476,7 @@
 				4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */,
 				4BFAC12D1D5EFA8C0093A65C /* ProcessViewModelExport.swift in Sources */,
 				4BEE122A1D51F4DE00A84EC1 /* AddPhotoViewModel.swift in Sources */,
+				4B0E0BF91D604D680013A7FD /* ProcessViewModelCrop.swift in Sources */,
 				4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */,
 				4BEE12241D51EBE700A84EC1 /* ViewModelLocator.swift in Sources */,
 				4BEE12191D518BC400A84EC1 /* ImageViewModel.swift in Sources */,

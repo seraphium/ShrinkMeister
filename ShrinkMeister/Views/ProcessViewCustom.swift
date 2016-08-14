@@ -35,7 +35,7 @@ class ProcessViewCustom : BaseProcessView {
     override func bindViewModel() {
         super.bindViewModel()
         
-        self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelCustom
+        self.viewModel = mainViewModel.processViewModels[2] as! ProcessViewModelCustom
         
         RACObserve(viewModel, keyPath: "width")
             .subscribeNextAs {

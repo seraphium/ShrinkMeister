@@ -37,7 +37,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
-    let processViewClasses : [String] = ["ProcessViewLevel", "ProcessViewCustom", "ProcessViewExport"]
+    let processViewClasses : [String] = ["ProcessViewCrop", "ProcessViewLevel", "ProcessViewCustom", "ProcessViewExport"]
 
     var processViewCount : Int!
     

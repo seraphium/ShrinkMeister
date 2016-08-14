@@ -36,7 +36,7 @@ class ProcessViewLevel : BaseProcessView {
     override func bindViewModel() {
         super.bindViewModel()
         
-        self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelLevel
+        self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelLevel
         
         levelSelector.rac_newSelectedSegmentIndexChannelWithNilValue(0) ~> RAC(viewModel, "imageLevel")
         confirmButton.rac_command = viewModel.confirmCommand

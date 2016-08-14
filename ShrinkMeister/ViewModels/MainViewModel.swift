@@ -38,6 +38,10 @@ class MainViewModel : ViewModel {
     
     func initProcessViewModel() {
         
+        let processViewModelCrop = ProcessViewModelCrop()
+        processViewModelCrop.processService = ProcessImageCrop()
+   
+        
         let processViewModelLevel = ProcessViewModelLevel()
         processViewModelLevel.processService = ProcessImageLevel()
     
@@ -51,11 +55,12 @@ class MainViewModel : ViewModel {
         
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
+            processViewModelCrop.sourceImageViewModel = imageViewModel
             processViewModelLevel.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
         } 
-        
+        processViewModels.append(processViewModelCrop)
         processViewModels.append(processViewModelLevel)
         processViewModels.append(processViewModelCustom)
         processViewModels.append(processViewModelExport)
