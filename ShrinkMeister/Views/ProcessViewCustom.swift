@@ -49,6 +49,18 @@ class ProcessViewCustom : BaseProcessView {
                 self.heightField.text = String(height)
         }
         
+        NotificationHelper.observeNotification("lock", object: nil, owner: self) {
+             notify in //passed in NSNotification
+            let locked = notify.userInfo["lock"] as! Bool
+            if locked {
+                self.lockAspectButton.backgroundColor = UIColor.redColor()
+            } else {
+                self.lockAspectButton.backgroundColor = UIColor.clearColor()
+
+            }
+            
+        }
+        
         widthField.rac_textSignal() ~> RAC(viewModel, "width")
         heightField.rac_textSignal() ~> RAC(viewModel, "height")
         
