@@ -20,6 +20,10 @@
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
 		4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */; };
 		4B50848F1D59D81C005ADAB6 /* ProcessViewModelCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */; };
+		4B538FD41D62056F001B6563 /* CornerpointClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD01D62056F001B6563 /* CornerpointClientProtocol.swift */; };
+		4B538FD51D62056F001B6563 /* CornerpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD11D62056F001B6563 /* CornerpointView.swift */; };
+		4B538FD61D62056F001B6563 /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD21D62056F001B6563 /* CroppableImageView.swift */; };
+		4B538FD71D62056F001B6563 /* CroppableImageViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD31D62056F001B6563 /* CroppableImageViewDelegateProtocol.swift */; };
 		4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */; };
 		4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4071D531A0E00519610 /* ViewControllerService.swift */; };
 		4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */; };
@@ -76,6 +80,10 @@
 		4B4042841D55BA07007E6312 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainViewController.strings"; sourceTree = "<group>"; };
 		4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelLevel.swift; sourceTree = "<group>"; };
 		4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCustom.swift; sourceTree = "<group>"; };
+		4B538FD01D62056F001B6563 /* CornerpointClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerpointClientProtocol.swift; sourceTree = "<group>"; };
+		4B538FD11D62056F001B6563 /* CornerpointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerpointView.swift; sourceTree = "<group>"; };
+		4B538FD21D62056F001B6563 /* CroppableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableImageView.swift; sourceTree = "<group>"; };
+		4B538FD31D62056F001B6563 /* CroppableImageViewDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableImageViewDelegateProtocol.swift; sourceTree = "<group>"; };
 		4B67A4051D52DA7400519610 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		4B67A4071D531A0E00519610 /* ViewControllerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerService.swift; path = ../ViewModels/ViewControllerService.swift; sourceTree = "<group>"; };
 		4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServicesImp.swift; sourceTree = "<group>"; };
@@ -179,6 +187,10 @@
 			children = (
 				4BE8FD571D571E6C00183F12 /* ProcessViews */,
 				4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */,
+				4B538FD01D62056F001B6563 /* CornerpointClientProtocol.swift */,
+				4B538FD11D62056F001B6563 /* CornerpointView.swift */,
+				4B538FD21D62056F001B6563 /* CroppableImageView.swift */,
+				4B538FD31D62056F001B6563 /* CroppableImageViewDelegateProtocol.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -449,6 +461,7 @@
 				4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */,
 				4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */,
 				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */,
+				4B538FD41D62056F001B6563 /* CornerpointClientProtocol.swift in Sources */,
 				4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */,
 				4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */,
 				4B0E0BF71D604D3F0013A7FD /* ProcessViewCrop.swift in Sources */,
@@ -472,9 +485,12 @@
 				4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */,
 				4BFAC12D1D5EFA8C0093A65C /* ProcessViewModelExport.swift in Sources */,
 				4BEE122A1D51F4DE00A84EC1 /* AddPhotoViewModel.swift in Sources */,
+				4B538FD61D62056F001B6563 /* CroppableImageView.swift in Sources */,
 				4B0E0BF91D604D680013A7FD /* ProcessViewModelCrop.swift in Sources */,
 				4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */,
 				4BEE12241D51EBE700A84EC1 /* ViewModelLocator.swift in Sources */,
+				4B538FD51D62056F001B6563 /* CornerpointView.swift in Sources */,
+				4B538FD71D62056F001B6563 /* CroppableImageViewDelegateProtocol.swift in Sources */,
 				4BEE12191D518BC400A84EC1 /* ImageViewModel.swift in Sources */,
 				4BEE12091D5186B000A84EC1 /* TableViewBindingHelper.swift in Sources */,
 				4BEE12131D518B4D00A84EC1 /* ImageStore.swift in Sources */,

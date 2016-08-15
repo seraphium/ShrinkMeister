@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="ShrinkMeister" customModuleProvider="target">
             <connections>
+                <outlet property="cropView" destination="HeW-8H-JHf" id="hmW-ik-gpF"/>
                 <outlet property="doubleTapGestureRecognizer" destination="J90-ph-Aip" id="2Sc-2U-TAD"/>
                 <outlet property="imageScrollView" destination="SZ2-xc-5AQ" id="Jdj-9F-vOu"/>
                 <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
@@ -27,6 +28,10 @@
                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
+                    <rect key="frame" x="5" y="5" width="590" height="495"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <subviews>
@@ -64,13 +69,20 @@
             <constraints>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="1Vd-s4-rhV"/>
                 <constraint firstAttribute="bottom" secondItem="CAt-ZF-fx6" secondAttribute="bottom" id="2es-zo-XZD"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="width" secondItem="SZ2-xc-5AQ" secondAttribute="width" id="5Dk-DQ-2Au"/>
+                <constraint firstAttribute="trailing" secondItem="HeW-8H-JHf" secondAttribute="trailing" constant="180" id="Axy-oH-BBE"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="CA3-ZU-26q"/>
                 <constraint firstAttribute="bottom" secondItem="SZ2-xc-5AQ" secondAttribute="bottom" constant="100" id="JdQ-Fe-zmj"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="236" id="M9l-ow-qoN"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="centerX" secondItem="SZ2-xc-5AQ" secondAttribute="centerX" id="ToC-yV-f55"/>
                 <constraint firstItem="CAt-ZF-fx6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vzv-qd-MUt"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-100" id="Wwh-7K-fMc"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bgS-eW-ppx"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="c8X-hK-727"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="centerY" secondItem="SZ2-xc-5AQ" secondAttribute="centerY" id="i80-qb-SQn"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="180" id="rL4-rt-Zio"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sVo-nz-sKc"/>
+                <constraint firstItem="HeW-8H-JHf" firstAttribute="height" secondItem="SZ2-xc-5AQ" secondAttribute="height" id="uLu-BU-S7u"/>
                 <constraint firstAttribute="trailing" secondItem="SZ2-xc-5AQ" secondAttribute="trailing" constant="5" id="uh9-z9-5qj"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wt3-Vk-IbW"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="xoO-dC-xJz"/>
@@ -82,6 +94,9 @@
                     <exclude reference="bgS-eW-ppx"/>
                     <exclude reference="sVo-nz-sKc"/>
                     <exclude reference="wt3-Vk-IbW"/>
+                    <exclude reference="Axy-oH-BBE"/>
+                    <exclude reference="M9l-ow-qoN"/>
+                    <exclude reference="rL4-rt-Zio"/>
                 </mask>
             </variation>
         </view>

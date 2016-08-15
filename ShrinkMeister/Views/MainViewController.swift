@@ -20,6 +20,9 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     @IBOutlet weak var processCollection: UICollectionView!
 
+    
+    @IBOutlet var cropView: CroppableImageView!
+    
     @IBOutlet var imageScrollView: ImageScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -152,7 +155,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         NotificationHelper.observeNotification("ExportPhotoSucceed", object: nil, owner: self) {
             _ in //passed in NSNotification
             
-            let alertController = UIAlertController(title: "Saved", message: "Saved to Album", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Saved", message: "Saved to Album", preferredStyle:.ActionSheet)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                 // ...
             }
