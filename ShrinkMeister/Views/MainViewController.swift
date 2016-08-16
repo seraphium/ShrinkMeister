@@ -174,6 +174,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             _ in //passed in NSNotification
             
             print("entering/exiting crop mode")
+            self.cropView.hidden = !self.cropView.hidden
+            self.cropView.userInteractionEnabled = !self.cropView.userInteractionEnabled
             self.imageScrollView.userInteractionEnabled = !self.imageScrollView.userInteractionEnabled
         }
         

@@ -109,7 +109,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     
     viewForImage.frame = self.frame;
     
-    self.userInteractionEnabled = true
+    self.userInteractionEnabled = false
     
     dragger.addTarget(self, action: #selector(CroppableImageView.handleDragInView(_:)))
 
@@ -124,6 +124,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
       tapper.requireGestureRecognizerToFail(aCornerpoint.dragger)
     }
     
+    self.hidden = true
   }
   
 //---------------------------------------------------------------------------------------------------------

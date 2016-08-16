@@ -28,11 +28,11 @@
                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <scrollView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
