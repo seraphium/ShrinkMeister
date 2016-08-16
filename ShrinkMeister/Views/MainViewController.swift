@@ -59,8 +59,16 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         
         initCollection()
         
+        initCropView()
+        
         initProcessViews()
         
+        
+    }
+    
+    func initCropView()
+    {
+        cropView.backgroundColor = UIColor.clearColor()
         
     }
     
@@ -111,6 +119,15 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
 
     }
     
+    func resetImageWithViewModel(imageViewModel : ImageViewModel) {
+        
+        self.imageView.image = imageViewModel.image
+        let width = Int(imageViewModel.image.size.width)
+        let height = Int(imageViewModel.image.size.height)
+        self.photoResolutionLabel.text = String("\(width)X\(height)")
+
+    }
+    
     func bindViewModel() {
         
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")  as! MainViewModel
@@ -122,11 +139,8 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
                 return next != nil
             } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
-            self.imageView.image = imageViewModel.image
-            let width = Int(imageViewModel.image.size.width)
-            let height = Int(imageViewModel.image.size.height)
-            self.photoResolutionLabel.text = String("\(width)X\(height)")
-
+                
+                self.resetImageWithViewModel(imageViewModel)
         }
         
         //if processed image , show processed image instead
@@ -135,10 +149,9 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             return next != nil
             } .subscribeNextAs {
                 (imageViewModel:ImageViewModel) -> () in
-                self.imageView.image = imageViewModel.image
-                let width = Int(imageViewModel.image.size.width)
-                let height = Int(imageViewModel.image.size.height)
-                self.photoResolutionLabel.text = String("\(width)X\(height)")
+                
+                self.resetImageWithViewModel(imageViewModel)
+
         }
         
    
