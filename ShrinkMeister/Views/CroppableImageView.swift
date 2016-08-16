@@ -104,14 +104,21 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     aspect = 1
     
     dragger = UIPanGestureRecognizer()
+
     super.init(coder: aDecoder)
-    dragger.addTarget(self as AnyObject, action: "handleDragInView:")
+    
     viewForImage.frame = self.frame;
+    
+    self.userInteractionEnabled = true
+    
+    dragger.addTarget(self, action: #selector(CroppableImageView.handleDragInView(_:)))
+
     self.addGestureRecognizer(dragger)
 
-    let tapper = UITapGestureRecognizer(target: self as AnyObject,
-      action: "handleViewTap:");
+    let tapper = UITapGestureRecognizer(target: self,
+      action: #selector(CroppableImageView.handleViewTap(_:)));
     self.addGestureRecognizer(tapper)
+    
     for aCornerpoint in cornerpoints
     {
       tapper.requireGestureRecognizerToFail(aCornerpoint.dragger)
@@ -126,9 +133,10 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   override func awakeFromNib()
   {
     super.awakeFromNib()
-       self.superview?.insertSubview(viewForImage, belowSubview: self)
+       self.addSubview(viewForImage)
 
-
+    self.backgroundColor = UIColor.clearColor()
+    
     for aCornerpoint in cornerpoints
     {
       self.addSubview(aCornerpoint)

@@ -28,7 +28,7 @@
                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
+                <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -90,13 +90,13 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="Axy-oH-BBE"/>
+                    <exclude reference="M9l-ow-qoN"/>
+                    <exclude reference="rL4-rt-Zio"/>
                     <exclude reference="Wwh-7K-fMc"/>
                     <exclude reference="bgS-eW-ppx"/>
                     <exclude reference="sVo-nz-sKc"/>
                     <exclude reference="wt3-Vk-IbW"/>
-                    <exclude reference="Axy-oH-BBE"/>
-                    <exclude reference="M9l-ow-qoN"/>
-                    <exclude reference="rL4-rt-Zio"/>
                 </mask>
             </variation>
         </view>

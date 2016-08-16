@@ -58,20 +58,13 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
         initNavigationBar()
         
         initCollection()
-        
-        initCropView()
-        
+                
         initProcessViews()
         
         
     }
     
-    func initCropView()
-    {
-        cropView.backgroundColor = UIColor.clearColor()
-        
-    }
-    
+
     func initProcessViews(){
         
         for index in 0 ..< processViewCount{
@@ -121,6 +114,7 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
     
     func resetImageWithViewModel(imageViewModel : ImageViewModel) {
         
+        self.cropView.imageToCrop = imageViewModel.image
         self.imageView.image = imageViewModel.image
         let width = Int(imageViewModel.image.size.width)
         let height = Int(imageViewModel.image.size.height)
