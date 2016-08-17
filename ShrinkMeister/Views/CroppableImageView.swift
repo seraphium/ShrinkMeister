@@ -183,7 +183,9 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     cropRect = nil;
     
     imageToCrop = UIImage(named: "Scampers 6685")
-
+    
+    viewForImage.hidden = true
+    
   }
   
   override func layoutSubviews()

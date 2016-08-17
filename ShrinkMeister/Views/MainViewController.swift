@@ -10,7 +10,7 @@ import UIKit
 import ReactiveCocoa
 import SnapKit
 
-class MainViewController: BaseViewController, ViewModelProtocol, UINavigationControllerDelegate {
+class MainViewController: BaseViewController, ViewModelProtocol,UINavigationControllerDelegate {
 
     var mainViewModel : MainViewModel!
     
@@ -205,11 +205,13 @@ class MainViewController: BaseViewController, ViewModelProtocol, UINavigationCon
             let scaleWidth = scrollViewFrame.size.width / imageScrollView.contentSize.width
             let scaleHeight = scrollViewFrame.size.height / imageScrollView.contentSize.height;
             let minScale = min(scaleWidth, scaleHeight);
-            imageScrollView.minimumZoomScale = minScale;
+            //if image smaller than screen, set max scale to fit-screen
+            imageScrollView.minimumZoomScale = minScale > 1.0 ? 1 : minScale;
             
-            imageScrollView.maximumZoomScale = 1.0;
+            imageScrollView.maximumZoomScale = minScale > 1.0 ? minScale : 1.0;
             imageScrollView.setZoomScale(minScale, animated: true)
             
+         
         }
         
     }
@@ -304,8 +306,10 @@ extension MainViewController : UIScrollViewDelegate {
     }
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-    
+        print ("Aa")
     }
+    
+
 }
 
 extension MainViewController : UIImagePickerControllerDelegate {
