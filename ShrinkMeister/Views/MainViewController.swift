@@ -307,6 +307,8 @@ extension MainViewController : UIScrollViewDelegate {
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
         print ("Aa")
+        //TODO: set crop image area size here
+        
     }
     
 
