@@ -25,11 +25,12 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
         
     }
         
-    func updateCropRect(cropRect: CGRect) {
+    func updateCropRect(cropRect: CGRect, inFrame: CGRect) {
         
-        print("cropRect update to: \(cropRect)")
+        print("cropRect update to: \(cropRect) in frame: \(inFrame)")
         
         (viewModel as! ProcessViewModelCrop).cropRect = cropRect
+        (viewModel as! ProcessViewModelCrop).sourceImageFrame = inFrame
     }
 
     

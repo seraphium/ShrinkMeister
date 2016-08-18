@@ -18,6 +18,7 @@ class ProcessViewModelCrop : BaseProcessViewModel {
     dynamic var cropMode: Bool = false
     
     var cropRect: CGRect!
+    var sourceImageFrame: CGRect!
     
     init() {
         
@@ -36,7 +37,7 @@ class ProcessViewModelCrop : BaseProcessViewModel {
     }
 
     override func beforeProcess() {
-        self.parameters = [cropRect]
+        self.parameters = [cropRect, sourceImageFrame]
     }
     
     override func imageDidSet() {

@@ -121,9 +121,6 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         let width = Int(imageViewModel.image.size.width)
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
-
-        self.cropView.imageToCrop = imageViewModel.image
-
     }
     
     func bindViewModel() {
@@ -311,10 +308,16 @@ extension MainViewController : UIScrollViewDelegate {
         return imageView
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
+        self.cropView.sourceImageFrame = rect
+    }
+    
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
     {
         visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
         self.cropView.imageRect = self.visibleImageRect
+
     }
     
 

@@ -18,5 +18,5 @@ import UIKit
 {
     func haveValidCropRect(_: Bool)
     
-    func updateCropRect(_: CGRect)
+    func updateCropRect(cropRect: CGRect, inFrame: CGRect)
 }

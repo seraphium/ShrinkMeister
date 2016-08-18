@@ -13,7 +13,8 @@ class ProcessImageCrop : ProcessServiceProtocol {
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {
         let rect = options![0] as! CGRect
-        print ("process image for crop \(rect)")
+        let sourceImageFrame = options![1] as! CGRect
+        print ("process image for crop \(rect) in frame \(sourceImageFrame)")
 
         return image
     }
