@@ -23,6 +23,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     
     @IBOutlet var cropView: CroppableImageView!
     
+    //visible image rect used for cropping
+    var visibleImageRect: CGRect!
+    
     @IBOutlet var imageScrollView: ImageScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -114,6 +117,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     func resetImageWithViewModel(imageViewModel : ImageViewModel) {
         
         self.cropView.imageToCrop = imageViewModel.image
+        self.cropView.imageRect = self.visibleImageRect
         self.imageView.image = imageViewModel.image
         let width = Int(imageViewModel.image.size.width)
         let height = Int(imageViewModel.image.size.height)
@@ -305,12 +309,10 @@ extension MainViewController : UIScrollViewDelegate {
         return imageView
     }
     
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-        print ("Aa")
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+    {
         //TODO: set crop image area size here
-        let visibleRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
-        print (visibleRect)
-        
+        visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
         
     }
     

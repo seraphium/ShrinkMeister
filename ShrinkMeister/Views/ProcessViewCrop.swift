@@ -21,9 +21,6 @@ class ProcessViewCrop : BaseProcessView {
     override func bindViewModel() {
         super.bindViewModel()
         
-        
-     
-        
 
     }
 }

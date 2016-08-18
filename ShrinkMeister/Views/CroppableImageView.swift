@@ -194,7 +194,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     cropRect = nil;
     
     //If we have an image...
-    if let requiredImageSize = imageSize
+  /*  if let requiredImageSize = imageSize
     {
       var displaySize: CGSize = CGSizeZero
       displaySize.width = min(requiredImageSize.width, self.bounds.size.width)
@@ -207,7 +207,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
       
       imageRect = CGRectMake(0, 0, displaySize.width, displaySize.height)
     }
-    
+    */
     if imageToCrop != nil
     {
       //Drawing the image every time in drawRect is too slow. Instead, create a 
@@ -218,13 +218,14 @@ class CroppableImageView: UIView, CornerpointClientProtocol
       UIColor.whiteColor().setFill()
       path.fill()
 
-      imageToCrop?.drawInRect(imageRect!)
-      let result = UIGraphicsGetImageFromCurrentImageContext()
+     // imageToCrop?.drawInRect(imageRect!)
+    /*  let result = UIGraphicsGetImageFromCurrentImageContext()
       
       UIGraphicsEndImageContext();
       
-      let theImageRef = result!.CGImage
-      viewForImage.layer.contents = theImageRef as! AnyObject
+     // let theImageRef = result!.CGImage
+   //   viewForImage.layer.contents = theImageRef as! AnyObject
+ */
     }
   }
   
@@ -312,18 +313,24 @@ class CroppableImageView: UIView, CornerpointClientProtocol
       //If the user is dragging the entire rect, don't let it be draggged out-of-bounds
       if draggingRect
       {
-        var newX = max(startPoint!.x + thePanner.translationInView(self).x,0)
-        if newX + internalCropRect!.size.width > imageRect!.size.width
+        
+        let newX = max(startPoint!.x + thePanner.translationInView(self).x,0)
+        let newY = max(startPoint!.y + thePanner.translationInView(self).y,0)
+        let newRect = CGRectMake(newX, newY, cropRect!.width, cropRect!.height)
+      /*  if newX + internalCropRect!.size.width > (imageRect!.origin.x + imageRect!.size.width)
         {
-          newX = imageRect!.size.width - internalCropRect!.size.width
+          newX = imageRect!.origin.x + (imageRect!.size.width - internalCropRect!.size.width)
         }
-        var newY = max(startPoint!.y + thePanner.translationInView(self).y,0)
-        if newY + internalCropRect!.size.height > imageRect!.size.height
+        if newY + internalCropRect!.size.height > (imageRect!.origin.y + imageRect!.size.height)
         {
-          newY = imageRect!.size.height - internalCropRect!.size.height
+          newY = imageRect!.origin.y + (imageRect!.size.height - internalCropRect!.size.height)
+        }*/
+        if CGRectIntersection(imageRect!, newRect) == newRect {
+            //not out of bound
+            self.cropRect!.origin = CGPointMake(newX, newY)
+        } else {
+            print ("out of bounds")
         }
-        self.cropRect!.origin = CGPointMake(newX, newY)
-
       }
       else
       {
