@@ -15,5 +15,7 @@ protocol ProcessViewModelProtocol {
     func executeProcessSignal() -> RACSignal
     
     func beforeProcess() -> Void
+    
+    func afterProcess() -> Void
 
 }

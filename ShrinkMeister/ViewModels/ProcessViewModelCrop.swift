@@ -40,16 +40,19 @@ class ProcessViewModelCrop : BaseProcessViewModel {
         self.parameters = [cropRect, sourceImageFrame]
     }
     
+    override func afterProcess() {
+        
+        self.cropMode = false
+
+        NotificationHelper.postNotification("EnterCrop", objects: self, userInfo: nil)
+
+        
+    }
+    
     override func imageDidSet() {
 
         
     }
 
-    func executeCropSignal() -> RACSignal {
-        
-        
-        
-        return RACSignal.empty()
-    }
-    
+
 }

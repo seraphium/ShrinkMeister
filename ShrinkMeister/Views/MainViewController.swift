@@ -182,6 +182,8 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             self.cropView.hidden = !self.cropView.hidden
             self.cropView.userInteractionEnabled = !self.cropView.userInteractionEnabled
             self.imageScrollView.userInteractionEnabled = !self.imageScrollView.userInteractionEnabled
+            
+            
         }
         
 

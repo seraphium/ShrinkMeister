@@ -48,6 +48,10 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
 
     }
     
+    func afterProcess() {
+
+    }
+    
     func executeProcessSignal() -> RACSignal {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
@@ -68,6 +72,8 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
         } else {
             print ("no image")
         }
+        
+        self.afterProcess()
         
         return RACSignal.empty()
    

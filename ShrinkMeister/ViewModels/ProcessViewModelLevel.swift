@@ -28,6 +28,7 @@ class ProcessViewModelLevel : BaseProcessViewModel {
     override func beforeProcess() {
         self.parameters = [imageLevel]
     }
+
     
     override func imageDidSet() {
 
