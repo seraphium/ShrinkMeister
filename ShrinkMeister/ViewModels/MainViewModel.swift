@@ -58,7 +58,21 @@ class MainViewModel : ViewModel {
             processViewModelLevel.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
-        } 
+        }
+        
+        RACObserve(self, keyPath: "processedImageViewModel")
+            .filter {
+                (next: AnyObject?) -> Bool in
+                return next != nil
+            } .subscribeNextAs {
+            (imageViewModel:ImageViewModel) -> () in
+
+            processViewModelCrop.sourceImageViewModel = imageViewModel
+            processViewModelLevel.sourceImageViewModel = imageViewModel
+            processViewModelCustom.sourceImageViewModel = imageViewModel
+            processViewModelExport.sourceImageViewModel = imageViewModel
+        }
+        
         processViewModels.append(processViewModelCrop)
         processViewModels.append(processViewModelLevel)
         processViewModels.append(processViewModelCustom)

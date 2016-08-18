@@ -45,7 +45,12 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
             } .subscribeNextAs {
                 (cropMode:Bool) -> () in
                 
-               self.confirmButton!.enabled = cropMode
+                if cropMode {
+                    self.confirmButton!.alpha = 1.0
+                } else {
+                    self.confirmButton!.alpha = 0.2
+
+                }
                 
                 if cropMode {
                     self.toggleCropButton.backgroundColor = UIColor.redColor()
