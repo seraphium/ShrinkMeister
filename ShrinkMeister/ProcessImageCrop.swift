@@ -8,15 +8,13 @@
 
 import UIKit
 
-class ProcessImageLevel : ProcessServiceProtocol {
+class ProcessImageCrop : ProcessServiceProtocol {
     
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {
-        print ("process image for options: \(options)")
-        guard let op = options else {
-            return nil
-        }
-        
+        let rect = options![0] as! CGRect
+        print ("process image for crop \(rect)")
+
         return image
     }
 

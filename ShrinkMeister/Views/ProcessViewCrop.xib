@@ -29,7 +29,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cropButton" destination="THv-PM-XBl" id="ho1-kH-CLn"/>
+                <outlet property="confirmButton" destination="THv-PM-XBl" id="p3b-cI-mYd"/>
                 <outlet property="toggleCropButton" destination="oho-oL-Xuc" id="wVb-Li-ZES"/>
             </connections>
             <point key="canvasLocation" x="269" y="323"/>

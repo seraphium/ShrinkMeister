@@ -86,6 +86,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             
         }
         
+        cropView.cropDelegate = processViews[0] as! ProcessViewCrop
 
     }
     
@@ -151,7 +152,6 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
         }
         
-        cropView.cropDelegate = self
    
  
     }
@@ -236,22 +236,6 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     
 
 
-}
-
-extension MainViewController : CroppableImageViewDelegateProtocol {
-    //MARK:CroppableImageViewDelegateProtocol
-    
-    func haveValidCropRect(valid: Bool) {
-        
-    }
-    
-    func updateCropRect(cropRect: CGRect) {
-        
-        print("cropRect update to: \(cropRect)")
-        
-        mainViewModel.cropRect = cropRect
-    }
-    
 }
 
 

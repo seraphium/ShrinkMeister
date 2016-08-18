@@ -11,7 +11,7 @@ import UIKit
 class ProcessImageCustom : ProcessServiceProtocol {
     
     // process logic here
-    func processImage(image: UIImage, options: [AnyObject]?) -> UIImage? {
+    func processImage(image: UIImage, options: [Any]?) -> UIImage? {
         guard let op = options else {
             return nil
         } 
@@ -24,28 +24,6 @@ class ProcessImageCustom : ProcessServiceProtocol {
         print ("finished process ,dest image: \(destImage.size.width): \(destImage.size.height)")
         return destImage
     }
-    
-    
-    //this scaling logic will keep png transparency
-    //target size not worked??
-   /* func scaleImage(image: UIImage, toSize newSize: CGSize) -> (UIImage) {
-        
-        let newRect = CGRectIntegral(CGRectMake(0,0, newSize.width, newSize.height))
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
-        
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetInterpolationQuality(context, .High)
-        let flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height)
-        CGContextConcatCTM(context, flipVertical)
-        
-        CGContextDrawImage(context, newRect, image.CGImage)
-        
-        let newImage = UIImage(CGImage: CGBitmapContextCreateImage(context)!)
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }*/
     
     func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         

@@ -41,7 +41,8 @@ class MainViewModel : ViewModel {
     func initProcessViewModel() {
         
         let processViewModelCrop = ProcessViewModelCrop()   
-        
+        processViewModelCrop.processService = ProcessImageCrop()
+
         let processViewModelLevel = ProcessViewModelLevel()
         processViewModelLevel.processService = ProcessImageLevel()
     

@@ -13,23 +13,15 @@ import ReactiveCocoa
 
 class ProcessViewModelCrop : BaseProcessViewModel {
 
-    var cropCommand : RACCommand!
     var toggleCommand : RACCommand!
     
     dynamic var cropMode: Bool = false
     
+    var cropRect: CGRect!
+    
     init() {
         
         super.init(title: "Crop", image: UIImage(named: "sample"))
-        
-        self.cropCommand = RACCommand() {
-            (any:AnyObject!) -> RACSignal in
-            
-            NotificationHelper.postNotification("Crop", objects: self, userInfo: nil)
-            
-            return RACSignal.empty()
-        }
-        
         
         self.toggleCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
@@ -44,7 +36,7 @@ class ProcessViewModelCrop : BaseProcessViewModel {
     }
 
     override func beforeProcess() {
-        
+        self.parameters = [cropRect]
     }
     
     override func imageDidSet() {

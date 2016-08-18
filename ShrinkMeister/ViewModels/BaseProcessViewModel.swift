@@ -18,7 +18,7 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     
     var processService: ProcessServiceProtocol!
 
-    var parameters : [AnyObject]?
+    var parameters : [Any]?
     
     var confirmCommand : RACCommand!
     

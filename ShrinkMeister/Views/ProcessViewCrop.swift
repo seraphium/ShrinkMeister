@@ -8,10 +8,7 @@
 
 import UIKit
 
-class ProcessViewCrop : BaseProcessView {
-        
-    @IBOutlet weak var cropButton: UIButton!
-    
+class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
     
     @IBOutlet weak var toggleCropButton: UIButton!
     
@@ -23,20 +20,31 @@ class ProcessViewCrop : BaseProcessView {
         bindViewModel()
     }
     
+    
+    func haveValidCropRect(valid: Bool) {
+        
+    }
+        
+    func updateCropRect(cropRect: CGRect) {
+        
+        print("cropRect update to: \(cropRect)")
+        
+        (viewModel as! ProcessViewModelCrop).cropRect = cropRect
+    }
+
+    
     override func bindViewModel() {
         super.bindViewModel()
         
         toggleCropButton.rac_command = (viewModel! as! ProcessViewModelCrop).toggleCommand
-        
-        cropButton.rac_command = (viewModel! as! ProcessViewModelCrop).cropCommand
-        
+                
         RACObserve(viewModel, keyPath: "cropMode").filter {
             (next: AnyObject?) -> Bool in
             return next != nil
             } .subscribeNextAs {
                 (cropMode:Bool) -> () in
                 
-               self.cropButton.enabled = cropMode
+               self.confirmButton!.enabled = cropMode
                 
         }
 
