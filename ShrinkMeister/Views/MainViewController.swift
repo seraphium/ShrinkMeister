@@ -122,7 +122,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
         
-        let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
+        let rect = self.view.convertRect(imageView.frame, fromView: self.imageScrollView)
         self.cropView.sourceImageFrame = rect
     }
     
@@ -312,6 +312,8 @@ extension MainViewController : UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
+        self.cropView.imageRect = self.visibleImageRect
         let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
         self.cropView.sourceImageFrame = rect
     }
@@ -320,6 +322,9 @@ extension MainViewController : UIScrollViewDelegate {
     {
         visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
         self.cropView.imageRect = self.visibleImageRect
+        let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
+        self.cropView.sourceImageFrame = rect
+
 
     }
     
