@@ -116,12 +116,12 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     
     func resetImageWithViewModel(imageViewModel : ImageViewModel) {
         
-        self.cropView.imageToCrop = imageViewModel.image
-        self.cropView.imageRect = self.visibleImageRect
         self.imageView.image = imageViewModel.image
         let width = Int(imageViewModel.image.size.width)
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
+
+        self.cropView.imageToCrop = imageViewModel.image
 
     }
     
@@ -151,6 +151,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
         }
         
+        cropView.cropDelegate = self
    
  
     }
@@ -237,6 +238,23 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
 }
 
+extension MainViewController : CroppableImageViewDelegateProtocol {
+    //MARK:CroppableImageViewDelegateProtocol
+    
+    func haveValidCropRect(valid: Bool) {
+        
+    }
+    
+    func updateCropRect(cropRect: CGRect) {
+        
+        print("cropRect update to: \(cropRect)")
+        
+        mainViewModel.cropRect = cropRect
+    }
+    
+}
+
+
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: UICollectionViewDelegate
@@ -311,9 +329,8 @@ extension MainViewController : UIScrollViewDelegate {
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
     {
-        //TODO: set crop image area size here
         visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
-        
+        self.cropView.imageRect = self.visibleImageRect
     }
     
 

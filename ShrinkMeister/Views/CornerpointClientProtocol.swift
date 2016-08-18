@@ -14,4 +14,6 @@ import Foundation
 @objc protocol CornerpointClientProtocol
 {
   func cornerHasChanged(_: CornerpointView)
+    
+  func cornerChangeFinished()
 }

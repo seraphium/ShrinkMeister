@@ -11,10 +11,12 @@ It notifies the delegate when the user selects/deselects a valid crop rectangle.
 In the demo app the view controller uses this message to enable/disable the crop button
 */
 
-import Foundation
+import UIKit
 
 
 @objc protocol CroppableImageViewDelegateProtocol
 {
-  func haveValidCropRect(_: Bool)
+    func haveValidCropRect(_: Bool)
+    
+    func updateCropRect(_: CGRect)
 }

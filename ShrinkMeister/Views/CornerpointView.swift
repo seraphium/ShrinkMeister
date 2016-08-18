@@ -118,6 +118,12 @@ class CornerpointView: UIView
       {
         theDelegate.cornerHasChanged(self)
       }
+    case UIGestureRecognizerState.Ended:
+        if let theDelegate = cornerpointDelegate
+        {
+            theDelegate.cornerChangeFinished()
+        }
+        break;
     default:
       break;
     }

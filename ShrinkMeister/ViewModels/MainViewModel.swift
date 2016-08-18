@@ -34,13 +34,13 @@ class MainViewModel : ViewModel {
     
     var processViewModels = [BaseProcessViewModel]()
     
+    var cropRect : CGRect?
+    
     //TODO: should include viewmodel for each cell
     
     func initProcessViewModel() {
         
-        let processViewModelCrop = ProcessViewModelCrop()
-        processViewModelCrop.processService = ProcessImageCrop()
-   
+        let processViewModelCrop = ProcessViewModelCrop()   
         
         let processViewModelLevel = ProcessViewModelLevel()
         processViewModelLevel.processService = ProcessImageLevel()
@@ -101,6 +101,13 @@ class MainViewModel : ViewModel {
             notify in //passed in NSNotification
             let image = notify.userInfo["image"] as! UIImage
             self.processedImageViewModel = ImageViewModel(image: image, key: (self.imageViewModel?.key)!)
+            
+        }
+        
+        NotificationHelper.observeNotification("Crop", object: nil, owner: self) {
+            _ in
+            
+            print("crop with rect \(self.cropRect)")
             
         }
     }

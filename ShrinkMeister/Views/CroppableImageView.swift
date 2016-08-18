@@ -338,6 +338,13 @@ class CroppableImageView: UIView, CornerpointClientProtocol
         //start and end points
         self.cropRect = rectFromStartAndEnd(startPoint!, endPoint: newPoint)
       }
+    case UIGestureRecognizerState.Ended:
+
+            if let delegate = cropDelegate, let rect = cropRect {
+                delegate.updateCropRect(rect)
+            }
+
+        break;
     default:
       draggingRect = false;
       break
@@ -377,9 +384,17 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     }
 
     //Find the index of the opposite corner.
-    var otherIndex:Int = (pointIndex! + 2) % 4
+    let otherIndex:Int = (pointIndex! + 2) % 4
     
     //Calculate a new cropRect using those 2 corners
     cropRect = rectFromStartAndEnd(newCornerPoint.centerPoint!, endPoint: cornerpoints[otherIndex].centerPoint!)
+    }
+    
+    func cornerChangeFinished() {
+
+            if let delegate = cropDelegate, let rect = cropRect {
+                delegate.updateCropRect(rect)
+            }
+        
     }
   }
