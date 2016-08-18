@@ -121,6 +121,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         let width = Int(imageViewModel.image.size.width)
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
+        
+        let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
+        self.cropView.sourceImageFrame = rect
     }
     
     func bindViewModel() {

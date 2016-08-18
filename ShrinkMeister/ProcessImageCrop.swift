@@ -12,11 +12,17 @@ class ProcessImageCrop : ProcessServiceProtocol {
     
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {
-        let rect = options![0] as! CGRect
+        let cropRect = options![0] as! CGRect
         let sourceImageFrame = options![1] as! CGRect
-        print ("process image for crop \(rect) in frame \(sourceImageFrame)")
+        print ("process image for crop \(cropRect) in frame \(sourceImageFrame)")
 
-        return image
+        UIGraphicsBeginImageContextWithOptions(cropRect.size, true, 1)
+        image.drawInRect(sourceImageFrame)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        
+        return result
+
     }
 
 }
