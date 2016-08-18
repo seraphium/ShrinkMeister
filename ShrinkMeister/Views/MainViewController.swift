@@ -176,15 +176,30 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         }
         
         NotificationHelper.observeNotification("EnterCrop", object: nil, owner: self) {
-            _ in //passed in NSNotification
+            notify in //passed in NSNotification
             
-            print("entering/exiting crop mode")
-            self.cropView.hidden = !self.cropView.hidden
-            self.cropView.userInteractionEnabled = !self.cropView.userInteractionEnabled
-            self.imageScrollView.userInteractionEnabled = !self.imageScrollView.userInteractionEnabled
+            let aspect = notify.userInfo["aspect"] as! Double
+            
+            print("entering crop mode: \(aspect)")
+            self.cropView.aspect = aspect
+            self.cropView.hidden = false
+            self.cropView.userInteractionEnabled = true
+            self.imageScrollView.userInteractionEnabled = false
             
             
         }
+        
+        NotificationHelper.observeNotification("ExitCrop", object: nil, owner: self) {
+            _ in //passed in NSNotification
+            
+            print("exit crop mode")
+            self.cropView.hidden = true
+            self.cropView.userInteractionEnabled = false
+            self.imageScrollView.userInteractionEnabled = true
+            
+            
+        }
+
         
 
         
@@ -274,15 +289,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let current = currentProcessView {
                 //close current openned
                 current.hidden = true
+                current.afterDisappear()
                 currentProcessView = nil
+                
                 if current != processViews[index] { //if selected a new
                     currentProcessView = processViews[index]
                     currentProcessView!.hidden = false
+                    currentProcessView?.afterShow()
+
                 }
             } else { //if no one opened
                 currentProcessView = processViews[index]
                 currentProcessView!.hidden = false
-                
+                currentProcessView?.afterShow()
             }
             
 

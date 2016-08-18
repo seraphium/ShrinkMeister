@@ -119,12 +119,6 @@ class MainViewModel : ViewModel {
             
         }
         
-        NotificationHelper.observeNotification("Crop", object: nil, owner: self) {
-            _ in
-            
-            print("crop with rect \(self.cropRect)")
-            
-        }
     }
 
     //load last image from imageStore , if not exists, load default

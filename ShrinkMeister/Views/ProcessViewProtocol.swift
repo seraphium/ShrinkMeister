@@ -10,5 +10,7 @@ import Foundation
 
 protocol ProcessViewProtocol {
     
+    func afterShow() -> Void
+    func afterDisappear() -> Void
     func bindViewModel() -> Void
 }

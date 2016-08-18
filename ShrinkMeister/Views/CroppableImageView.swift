@@ -30,7 +30,12 @@ class CroppableImageView: UIView, CornerpointClientProtocol
 
   var sourceImageFrame: CGRect!
   var  imageRect: CGRect?
-  var aspect: CGFloat
+    
+    var aspect: Double = 0.0 {
+        didSet {
+            generateCropRect()
+        }
+    }
   var draggingRect: Bool = false
 
   @IBOutlet var  cropDelegate: CroppableImageViewDelegateProtocol?
@@ -67,6 +72,10 @@ class CroppableImageView: UIView, CornerpointClientProtocol
           internalCropRect!.size.width < 5 ||
           internalCropRect!.size.height < 5
         cropDelegate.haveValidCropRect(internalCropRect != nil && !rectIsTooSmall)
+        
+        if let rect = cropRect {
+            cropDelegate.updateCropRect(rect, inFrame: self.sourceImageFrame)
+        }
       }
       
       
@@ -90,8 +99,6 @@ class CroppableImageView: UIView, CornerpointClientProtocol
        cornerpoints.append(aCornerpointView)
       //cornerpoints += [CornerpointView()]
     }
-
-    aspect = 1
     
     dragger = UIPanGestureRecognizer()
 
@@ -136,6 +143,17 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     
   }
   
+  func generateCropRect() {
+    if let rect = imageRect {
+        let centerX = rect.midX
+        let centerY = rect.midY
+        let height = CGFloat(100)
+        let width = CGFloat(Double(height) * aspect)
+        cropRect = CGRectMake(CGFloat(centerX - width/2), CGFloat(centerY-height/2), width, height)
+        print("\(centerX)\(centerY)")
+    }
+}
+    
   override func layoutSubviews()
   {
     super.layoutSubviews()

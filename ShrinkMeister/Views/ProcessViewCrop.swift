@@ -10,7 +10,8 @@ import UIKit
 
 class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
     
-    @IBOutlet weak var toggleCropButton: UIButton!
+    
+    @IBOutlet var aspectSelector: UISegmentedControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +19,15 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
         self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelCrop
 
         bindViewModel()
+        
+        aspectSelector.setTitle("1:1", forSegmentAtIndex: 0)
+        aspectSelector.setTitle("3:2", forSegmentAtIndex: 1)
+        aspectSelector.setTitle("4:3", forSegmentAtIndex: 2)
+        aspectSelector.setTitle("16:9", forSegmentAtIndex: 3)
+
+        aspectSelector.selectedSegmentIndex = 0
+
     }
-    
     
     func haveValidCropRect(valid: Bool) {
         
@@ -33,12 +41,21 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
         (viewModel as! ProcessViewModelCrop).sourceImageFrame = inFrame
     }
 
+   override func afterShow() {
+        
+        (viewModel as! ProcessViewModelCrop).aspectLevel = 0
+    
+    }
+    
+    override func afterDisappear() {
+        NotificationHelper.postNotification("ExitCrop", objects: self, userInfo: nil)
+    }
     
     override func bindViewModel() {
         super.bindViewModel()
         
-        toggleCropButton.rac_command = (viewModel! as! ProcessViewModelCrop).toggleCommand
-                
+        aspectSelector.rac_newSelectedSegmentIndexChannelWithNilValue(nil) ~> RAC(viewModel, "aspectLevel")
+        
         RACObserve(viewModel, keyPath: "cropMode").filter {
             (next: AnyObject?) -> Bool in
             return next != nil
@@ -52,11 +69,15 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
 
                 }
                 
-                if cropMode {
-                    self.toggleCropButton.backgroundColor = UIColor.redColor()
-                } else {
-                    self.toggleCropButton.backgroundColor = UIColor.clearColor()
-                }
+        }
+
+        RACObserve(viewModel, keyPath: "aspectLevel").filter {
+            (next: AnyObject?) -> Bool in
+            return next != nil
+            } .subscribeNextAs {
+                (level:Int) -> () in
+                
+               self.aspectSelector.selectedSegmentIndex = level
                 
         }
 

@@ -34,6 +34,14 @@ class BaseProcessView : UIView, ProcessViewProtocol {
 
     }
     
+    func afterShow() {
+        
+    }
+    
+    func afterDisappear() {
+        
+    }
+    
     func bindViewModel()
     {
         
