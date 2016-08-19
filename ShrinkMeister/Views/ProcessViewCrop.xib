@@ -24,13 +24,19 @@
                         <segment title=""/>
                     </segments>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVd-Mz-sqe">
+                    <rect key="frame" x="479" y="10" width="30" height="30"/>
+                    <state key="normal" title="T."/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="THv-PM-XBl" secondAttribute="trailing" constant="28" id="N6f-DY-7aP"/>
                 <constraint firstItem="nfV-MW-wCM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qtj-tD-PZp"/>
                 <constraint firstItem="nfV-MW-wCM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="ef0-8f-lr4"/>
+                <constraint firstItem="FVd-Mz-sqe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g8l-fr-fAs"/>
                 <constraint firstItem="nfV-MW-wCM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k7y-94-nLR"/>
+                <constraint firstItem="THv-PM-XBl" firstAttribute="leading" secondItem="FVd-Mz-sqe" secondAttribute="trailing" constant="26" id="qlB-eL-cVP"/>
                 <constraint firstItem="THv-PM-XBl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="soj-OB-hNR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -42,6 +48,7 @@
             <connections>
                 <outlet property="aspectSelector" destination="nfV-MW-wCM" id="xLa-yh-mTI"/>
                 <outlet property="confirmButton" destination="THv-PM-XBl" id="p3b-cI-mYd"/>
+                <outlet property="transAspectButton" destination="FVd-Mz-sqe" id="r6i-C1-2Bi"/>
             </connections>
             <point key="canvasLocation" x="239" y="322"/>
         </view>

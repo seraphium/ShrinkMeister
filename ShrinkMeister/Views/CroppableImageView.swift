@@ -23,7 +23,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
             }
             if let rect = imageRect {
                 imageLayer = CALayer()
-                imageLayer?.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
+              //  imageLayer?.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
                 imageLayer!.frame = rect
                 self.layer.addSublayer(imageLayer!)
                 print("image layer added")
@@ -194,9 +194,9 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     if let realCropRect = internalCropRect
     { 
       let path = UIBezierPath(rect: realCropRect)
-      path.lineWidth = 3.0
-      UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).set()
-      path.stroke()
+     // path.lineWidth = 3.0
+     // UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).set()
+     // path.stroke()
       path.lineWidth = 1.0
       UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5).set()
       path.stroke()
