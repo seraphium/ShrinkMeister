@@ -110,15 +110,15 @@ class CroppableImageView: UIView, CornerpointClientProtocol
 
     self.addGestureRecognizer(dragger)
 
-    let tapper = UITapGestureRecognizer(target: self,
-      action: #selector(CroppableImageView.handleViewTap(_:)));
-    self.addGestureRecognizer(tapper)
+  //  let tapper = UITapGestureRecognizer(target: self,
+   //   action: #selector(CroppableImageView.handleViewTap(_:)));
+   // self.addGestureRecognizer(tapper)
     
-    for aCornerpoint in cornerpoints
+   /* for aCornerpoint in cornerpoints
     {
       tapper.requireGestureRecognizerToFail(aCornerpoint.dragger)
     }
-    
+    */
     self.hidden = true
   }
   
@@ -147,10 +147,18 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     if let rect = imageRect {
         let centerX = rect.midX
         let centerY = rect.midY
-        let height = CGFloat(100)
-        let width = CGFloat(Double(height) * aspect)
+        
+        //first try calculate from height
+        var height = CGFloat(sourceImageFrame.height * 2/3)
+        var width = CGFloat(Double(height) * aspect)
+        
+        //calculated width exceed image frame, change to calculate from width
+        if width > sourceImageFrame.width {
+            width = CGFloat(sourceImageFrame.width * 2/3)
+            height = CGFloat(Double(width) * (1 / aspect))
+        }
+        
         cropRect = CGRectMake(CGFloat(centerX - width/2), CGFloat(centerY-height/2), width, height)
-        print("\(centerX)\(centerY)")
     }
 }
     
@@ -247,13 +255,14 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   }
 
   //The user tapped outside of the crop rect. Cancel the current crop rect.
-  func handleViewTap(theTapper: UITapGestureRecognizer)
+ /* func handleViewTap(theTapper: UITapGestureRecognizer)
   {
     if CGRectContainsPoint(imageRect!, theTapper.locationInView(self))
     {
       self.cropRect = nil
     }
-  }
+  }*/
+    
   
   //-------------------------------------------------------------------------------------------------------
   // MARK: - CornerpointClientProtocol methods

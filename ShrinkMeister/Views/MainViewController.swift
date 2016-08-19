@@ -196,8 +196,8 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             self.cropView.hidden = true
             self.cropView.userInteractionEnabled = false
             self.imageScrollView.userInteractionEnabled = true
-            
-            
+            self.currentProcessView?.hidden = true
+            self.currentProcessView = nil
         }
 
         
@@ -288,20 +288,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             //if already have one opened
             if let current = currentProcessView {
                 //close current openned
-                current.hidden = true
-                current.afterDisappear()
+                current.hide()
                 currentProcessView = nil
+                currentProcessView?.hide()
                 
                 if current != processViews[index] { //if selected a new
                     currentProcessView = processViews[index]
-                    currentProcessView!.hidden = false
-                    currentProcessView?.afterShow()
+                    currentProcessView?.show()
 
                 }
             } else { //if no one opened
                 currentProcessView = processViews[index]
-                currentProcessView!.hidden = false
-                currentProcessView?.afterShow()
+                currentProcessView?.show()
             }
             
 
@@ -403,6 +401,12 @@ extension MainViewController : UIImagePickerControllerDelegate {
     
     func ReloadPhoto() {
         mainViewModel.reloadPhotoCommand?.execute(nil)
+        
+        ///close all opened process views
+        for i in 0 ..< processViewCount {
+            processViews[i].hide()
+        }
+        currentProcessView = nil
     }
     
     

@@ -63,5 +63,16 @@ class BaseProcessView : UIView, ProcessViewProtocol {
 
     }
     
+    func show()
+    {
+        self.hidden = false
+        self.afterShow()
+    }
+    
+    func hide() {
+        
+        self.hidden = true
+        self.afterDisappear()
+    }
 
 }

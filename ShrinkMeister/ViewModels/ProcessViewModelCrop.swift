@@ -65,7 +65,7 @@ class ProcessViewModelCrop : BaseProcessViewModel {
         
         self.cropMode = true
         
-}
+    }
     override func beforeProcess() {
         self.parameters = [cropRect, sourceImageFrame]
     }
