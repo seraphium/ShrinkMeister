@@ -40,11 +40,12 @@ class MainViewModel : ViewModel {
     
     func initProcessViewModel() {
         
-        let processViewModelCrop = ProcessViewModelCrop()   
+        
+        let processViewModelBasic = ProcessViewModelBasic()
+        processViewModelBasic.processService = ProcessImageBasic()
+        
+        let processViewModelCrop = ProcessViewModelCrop()
         processViewModelCrop.processService = ProcessImageCrop()
-
-        let processViewModelLevel = ProcessViewModelLevel()
-        processViewModelLevel.processService = ProcessImageLevel()
     
         let processViewModelCustom = ProcessViewModelCustom()
         processViewModelCustom.processService = ProcessImageCustom()
@@ -55,7 +56,7 @@ class MainViewModel : ViewModel {
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
             processViewModelCrop.sourceImageViewModel = imageViewModel
-            processViewModelLevel.sourceImageViewModel = imageViewModel
+            processViewModelBasic.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
         }
@@ -68,13 +69,13 @@ class MainViewModel : ViewModel {
             (imageViewModel:ImageViewModel) -> () in
 
             processViewModelCrop.sourceImageViewModel = imageViewModel
-            processViewModelLevel.sourceImageViewModel = imageViewModel
+            processViewModelBasic.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
         }
         
+        processViewModels.append(processViewModelBasic)
         processViewModels.append(processViewModelCrop)
-        processViewModels.append(processViewModelLevel)
         processViewModels.append(processViewModelCustom)
         processViewModels.append(processViewModelExport)
     }

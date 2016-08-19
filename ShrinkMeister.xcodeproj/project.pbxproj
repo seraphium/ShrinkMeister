@@ -13,7 +13,7 @@
 		4B0E0BF91D604D680013A7FD /* ProcessViewModelCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */; };
 		4B2576CD1D5B1CA400348851 /* ProcessViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */; };
 		4B2A80811D5C538F00D7BFDD /* ProcessServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */; };
-		4B2A80831D5C545600D7BFDD /* ProcessImageLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */; };
+		4B2A80831D5C545600D7BFDD /* ProcessImageBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80821D5C545600D7BFDD /* ProcessImageBasic.swift */; };
 		4B2A80881D5C58AD00D7BFDD /* ProcessImageCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */; };
 		4B4042791D55B815007E6312 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B40427B1D55B815007E6312 /* Localizable.strings */; };
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
@@ -35,8 +35,8 @@
 		4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB41D54647B000D2665 /* ResourceStore.swift */; };
 		4BC4188A1D54E1F600FC7BBD /* ProcessCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB91D54759A000D2665 /* ProcessCell.xib */; };
 		4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE16E021D537BFE00AD1B29 /* Assets.xcassets */; };
-		4BE8FD501D57122600183F12 /* ProcessViewLevel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */; };
-		4BE8FD541D571A4C00183F12 /* ProcessViewLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */; };
+		4BE8FD501D57122600183F12 /* ProcessViewBasic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8FD4F1D57122600183F12 /* ProcessViewBasic.xib */; };
+		4BE8FD541D571A4C00183F12 /* ProcessViewBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD531D571A4C00183F12 /* ProcessViewBasic.swift */; };
 		4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */; };
 		4BE8FD591D571EB500183F12 /* ProcessViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */; };
 		4BE8FD5B1D571EDC00183F12 /* ProcessViewCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */; };
@@ -69,7 +69,7 @@
 		4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCrop.swift; sourceTree = "<group>"; };
 		4B2576CC1D5B1CA400348851 /* ProcessViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewProtocol.swift; sourceTree = "<group>"; };
 		4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessServiceProtocol.swift; sourceTree = "<group>"; };
-		4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageLevel.swift; sourceTree = "<group>"; };
+		4B2A80821D5C545600D7BFDD /* ProcessImageBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageBasic.swift; sourceTree = "<group>"; };
 		4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCustom.swift; sourceTree = "<group>"; };
 		4B40427A1D55B815007E6312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B40427C1D55B81B007E6312 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProcessViewModel.swift; sourceTree = "<group>"; };
 		4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCrop.swift; sourceTree = "<group>"; };
 		4BE16E021D537BFE00AD1B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewLevel.xib; sourceTree = "<group>"; };
-		4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewLevel.swift; sourceTree = "<group>"; };
+		4BE8FD4F1D57122600183F12 /* ProcessViewBasic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewBasic.xib; sourceTree = "<group>"; };
+		4BE8FD531D571A4C00183F12 /* ProcessViewBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewBasic.swift; sourceTree = "<group>"; };
 		4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProcessViewModelProtocol.swift; path = ../Views/ProcessViewModelProtocol.swift; sourceTree = "<group>"; };
 		4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewCustom.swift; sourceTree = "<group>"; };
 		4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewCustom.xib; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				4B2A80801D5C538F00D7BFDD /* ProcessServiceProtocol.swift */,
-				4B2A80821D5C545600D7BFDD /* ProcessImageLevel.swift */,
+				4B2A80821D5C545600D7BFDD /* ProcessImageBasic.swift */,
 				4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */,
 				4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */,
 			);
@@ -198,11 +198,11 @@
 		4BE8FD571D571E6C00183F12 /* ProcessViews */ = {
 			isa = PBXGroup;
 			children = (
-				4BE8FD531D571A4C00183F12 /* ProcessViewLevel.swift */,
+				4BE8FD531D571A4C00183F12 /* ProcessViewBasic.swift */,
 				4BE8FD581D571EB500183F12 /* ProcessViewCustom.swift */,
 				4BFAC1321D5EFB5D0093A65C /* ProcessViewExport.swift */,
 				4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */,
-				4BE8FD4F1D57122600183F12 /* ProcessViewLevel.xib */,
+				4BE8FD4F1D57122600183F12 /* ProcessViewBasic.xib */,
 				4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */,
 				4BE8FD5A1D571EDC00183F12 /* ProcessViewCustom.xib */,
 				4BE8FD5C1D57209B00183F12 /* BaseProcessView.swift */,
@@ -395,7 +395,7 @@
 				4B0E0BF51D604D190013A7FD /* ProcessViewCrop.xib in Resources */,
 				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
 				4BFAC1311D5EFB040093A65C /* ProcessViewExport.xib in Resources */,
-				4BE8FD501D57122600183F12 /* ProcessViewLevel.xib in Resources */,
+				4BE8FD501D57122600183F12 /* ProcessViewBasic.xib in Resources */,
 				4BE8FD5B1D571EDC00183F12 /* ProcessViewCustom.xib in Resources */,
 				4B4042791D55B815007E6312 /* Localizable.strings in Resources */,
 			);
@@ -469,7 +469,7 @@
 				4BFAC1331D5EFB5D0093A65C /* ProcessViewExport.swift in Sources */,
 				4B67A4061D52DA7400519610 /* ViewModelProtocol.swift in Sources */,
 				4BEE12261D51F02D00A84EC1 /* BaseViewController.swift in Sources */,
-				4B2A80831D5C545600D7BFDD /* ProcessImageLevel.swift in Sources */,
+				4B2A80831D5C545600D7BFDD /* ProcessImageBasic.swift in Sources */,
 				4B2A80811D5C538F00D7BFDD /* ProcessServiceProtocol.swift in Sources */,
 				4BEE12201D51E57700A84EC1 /* ViewModel.swift in Sources */,
 				4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */,
@@ -477,7 +477,7 @@
 				4B2A80881D5C58AD00D7BFDD /* ProcessImageCustom.swift in Sources */,
 				4B7F53C11D659B2A00DCD573 /* ProcessImageCrop.swift in Sources */,
 				4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */,
-				4BE8FD541D571A4C00183F12 /* ProcessViewLevel.swift in Sources */,
+				4BE8FD541D571A4C00183F12 /* ProcessViewBasic.swift in Sources */,
 				4BEE12221D51E97800A84EC1 /* ViewLocator.swift in Sources */,
 				4BE8FD5D1D57209B00183F12 /* BaseProcessView.swift in Sources */,
 				4BEE12281D51F4BE00A84EC1 /* AddPhotoViewController.swift in Sources */,

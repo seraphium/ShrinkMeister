@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProcessViewLevel : BaseProcessView {
+class ProcessViewBasic : BaseProcessView {
     
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
@@ -34,7 +34,7 @@ class ProcessViewLevel : BaseProcessView {
     
     override func bindViewModel() {
         
-        self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelLevel
+        self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelBasic
 
         super.bindViewModel()
         

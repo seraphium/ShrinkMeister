@@ -19,7 +19,7 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.viewModel = mainViewModel.processViewModels[0] as! ProcessViewModelCrop
+        self.viewModel = mainViewModel.processViewModels[1] as! ProcessViewModelCrop
 
         bindViewModel()
         

@@ -11,7 +11,7 @@ import UIKit
 import ReactiveCocoa
 
 
-class ProcessViewModelLevel : BaseProcessViewModel {
+class ProcessViewModelBasic : BaseProcessViewModel {
 
     dynamic var imageLevel : Int = 0 {
         didSet {
@@ -21,7 +21,7 @@ class ProcessViewModelLevel : BaseProcessViewModel {
     
     init() {
         
-        super.init(title: "Level", image: UIImage(named: "sample"))
+        super.init(title: "Basic", image: UIImage(named: "sample"))
         
     }
 

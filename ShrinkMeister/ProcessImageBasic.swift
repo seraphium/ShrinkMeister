@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProcessImageLevel : ProcessServiceProtocol {
+class ProcessImageBasic : ProcessServiceProtocol {
     
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {

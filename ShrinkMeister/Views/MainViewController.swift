@@ -47,7 +47,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
-    let processViewClasses : [String] = ["ProcessViewCrop", "ProcessViewLevel", "ProcessViewCustom", "ProcessViewExport"]
+    let processViewClasses : [String] = ["ProcessViewBasic", "ProcessViewCrop", "ProcessViewCustom", "ProcessViewExport"]
 
     var processViewCount : Int!
     
@@ -91,7 +91,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             
         }
         
-        cropView.cropDelegate = processViews[0] as! ProcessViewCrop
+        cropView.cropDelegate = processViews[1] as! ProcessViewCrop
 
     }
     
