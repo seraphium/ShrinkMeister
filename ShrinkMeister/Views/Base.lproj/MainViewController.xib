@@ -12,6 +12,7 @@
                 <outlet property="imageScrollView" destination="SZ2-xc-5AQ" id="Jdj-9F-vOu"/>
                 <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
                 <outlet property="photoResolutionLabel" destination="sRi-3Q-Qv7" id="yp6-LK-U3a"/>
+                <outlet property="photoSizeLabel" destination="BkU-Kf-jux" id="EaC-IX-e9O"/>
                 <outlet property="processCollection" destination="CAt-ZF-fx6" id="lGg-1W-nhY"/>
                 <outlet property="twoFingerTapGestureRecognizer" destination="BDA-bX-CgY" id="WMz-33-1Mf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kKr-SF-l94"/>
@@ -26,6 +27,12 @@
                     <rect key="frame" x="50" y="80" width="77" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-Kf-jux">
+                    <rect key="frame" x="508" y="80" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">
@@ -69,6 +76,7 @@
             <constraints>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="1Vd-s4-rhV"/>
                 <constraint firstAttribute="bottom" secondItem="CAt-ZF-fx6" secondAttribute="bottom" id="2es-zo-XZD"/>
+                <constraint firstAttribute="trailing" secondItem="BkU-Kf-jux" secondAttribute="trailing" constant="50" id="4Jm-f5-1x6"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="width" secondItem="SZ2-xc-5AQ" secondAttribute="width" id="5Dk-DQ-2Au"/>
                 <constraint firstAttribute="trailing" secondItem="HeW-8H-JHf" secondAttribute="trailing" constant="180" id="Axy-oH-BBE"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="CA3-ZU-26q"/>
@@ -80,6 +88,7 @@
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bgS-eW-ppx"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="c8X-hK-727"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="centerY" secondItem="SZ2-xc-5AQ" secondAttribute="centerY" id="i80-qb-SQn"/>
+                <constraint firstItem="BkU-Kf-jux" firstAttribute="centerY" secondItem="sRi-3Q-Qv7" secondAttribute="centerY" id="ifF-4s-h9I"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="180" id="rL4-rt-Zio"/>
                 <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sVo-nz-sKc"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="height" secondItem="SZ2-xc-5AQ" secondAttribute="height" id="uLu-BU-S7u"/>

@@ -26,11 +26,13 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     //visible image rect used for cropping
     var visibleImageRect: CGRect!
     
-    @IBOutlet var imageScrollView: ImageScrollView!
+    @IBOutlet weak var imageScrollView: ImageScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet var photoResolutionLabel: UILabel!     
+    @IBOutlet weak var photoResolutionLabel: UILabel!
+
+    @IBOutlet weak var photoSizeLabel: UILabel!
     
     var processViews = [BaseProcessView]()
         
@@ -56,6 +58,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         self.view.backgroundColor = UIColor.whiteColor()
         photoResolutionLabel.textColor = UIColor.blueColor()
         photoResolutionLabel.layer.zPosition = 1000
+        photoSizeLabel.textColor = UIColor.blueColor()
+        photoSizeLabel.layer.zPosition = 1000
+        
         self.imageScrollView.layer.zPosition = -1000
         
         initNavigationBar()
@@ -122,6 +127,15 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
         
+        let imgData = UIImageJPEGRepresentation(imageViewModel.image, 1);
+        if let data = imgData {
+            let length = data.length / 1024
+            self.photoSizeLabel.text = String("\(length) KB")
+        } else {
+             self.photoSizeLabel.text = ""
+        }
+
+
         let rect = self.view.convertRect(imageView.frame, fromView: self.imageScrollView)
         self.cropView.sourceImageFrame = rect
     }
