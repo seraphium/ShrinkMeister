@@ -8,28 +8,30 @@
 
 import UIKit
 
-//---------------------------------------------------------------------------------------------------------
-
-func rectFromStartAndEnd(var startPoint:CGPoint, endPoint: CGPoint) -> CGRect
-{
-  var  top, left, bottom, right: CGFloat;
-  top = min(startPoint.y, endPoint.y)
-  bottom = max(startPoint.y, endPoint.y)
-  
-  left = min(startPoint.x, endPoint.x)
-  right = max(startPoint.x, endPoint.x)
-  
-  let result = CGRectMake(left, top, right-left, bottom-top)
-  return result
-}
+//-------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------------------------
 class CroppableImageView: UIView, CornerpointClientProtocol
 {
   // MARK: - properties -
 
-  var sourceImageFrame: CGRect!
-  var  imageRect: CGRect?
+    var sourceImageFrame: CGRect!
+    var  imageRect: CGRect? {
+        didSet {
+            if let layer = imageLayer {
+                layer.removeFromSuperlayer()
+            }
+            if let rect = imageRect {
+                imageLayer = CALayer()
+                imageLayer?.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
+                imageLayer!.frame = rect
+                self.layer.addSublayer(imageLayer!)
+                print("image layer added")
+            }
+        }
+    }
+    
+    var imageLayer: CALayer?
     
     var aspect: Double = 0.0 {
         didSet {
@@ -140,7 +142,6 @@ class CroppableImageView: UIView, CornerpointClientProtocol
    
     cropRect = nil;
     
-    
   }
   
   func generateCropRect() {
@@ -171,6 +172,19 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   
 //--------------------------------------------------------------------------------------------------------
   
+    func rectFromStartAndEnd(var startPoint:CGPoint, endPoint: CGPoint) -> CGRect
+    {
+        var  top, left, bottom, right: CGFloat;
+        top = min(startPoint.y, endPoint.y)
+        bottom = max(startPoint.y, endPoint.y)
+        
+        left = min(startPoint.x, endPoint.x)
+        right = max(startPoint.x, endPoint.x)
+        
+        let result = CGRectMake(left, top, right-left, bottom-top)
+        return result
+    }
+    
  override func drawRect(rect: CGRect)
   {
     //Drawing the image in drawRect is too slow. 

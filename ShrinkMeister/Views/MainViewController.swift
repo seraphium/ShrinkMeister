@@ -330,21 +330,24 @@ extension MainViewController : UIScrollViewDelegate {
         return imageView
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
-        self.cropView.imageRect = self.visibleImageRect
+    func updateCropViewRect() {
+        let imageFrame = imageScrollView.convertRect(imageView.frame, toView: self.view)
+        visibleImageRect = CGRectIntersection(imageFrame, imageScrollView.frame)
+        
+        let translatedRect = self.view.convertRect(visibleImageRect, toView: self.cropView)
+        self.cropView.imageRect = translatedRect
+        
         let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
         self.cropView.sourceImageFrame = rect
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+       updateCropViewRect()
+    }
+    
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
     {
-        visibleImageRect = CGRectIntersection(imageView.frame, imageScrollView.frame)
-        self.cropView.imageRect = self.visibleImageRect
-        let rect = self.view.convertRect(imageView.frame, fromView: imageScrollView)
-        self.cropView.sourceImageFrame = rect
-
-
+       updateCropViewRect()
     }
     
 
