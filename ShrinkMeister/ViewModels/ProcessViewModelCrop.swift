@@ -15,6 +15,8 @@ class ProcessViewModelCrop : BaseProcessViewModel {
 
     var transAspectCommand : RACCommand!
     
+    var lockAspectCommand : RACCommand!
+    
     var aspect : Double {
         var aspectValue : Double
         switch aspectLevel {
@@ -68,6 +70,14 @@ class ProcessViewModelCrop : BaseProcessViewModel {
                 self.startCrop(self.aspect)
                 return RACSignal.empty()
         }
+        
+        lockAspectCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+
+            NotificationHelper.postNotification("toggleLock", objects: self, userInfo: nil)
+            return RACSignal.empty()
+        }
+
 
 
     }

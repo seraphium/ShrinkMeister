@@ -15,6 +15,7 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
     
     @IBOutlet weak var transAspectButton: UIButton!
     
+    @IBOutlet var lockAspectButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +61,7 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
         aspectSelector.rac_newSelectedSegmentIndexChannelWithNilValue(nil) ~> RAC(viewModel, "aspectLevel")
         
         transAspectButton.rac_command = (viewModel as! ProcessViewModelCrop).transAspectCommand
+        lockAspectButton.rac_command = (viewModel as! ProcessViewModelCrop).lockAspectCommand
         
         RACObserve(viewModel, keyPath: "cropMode").filter {
             (next: AnyObject?) -> Bool in

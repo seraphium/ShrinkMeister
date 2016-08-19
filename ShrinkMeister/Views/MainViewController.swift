@@ -214,8 +214,16 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             self.currentProcessView = nil
         }
 
-        
+        NotificationHelper.observeNotification("toggleLock", object: nil, owner: self) {
+            _ in
+            
+            print ("toggle lock aspect")
+            self.cropView.lockAspect = !self.cropView.lockAspect
+            if  self.cropView.lockAspect  {
+                self.cropView.resetRectFromAspect()
 
+            }
+        }
         
     }
     

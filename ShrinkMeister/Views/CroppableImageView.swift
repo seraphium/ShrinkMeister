@@ -38,6 +38,9 @@ class CroppableImageView: UIView, CornerpointClientProtocol
             generateCropRect()
         }
     }
+    
+  var lockAspect : Bool = true
+    
   var draggingRect: Bool = false
 
   @IBOutlet var  cropDelegate: CroppableImageViewDelegateProtocol?
@@ -112,15 +115,6 @@ class CroppableImageView: UIView, CornerpointClientProtocol
 
     self.addGestureRecognizer(dragger)
 
-  //  let tapper = UITapGestureRecognizer(target: self,
-   //   action: #selector(CroppableImageView.handleViewTap(_:)));
-   // self.addGestureRecognizer(tapper)
-    
-   /* for aCornerpoint in cornerpoints
-    {
-      tapper.requireGestureRecognizerToFail(aCornerpoint.dragger)
-    }
-    */
     self.hidden = true
   }
   
@@ -145,23 +139,30 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   }
   
   func generateCropRect() {
-    if let rect = imageRect {
-        let centerX = rect.midX
-        let centerY = rect.midY
+        if let rect = imageRect {
+            let centerX = rect.midX
+            let centerY = rect.midY
+            
+            //first try calculate from height
+            var height = CGFloat(sourceImageFrame.height * 2/3)
+            var width = CGFloat(Double(height) * aspect)
+            
+            //calculated width exceed image frame, change to calculate from width
+            if width > sourceImageFrame.width {
+                width = CGFloat(sourceImageFrame.width * 2/3)
+                height = CGFloat(Double(width) * (1 / aspect))
+            }
         
-        //first try calculate from height
-        var height = CGFloat(sourceImageFrame.height * 2/3)
-        var width = CGFloat(Double(height) * aspect)
-        
-        //calculated width exceed image frame, change to calculate from width
-        if width > sourceImageFrame.width {
-            width = CGFloat(sourceImageFrame.width * 2/3)
-            height = CGFloat(Double(width) * (1 / aspect))
+            cropRect = CGRectMake(CGFloat(centerX - width/2), CGFloat(centerY-height/2), width, height)
         }
-        
-        cropRect = CGRectMake(CGFloat(centerX - width/2), CGFloat(centerY-height/2), width, height)
     }
-}
+
+    func resetRectFromAspect() {
+        if let rect = cropRect {
+            cropRect = CGRectMake(rect.origin.x , rect.origin.y, rect.height * CGFloat(aspect), rect.width)
+        }
+   
+    }
     
   override func layoutSubviews()
   {
@@ -209,7 +210,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   
   func handleDragInView(thePanner: UIPanGestureRecognizer)
   {
-    let newPoint = thePanner.locationInView(self)
+    var newPoint = thePanner.locationInView(self)
     switch thePanner.state
     {
     case UIGestureRecognizerState.Began:
@@ -286,11 +287,12 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   func cornerHasChanged(newCornerPoint: CornerpointView)
   {
     var pointIndex: Int?
-
+    var newPoint = newCornerPoint
+    
     //Find the cornerpoint the user dragged in the array.
     for (index, aCornerpoint) in cornerpoints.enumerate()
     {
-      if newCornerPoint == aCornerpoint
+      if newPoint == aCornerpoint
       {
         pointIndex = index
         break
@@ -300,12 +302,25 @@ class CroppableImageView: UIView, CornerpointClientProtocol
     {
       return;
     }
-
+    
     //Find the index of the opposite corner.
     let otherIndex:Int = (pointIndex! + 2) % 4
+    let otherPoint = cornerpoints[otherIndex]
+
+    
+    if lockAspect {
+        //change newpoint x according to calculate from lock aspect
+        //a*(x1 - x0)/ b* (y1-y0) = aspect
+        let factorA : CGFloat = newPoint.centerPoint!.x > otherPoint.centerPoint!.x ? 1: -1
+        let factorB : CGFloat = newPoint.centerPoint!.y > otherPoint.centerPoint!.y ? 1: -1
+        newPoint.centerPoint!.x =
+            (newPoint.centerPoint!.y - otherPoint.centerPoint!.y) * CGFloat(aspect) * (factorB / factorA)
+            + otherPoint.centerPoint!.x
+    }
     
     //Calculate a new cropRect using those 2 corners
-    cropRect = rectFromStartAndEnd(newCornerPoint.centerPoint!, endPoint: cornerpoints[otherIndex].centerPoint!)
+    cropRect = rectFromStartAndEnd(newPoint.centerPoint!, endPoint: otherPoint.centerPoint!)
+    
     }
     
     func cornerChangeFinished() {
