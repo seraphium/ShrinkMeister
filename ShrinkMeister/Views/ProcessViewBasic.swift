@@ -13,7 +13,10 @@ class ProcessViewBasic : BaseProcessView {
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
     
+    @IBOutlet weak var rotateLeftButton: UIButton!
 
+    @IBOutlet weak var rotateRightButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -40,6 +43,9 @@ class ProcessViewBasic : BaseProcessView {
         
         
         levelSelector.rac_newSelectedSegmentIndexChannelWithNilValue(0) ~> RAC(viewModel, "imageLevel")
+        
+        rotateLeftButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateLeftCommand
+        rotateRightButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateRightCommand
     }
     
 }

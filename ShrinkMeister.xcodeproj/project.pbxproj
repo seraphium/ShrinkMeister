@@ -17,7 +17,7 @@
 		4B2A80881D5C58AD00D7BFDD /* ProcessImageCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A80871D5C58AD00D7BFDD /* ProcessImageCustom.swift */; };
 		4B4042791D55B815007E6312 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B40427B1D55B815007E6312 /* Localizable.strings */; };
 		4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4B4042801D55BA03007E6312 /* MainViewController.xib */; };
-		4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */; };
+		4B50848D1D59D7FD005ADAB6 /* ProcessViewModelBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848C1D59D7FD005ADAB6 /* ProcessViewModelBasic.swift */; };
 		4B50848F1D59D81C005ADAB6 /* ProcessViewModelCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */; };
 		4B538FD41D62056F001B6563 /* CornerpointClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD01D62056F001B6563 /* CornerpointClientProtocol.swift */; };
 		4B538FD51D62056F001B6563 /* CornerpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B538FD11D62056F001B6563 /* CornerpointView.swift */; };
@@ -77,7 +77,7 @@
 		4B40427F1D55BA03007E6312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainViewController.xib; sourceTree = "<group>"; };
 		4B4042821D55BA05007E6312 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainViewController.strings; sourceTree = "<group>"; };
 		4B4042841D55BA07007E6312 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainViewController.strings"; sourceTree = "<group>"; };
-		4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelLevel.swift; sourceTree = "<group>"; };
+		4B50848C1D59D7FD005ADAB6 /* ProcessViewModelBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelBasic.swift; sourceTree = "<group>"; };
 		4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCustom.swift; sourceTree = "<group>"; };
 		4B538FD01D62056F001B6563 /* CornerpointClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerpointClientProtocol.swift; sourceTree = "<group>"; };
 		4B538FD11D62056F001B6563 /* CornerpointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerpointView.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */,
 				4BE8FD551D571BF200183F12 /* ProcessViewModelProtocol.swift */,
-				4B50848C1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift */,
+				4B50848C1D59D7FD005ADAB6 /* ProcessViewModelBasic.swift */,
 				4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */,
 				4B50848E1D59D81C005ADAB6 /* ProcessViewModelCustom.swift */,
 				4BFAC12C1D5EFA8C0093A65C /* ProcessViewModelExport.swift */,
@@ -460,7 +460,7 @@
 				4BC4188A1D54E1F600FC7BBD /* ProcessCell.xib in Sources */,
 				4B40427E1D55BA03007E6312 /* MainViewController.xib in Sources */,
 				4BE8FD561D571BF200183F12 /* ProcessViewModelProtocol.swift in Sources */,
-				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelLevel.swift in Sources */,
+				4B50848D1D59D7FD005ADAB6 /* ProcessViewModelBasic.swift in Sources */,
 				4B538FD41D62056F001B6563 /* CornerpointClientProtocol.swift in Sources */,
 				4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */,
 				4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */,

@@ -16,25 +16,45 @@
                     <state key="normal" title="Confirm"/>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nlv-Nm-unl">
-                    <rect key="frame" x="209" y="11" width="182" height="29"/>
+                    <rect key="frame" x="50" y="11" width="182" height="29"/>
                     <segments>
                         <segment title="First"/>
                         <segment title="Second"/>
                         <segment title=""/>
                     </segments>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir5-nO-qAB">
+                    <rect key="frame" x="322" y="10" width="30" height="30"/>
+                    <state key="normal" title="R."/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8F-6y-jKx">
+                    <rect key="frame" x="282" y="10" width="30" height="30"/>
+                    <state key="normal" title="L."/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Nlv-Nm-unl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1Fg-Sf-lES"/>
+                <constraint firstItem="ir5-nO-qAB" firstAttribute="leading" secondItem="l8F-6y-jKx" secondAttribute="trailing" constant="10" id="6GR-4Y-CWe"/>
+                <constraint firstItem="l8F-6y-jKx" firstAttribute="leading" secondItem="Nlv-Nm-unl" secondAttribute="trailing" constant="50" id="9D9-j7-1xg"/>
+                <constraint firstItem="l8F-6y-jKx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K8A-pV-pHH"/>
                 <constraint firstAttribute="trailing" secondItem="THv-PM-XBl" secondAttribute="trailing" constant="28" id="N6f-DY-7aP"/>
+                <constraint firstItem="Nlv-Nm-unl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="Wfc-sC-hpX"/>
+                <constraint firstItem="ir5-nO-qAB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="pnv-aI-xi5"/>
                 <constraint firstItem="Nlv-Nm-unl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sVg-qU-YkD"/>
                 <constraint firstItem="THv-PM-XBl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="soj-OB-hNR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="sVg-qU-YkD"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="confirmButton" destination="THv-PM-XBl" id="T8w-Ic-pGE"/>
                 <outlet property="levelSelector" destination="Nlv-Nm-unl" id="bwq-aC-vTu"/>
+                <outlet property="rotateLeftButton" destination="l8F-6y-jKx" id="IA9-95-0WZ"/>
+                <outlet property="rotateRightButton" destination="ir5-nO-qAB" id="IV2-3v-oQ8"/>
             </connections>
             <point key="canvasLocation" x="269" y="323"/>
         </view>
