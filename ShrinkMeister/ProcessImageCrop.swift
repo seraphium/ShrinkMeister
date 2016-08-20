@@ -10,6 +10,11 @@ import UIKit
 
 class ProcessImageCrop : ProcessServiceProtocol {
     
+    
+    func rad(deg : Double) -> CGFloat {
+        return CGFloat(deg / 180.0 * M_PI)
+    }
+    
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {
         let rect = options![0] as! CGRect
@@ -31,7 +36,27 @@ class ProcessImageCrop : ProcessServiceProtocol {
                               cropRect.size.height * image.scale);
         }
         
-        let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
+        
+        var rectTransform : CGAffineTransform
+        switch image.imageOrientation {
+        case .Left:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(90)),
+                                                       0, -image.size.height);
+            break;
+        case .Right:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(-90)),
+                                                       -image.size.width, 0);
+            break;
+        case .Down:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(-180)),
+                                                       -image.size.width, -image.size.height);
+            break;
+        default:
+            rectTransform = CGAffineTransformIdentity;
+        };
+        rectTransform = CGAffineTransformScale(rectTransform, image.scale, image.scale);
+        
+        let imageRef = CGImageCreateWithImageInRect(image.CGImage, CGRectApplyAffineTransform(cropRect, rectTransform));
         let result = UIImage(CGImage: imageRef!, scale: image.scale, orientation: image.imageOrientation)
      
         return result
