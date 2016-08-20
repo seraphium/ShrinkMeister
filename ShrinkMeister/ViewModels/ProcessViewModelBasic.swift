@@ -28,23 +28,44 @@ class ProcessViewModelBasic : BaseProcessViewModel {
         super.init(title: "Basic", image: UIImage(named: "sample"))
         rotateLeftCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
-            self.rotate(true)
+            return self.executeRotateSignal(true)
             
-            return RACSignal.empty()
         }
 
         rotateRightCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
-            self.rotate(false)
-            
-            return RACSignal.empty()
+            return self.executeRotateSignal(false)
         }
         
     }
 
-    func rotate(left: Bool){
-        print("rotate left: \(left)")
+
+    func executeRotateSignal(left: Bool) -> RACSignal {
+        //actual processing logic
+        if let sourceImage = self.sourceImageViewModel?.image {
+            
+            let service = processService as! ProcessImageBasic
+            
+            if let destImage = service.processRotateImage(sourceImage, options: [left]){
+                //send result to mainviewmodel
+                NotificationHelper.postNotification("FinishProcess", objects: self,
+                                                    userInfo: ["image": destImage])
+                
+            } else {
+                return RACSignal.error(processError)
+            }
+            
+            
+        } else {
+            print ("no image")
+        }
+        
+        self.afterProcess()
+        
+        return RACSignal.empty()
+        
     }
+
     
     override func beforeProcess() {
         self.parameters = [imageLevel]
