@@ -19,22 +19,26 @@ class ProcessImageCustom : ProcessServiceProtocol {
         let width = op[0] as! Int
         let height = op[1] as! Int
         
-        let destImage = ResizeImage(image, targetSize: CGSizeMake(CGFloat(width), CGFloat(height)))
+        let destImage = image.ResizeImage(CGSizeMake(CGFloat(width), CGFloat(height)))
         
         print ("finished process ,dest image: \(destImage.size.width): \(destImage.size.height)")
         return destImage
     }
     
-    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+   
+
+}
+
+extension UIImage {
+    func ResizeImage(targetSize: CGSize) -> UIImage {
         
         let rect = CGRectMake(0, 0, targetSize.width, targetSize.height)
         
         UIGraphicsBeginImageContextWithOptions(targetSize, false, 1.0)
-        image.drawInRect(rect)
+        self.drawInRect(rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return newImage
     }
-
 }

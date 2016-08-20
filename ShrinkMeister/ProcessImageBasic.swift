@@ -35,12 +35,40 @@ class ProcessImageBasic : ProcessServiceProtocol {
     }
     // process logic here
     func processImage(image: UIImage, options: [Any]?) -> UIImage? {
-        print ("process image for options: \(options)")
+        print ("process image level for options: \(options)")
         guard let op = options else {
             return nil
         }
+        let level = op[0] as! Int
+        let sizeRate : CGFloat
+        let rate : CGFloat
+        switch level {
+        case 0:
+            rate = 0.2
+            sizeRate = 1.5
+        case 1:
+            rate = 0.05
+            sizeRate = 2
+        case 2:
+            rate = 0.0
+            sizeRate = 4
+        default:
+            rate = 1.0
+            sizeRate = 1
+        }
         
-        return image
+        //scale down first
+        let targetSize = CGSizeMake(image.size.width / sizeRate,image.size.height / sizeRate)
+        let scaledImage = image.ResizeImage(targetSize)
+        
+        //compression
+        if let resultImageData = UIImageJPEGRepresentation(scaledImage, rate) {
+            return UIImage(data: resultImageData)
+
+        } else {
+            return nil
+        }
+        
     }
 
 }
