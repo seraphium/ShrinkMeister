@@ -29,7 +29,9 @@ class BaseProcessView : UIView, ProcessViewProtocol {
             make.edges.equalTo(self)
         }
       
-        self.confirmButton?.setTitle(NSLocalizedString("ProcessViewConfirmButtonTitle", comment: ""), forState: .Normal)
+        self.confirmButton?.setBackgroundImage(UIImage(named: "confirm"), forState: .Normal)
+
+      //  self.confirmButton?.setTitle(NSLocalizedString("ProcessViewConfirmButtonTitle", comment: ""), forState: .Normal)
         mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
 
     }

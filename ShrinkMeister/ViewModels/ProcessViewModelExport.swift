@@ -15,7 +15,7 @@ class ProcessViewModelExport : BaseProcessViewModel {
     
      init() {
         
-        super.init(title: "Export", image: UIImage(named: "sample"))
+        super.init(title: "Export", image: UIImage(named: "export"))
         
         exportCommand  = RACCommand() {
                 (any:AnyObject!) -> RACSignal in

@@ -24,7 +24,10 @@ class ProcessCell : UICollectionViewCell {
         bindViewModel()
     }
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundColor = AppDelegate.collectionBackColor
+    }
     
     func bindViewModel() {
         

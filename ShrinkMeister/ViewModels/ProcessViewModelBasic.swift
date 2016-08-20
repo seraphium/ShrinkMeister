@@ -25,7 +25,7 @@ class ProcessViewModelBasic : BaseProcessViewModel {
     
     init() {
         
-        super.init(title: "Basic", image: UIImage(named: "sample"))
+        super.init(title: "Basic", image: UIImage(named: "shrink"))
         rotateLeftCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
             return self.executeRotateSignal(true)

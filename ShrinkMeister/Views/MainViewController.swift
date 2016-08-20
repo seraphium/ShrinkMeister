@@ -114,7 +114,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         processCollection.delegate = self
         processCollection.dataSource = self
         processCollection.showsHorizontalScrollIndicator = false
-        processCollection.backgroundColor = UIColor.whiteColor()
+        processCollection.backgroundColor = AppDelegate.collectionBackColor
         let cellNib = UINib(nibName: String(collectionNibName), bundle: nil)
         processCollection.registerNib(cellNib, forCellWithReuseIdentifier: collectionCellID)
 

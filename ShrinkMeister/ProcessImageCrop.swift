@@ -54,9 +54,10 @@ class ProcessImageCrop : ProcessServiceProtocol {
         default:
             rectTransform = CGAffineTransformIdentity;
         };
-        rectTransform = CGAffineTransformScale(rectTransform, image.scale, image.scale);
         
-        let imageRef = CGImageCreateWithImageInRect(image.CGImage, CGRectApplyAffineTransform(cropRect, rectTransform));
+        rectTransform = CGAffineTransformScale(rectTransform, image.scale, image.scale);
+        let translatedCropRect = CGRectApplyAffineTransform(cropRect, rectTransform)
+        let imageRef = CGImageCreateWithImageInRect(image.CGImage, translatedCropRect);
         let result = UIImage(CGImage: imageRef!, scale: image.scale, orientation: image.imageOrientation)
      
         return result

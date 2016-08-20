@@ -46,7 +46,7 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         height = defaultHeight
         sourceAspect = Double(width) / Double(height)
         
-        super.init(title: "Custom", image: UIImage(named: "sample"))
+        super.init(title: "Custom", image: UIImage(named: "ruler"))
         
         self.lockAspectCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in

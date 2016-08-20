@@ -60,7 +60,7 @@ class ProcessViewModelCrop : BaseProcessViewModel {
 
     init() {
         
-        super.init(title: "Crop", image: UIImage(named: "sample"))
+        super.init(title: "Crop", image: UIImage(named: "crop"))
         
         aspectLevel = 0
         

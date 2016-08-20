@@ -28,16 +28,25 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0X-2l-cDO">
-                    <rect key="frame" x="420" y="10" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <rect key="frame" x="420" y="10" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="HW0-N5-psE"/>
+                        <constraint firstAttribute="height" constant="30" id="WhC-xQ-HSp"/>
+                    </constraints>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-PK-NXK">
                     <rect key="frame" x="365" y="10" width="30" height="30"/>
                     <state key="normal" title="L."/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-AZ-hJ2">
+                    <rect key="frame" x="252" y="14" width="18" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="WaI-AZ-hJ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Vk-8n-lbu"/>
                 <constraint firstItem="ppv-PK-NXK" firstAttribute="leading" secondItem="QN1-UD-qUE" secondAttribute="trailing" constant="40" id="8jB-OU-VUL"/>
                 <constraint firstItem="QN1-UD-qUE" firstAttribute="leading" secondItem="cyS-Xo-vzZ" secondAttribute="trailing" constant="35" id="Bee-L6-u9q"/>
                 <constraint firstItem="QN1-UD-qUE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bel-Nc-UJM"/>
@@ -46,7 +55,9 @@
                 <constraint firstItem="P0X-2l-cDO" firstAttribute="leading" secondItem="ppv-PK-NXK" secondAttribute="trailing" constant="25" id="R88-fb-xq3"/>
                 <constraint firstItem="cyS-Xo-vzZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="V1u-El-GaA"/>
                 <constraint firstItem="P0X-2l-cDO" firstAttribute="leading" secondItem="QN1-UD-qUE" secondAttribute="trailing" constant="28" id="Wga-ox-Bwb"/>
+                <constraint firstItem="QN1-UD-qUE" firstAttribute="leading" secondItem="WaI-AZ-hJ2" secondAttribute="trailing" constant="5" id="Xxh-wD-Dbl"/>
                 <constraint firstItem="ppv-PK-NXK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ylv-fB-OWy"/>
+                <constraint firstItem="WaI-AZ-hJ2" firstAttribute="leading" secondItem="cyS-Xo-vzZ" secondAttribute="trailing" constant="12" id="h7b-yg-Sfs"/>
                 <constraint firstItem="P0X-2l-cDO" firstAttribute="leading" secondItem="cyS-Xo-vzZ" secondAttribute="trailing" constant="31" id="kFk-av-29P"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

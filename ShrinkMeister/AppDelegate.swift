@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static var imageStore = ImageStore()
     
+    
+    static let collectionBackColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         navigationController = UINavigationController()
