@@ -28,15 +28,18 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0X-2l-cDO">
-                    <rect key="frame" x="420" y="10" width="30" height="30"/>
+                    <rect key="frame" x="542" y="10" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="HW0-N5-psE"/>
                         <constraint firstAttribute="height" constant="30" id="WhC-xQ-HSp"/>
                     </constraints>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-PK-NXK">
-                    <rect key="frame" x="365" y="10" width="30" height="30"/>
-                    <state key="normal" title="L."/>
+                    <rect key="frame" x="345" y="15" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Ec4-G3-3op"/>
+                        <constraint firstAttribute="width" constant="20" id="NZD-ug-j2P"/>
+                    </constraints>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-AZ-hJ2">
                     <rect key="frame" x="252" y="14" width="18" height="21"/>
@@ -47,9 +50,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WaI-AZ-hJ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Vk-8n-lbu"/>
-                <constraint firstItem="ppv-PK-NXK" firstAttribute="leading" secondItem="QN1-UD-qUE" secondAttribute="trailing" constant="40" id="8jB-OU-VUL"/>
+                <constraint firstItem="ppv-PK-NXK" firstAttribute="leading" secondItem="QN1-UD-qUE" secondAttribute="trailing" constant="20" id="8jB-OU-VUL"/>
                 <constraint firstItem="QN1-UD-qUE" firstAttribute="leading" secondItem="cyS-Xo-vzZ" secondAttribute="trailing" constant="35" id="Bee-L6-u9q"/>
                 <constraint firstItem="QN1-UD-qUE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bel-Nc-UJM"/>
+                <constraint firstAttribute="trailing" secondItem="P0X-2l-cDO" secondAttribute="trailing" constant="28" id="E9h-Zm-bfB"/>
                 <constraint firstItem="P0X-2l-cDO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Exl-4a-yYJ"/>
                 <constraint firstItem="QN1-UD-qUE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K7M-xh-685"/>
                 <constraint firstItem="P0X-2l-cDO" firstAttribute="leading" secondItem="ppv-PK-NXK" secondAttribute="trailing" constant="25" id="R88-fb-xq3"/>
@@ -63,6 +67,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="R88-fb-xq3"/>
                     <exclude reference="Wga-ox-Bwb"/>
                     <exclude reference="kFk-av-29P"/>
                 </mask>

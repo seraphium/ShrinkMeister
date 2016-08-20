@@ -27,6 +27,8 @@ class ProcessViewCustom : BaseProcessView {
         
         widthField.placeholder = "width"
         heightField.placeholder = "height"
+        
+        self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
     }
     
     override func bindViewModel() {
@@ -52,9 +54,9 @@ class ProcessViewCustom : BaseProcessView {
              notify in //passed in NSNotification
             let locked = notify.userInfo["lock"] as! Bool
             if locked {
-                self.lockAspectButton.backgroundColor = UIColor.redColor()
+                self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
             } else {
-                self.lockAspectButton.backgroundColor = UIColor.clearColor()
+                self.lockAspectButton.setBackgroundImage(UIImage(named: "unlock"), forState: .Normal)
 
             }
             

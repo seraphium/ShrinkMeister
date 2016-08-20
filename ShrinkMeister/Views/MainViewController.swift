@@ -100,13 +100,21 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     {
         let title = NSLocalizedString("NavigationTitle", comment: "")
         viewService?.setNavigationControllerTitle(title)
+        
+        let addButton = UIButton(frame: CGRectMake(0, 0, 22, 22))
+        addButton.setBackgroundImage(UIImage(named: "camera"), forState: .Normal)
+        addButton.addTarget(self, action: #selector(AddPhoto), forControlEvents: .TouchUpInside)
 
-        addBarButton = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(AddPhoto))
+        addBarButton = UIBarButtonItem(customView: addButton)
         navigationItem.rightBarButtonItem = addBarButton
+
+        let reloadButton = UIButton(frame: CGRectMake(0, 0, 22, 22))
+        reloadButton.setBackgroundImage(UIImage(named: "revert"), forState: .Normal)
+        reloadButton.addTarget(self, action: #selector(ReloadPhoto), forControlEvents: .TouchUpInside)
         
-        
-        reloadBarButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(ReloadPhoto))
+        reloadBarButton = UIBarButtonItem(customView: reloadButton)
         navigationItem.leftBarButtonItem = reloadBarButton
+
     }
     
     func initCollection()

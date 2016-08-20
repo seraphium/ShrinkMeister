@@ -37,7 +37,7 @@ class ProcessViewModelCustom : BaseProcessViewModel {
 
     var sourceAspect : Double
     
-    var lockAspect : Bool = false
+    dynamic var lockAspect : Bool = true
     
     var lockAspectCommand : RACCommand!
 

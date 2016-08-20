@@ -26,12 +26,15 @@ class ProcessViewBasic : BaseProcessView {
     }
     
     func initUI() {
-
+        levelSelector.tintColor = UIColor.blackColor()
+        
         levelSelector.setTitle(NSLocalizedString("ProcessLevelLargeButtonTitle", comment: ""), forSegmentAtIndex: 0)
         levelSelector.setTitle(NSLocalizedString("ProcessLevelMediumButtonTitle", comment: ""), forSegmentAtIndex: 1)
         levelSelector.setTitle(NSLocalizedString("ProcessLevelSmallButtonTitle", comment: ""), forSegmentAtIndex: 2)
         levelSelector.selectedSegmentIndex = 0
         
+        rotateLeftButton.setBackgroundImage(UIImage(named: "rotate-left"), forState: .Normal)
+        rotateRightButton.setBackgroundImage(UIImage(named: "rotate-right"), forState: .Normal)
     }
     
     

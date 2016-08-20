@@ -143,14 +143,14 @@ class CroppableImageView: UIView, CornerpointClientProtocol
             let centerX = rect.midX
             let centerY = rect.midY
             
-            //first try calculate from height
-            var height = CGFloat(sourceImageFrame.height * 2/3)
-            var width = CGFloat(Double(height) * aspect)
+            //first try calculate from width
+            var width = CGFloat(sourceImageFrame.width * 2/3)
+            var height = CGFloat(Double(width) / aspect)
             
             //calculated width exceed image frame, change to calculate from width
-            if width > sourceImageFrame.width {
-                width = CGFloat(sourceImageFrame.width * 2/3)
-                height = CGFloat(Double(width) * (1 / aspect))
+            if height > sourceImageFrame.height {
+                height = CGFloat(sourceImageFrame.height * 2/3)
+                width = CGFloat(Double(height) * aspect)
             }
         
             cropRect = CGRectMake(CGFloat(centerX - width/2), CGFloat(centerY-height/2), width, height)
@@ -159,7 +159,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
 
     func resetRectFromAspect() {
         if let rect = cropRect {
-            cropRect = CGRectMake(rect.origin.x , rect.origin.y, rect.height * CGFloat(aspect), rect.width)
+            cropRect = CGRectMake(rect.origin.x , rect.origin.y, rect.height * CGFloat(aspect), rect.height)
         }
    
     }

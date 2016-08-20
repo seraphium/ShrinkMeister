@@ -24,6 +24,11 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
 
         bindViewModel()
         
+        self.transAspectButton.setBackgroundImage(UIImage(named: "aspect"), forState: .Normal)
+        
+        self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
+        
+        aspectSelector.tintColor = UIColor.blackColor()
         aspectSelector.setTitle("1:1", forSegmentAtIndex: 0)
         aspectSelector.setTitle("3:2", forSegmentAtIndex: 1)
         aspectSelector.setTitle("4:3", forSegmentAtIndex: 2)
@@ -86,6 +91,20 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
                 
                self.aspectSelector.selectedSegmentIndex = level
                 
+        }
+        
+        RACObserve(viewModel, keyPath: "lockAspect").filter {
+            (next: AnyObject?) -> Bool in
+            return next != nil
+            } .subscribeNextAs {
+                (lock:Bool) -> () in
+                
+                if lock {
+                    self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
+                } else {
+                    self.lockAspectButton.setBackgroundImage(UIImage(named: "unlock"), forState: .Normal)
+
+                }
         }
 
     }
