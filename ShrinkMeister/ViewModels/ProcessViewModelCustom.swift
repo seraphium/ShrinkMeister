@@ -37,6 +37,12 @@ class ProcessViewModelCustom : BaseProcessViewModel {
     }
     
     dynamic var size : Int
+    
+    dynamic var toggleSize : Bool {
+        didSet {
+            NotificationHelper.postNotification("toggleSize", objects: self, userInfo: ["value": toggleSize])
+        }
+    }
 
     var sourceAspect : Double
     
@@ -50,6 +56,8 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         sourceAspect = Double(width) / Double(height)
         
         size = defaultSize
+        
+        toggleSize = false
         
         super.init(title: "Custom", image: UIImage(named: "ruler"))
         

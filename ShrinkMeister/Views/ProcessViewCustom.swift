@@ -14,17 +14,24 @@ class ProcessViewCustom : BaseProcessView {
     
     @IBOutlet var heightField: UITextField!
     
+    @IBOutlet var xLabel: UILabel!
+    
     @IBOutlet var lockAspectButton: UIButton!
     
     @IBOutlet var sizeField: UITextField!
     
-    @IBOutlet var toggleSizeButton: UIButton!
+    @IBOutlet var kbLabel: UILabel!
+    
+    
+    @IBOutlet var toggleSizeControl: UISegmentedControl!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         bindViewModel()
+        
+        toggleSizeControl.tintColor = UIColor.blackColor()
         
         widthField.backgroundColor = UIColor.clearColor()
         heightField.backgroundColor = UIColor.clearColor()
@@ -34,6 +41,9 @@ class ProcessViewCustom : BaseProcessView {
         
         sizeField.backgroundColor = UIColor.clearColor()
         sizeField.placeholder = "size"
+        sizeField.hidden = true
+        
+        kbLabel.hidden = true
         
         self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
     }
@@ -44,6 +54,16 @@ class ProcessViewCustom : BaseProcessView {
 
         super.bindViewModel()
         
+        
+        RACObserve(viewModel, keyPath: "toggleSize")
+            .subscribeNextAs {
+                (toggle: Bool) -> () in
+                if toggle {
+                    self.toggleSizeControl.selectedSegmentIndex = 1
+                } else {
+                    self.toggleSizeControl.selectedSegmentIndex = 0
+                }
+            }
         
         RACObserve(viewModel, keyPath: "width")
             .subscribeNextAs {
@@ -73,13 +93,35 @@ class ProcessViewCustom : BaseProcessView {
                 self.lockAspectButton.setBackgroundImage(UIImage(named: "unlock"), forState: .Normal)
 
             }
+        }
+        
+        NotificationHelper.observeNotification("toggleSize", object: nil, owner: self) {
+            notify in //passed in NSNotification
+            let toggleSize = notify.userInfo["value"] as! Bool
+            self.updateToggleSize(toggleSize)
             
         }
         
         widthField.rac_textSignal() ~> RAC(viewModel, "width")
         heightField.rac_textSignal() ~> RAC(viewModel, "height")
         sizeField.rac_textSignal() ~> RAC(viewModel, "size")
+        toggleSizeControl.rac_newSelectedSegmentIndexChannelWithNilValue(0) ~> RAC(viewModel, "toggleSize")
+        
         
         lockAspectButton.rac_command = (viewModel as! ProcessViewModelCustom).lockAspectCommand
+    }
+    
+    func updateToggleSize(toggleSize : Bool)
+    {
+       
+        self.sizeField.hidden = !toggleSize
+        self.kbLabel.hidden = !toggleSize
+        
+        self.widthField.hidden = toggleSize
+        self.heightField.hidden = toggleSize
+        self.xLabel.hidden = toggleSize
+        self.lockAspectButton.hidden = toggleSize
+
+     
     }
 }
