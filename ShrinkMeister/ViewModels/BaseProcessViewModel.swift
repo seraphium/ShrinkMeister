@@ -38,6 +38,7 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
         
         self.confirmCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
+            NotificationHelper.postNotification("StartProcess", objects: self, userInfo: nil)
             return self.executeProcessSignal()
         }
         

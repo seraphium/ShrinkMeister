@@ -35,7 +35,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     @IBOutlet weak var photoSizeLabel: UILabel!
     
     var processViews = [BaseProcessView]()
-        
+    
+    var processViewContraintOffset : CGFloat = 0.0
+    
     var currentProcessView : BaseProcessView?
     
     let imagePicker = UIImagePickerController()
@@ -95,6 +97,21 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
     }
     
+    override func updateViewConstraints() {
+        if let currentView = self.currentProcessView {
+            currentView.snp_updateConstraints {
+                make in
+                make.centerX.equalTo(self.view)
+                make.bottom.equalTo(self.processCollection.snp_top).offset(CGFloat(processViewContraintOffset))
+                make.width.equalTo(self.view)
+                make.height.equalTo(CGFloat(50))
+            }
+
+        }
+        
+        // according to apple super should be called at end of method
+        super.updateViewConstraints()
+    }
     
     func initNavigationBar()
     {
@@ -179,6 +196,11 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     }
     
     func initNotification() {
+        
+        NotificationHelper.observeNotification(UIKeyboardWillChangeFrameNotification, object: nil, owner: self, handleBlock: {
+            obj -> Void in
+            self.keyboardNotification(obj as! NSNotification)
+        })
         
         NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
             _ in //passed in NSNotification
@@ -280,7 +302,6 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 
 }
@@ -444,6 +465,36 @@ extension MainViewController : UIImagePickerControllerDelegate {
     
     
 
+}
+
+
+extension MainViewController  {
+    
+    //MARK: handling keyboard overlap
+    func keyboardNotification(notification : NSNotification!) -> Void {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
+            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if endFrame?.origin.y >= UIScreen.mainScreen().bounds.size.height {
+                self.processViewContraintOffset = 0.0
+            } else {
+               self.processViewContraintOffset = -(endFrame!.size.height - self.processCollection.frame.height)
+            }
+            
+            UIView.animateWithDuration(duration,
+                                       delay: NSTimeInterval(0),
+                                       options: animationCurve,
+                                       animations: {
+                                        self.view.setNeedsUpdateConstraints()
+                                        self.view.layoutIfNeeded() },
+                                       completion: nil)
+        }
+    }
+    
+    
 }
 
 extension MainViewController {

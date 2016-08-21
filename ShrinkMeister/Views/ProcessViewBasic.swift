@@ -49,6 +49,8 @@ class ProcessViewBasic : BaseProcessView {
         
         rotateLeftButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateLeftCommand
         rotateRightButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateRightCommand
+        
+
     }
     
 }

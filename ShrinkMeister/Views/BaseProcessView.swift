@@ -61,6 +61,12 @@ class BaseProcessView : UIView, ProcessViewProtocol {
                     
                 }
         }
+        
+        NotificationHelper.observeNotification("StartProcess", object: nil, owner: self) {
+            _ in
+            self.endEditing(true)
+            
+        }
 
 
     }
