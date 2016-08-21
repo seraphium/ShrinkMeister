@@ -34,6 +34,10 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
     @IBOutlet weak var photoSizeLabel: UILabel!
     
+    @IBOutlet var resolutionView: UIView!
+    
+    @IBOutlet var sizeView: UIView!
+    
     var processViews = [BaseProcessView]()
     
     var processViewContraintOffset : CGFloat = 0.0
@@ -58,10 +62,15 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     {
         
         self.view.backgroundColor = UIColor.whiteColor()
-        photoResolutionLabel.textColor = UIColor.blueColor()
+        photoResolutionLabel.textColor = UIColor.blackColor()
         photoResolutionLabel.layer.zPosition = 1000
-        photoSizeLabel.textColor = UIColor.blueColor()
+        photoSizeLabel.textColor = UIColor.blackColor()
         photoSizeLabel.layer.zPosition = 1000
+        
+        resolutionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        resolutionView.layer.zPosition = 800
+        sizeView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        sizeView.layer.zPosition = 800
         
         self.imageScrollView.layer.zPosition = -1000
         
