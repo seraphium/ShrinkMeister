@@ -13,6 +13,7 @@ class ProcessViewModelCustom : BaseProcessViewModel {
     
     let defaultWidth = 1024
     let defaultHeight = 768
+    let defaultSize = 1024
     
     var autoSetting : Bool = false
     dynamic var width : Int {
@@ -34,6 +35,8 @@ class ProcessViewModelCustom : BaseProcessViewModel {
             }
         }
     }
+    
+    dynamic var size : Int
 
     var sourceAspect : Double
     
@@ -45,6 +48,8 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         width = defaultWidth
         height = defaultHeight
         sourceAspect = Double(width) / Double(height)
+        
+        size = defaultSize
         
         super.init(title: "Custom", image: UIImage(named: "ruler"))
         
@@ -78,6 +83,10 @@ class ProcessViewModelCustom : BaseProcessViewModel {
             height = Int(sourceImage.size.height)
             sourceAspect = Double(width) / Double(height)
             autoSetting = false
+            
+            if let imageSize = sourceImage.imageSizeByte() {
+                size = imageSize
+            }
         }
 
     }

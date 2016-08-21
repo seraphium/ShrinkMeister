@@ -161,10 +161,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         let height = Int(imageViewModel.image.size.height)
         self.photoResolutionLabel.text = String("\(width)X\(height)")
         
-        let imgData = UIImageJPEGRepresentation(imageViewModel.image, 1);
-        if let data = imgData {
-            let length = data.length / 1024
-            self.photoSizeLabel.text = String("\(length) KB")
+        
+        if let size = imageViewModel.image.imageSizeByte() {
+            self.photoSizeLabel.text = String("\(size) KB")
         } else {
              self.photoSizeLabel.text = ""
         }

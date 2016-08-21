@@ -16,6 +16,10 @@ class ProcessViewCustom : BaseProcessView {
     
     @IBOutlet var lockAspectButton: UIButton!
     
+    @IBOutlet var sizeField: UITextField!
+    
+    @IBOutlet var toggleSizeButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +31,9 @@ class ProcessViewCustom : BaseProcessView {
         
         widthField.placeholder = "width"
         heightField.placeholder = "height"
+        
+        sizeField.backgroundColor = UIColor.clearColor()
+        sizeField.placeholder = "size"
         
         self.lockAspectButton.setBackgroundImage(UIImage(named: "locked"), forState: .Normal)
     }
@@ -50,6 +57,13 @@ class ProcessViewCustom : BaseProcessView {
                 self.heightField.text = String(height)
         }
         
+        
+        RACObserve(viewModel, keyPath: "size")
+            .subscribeNextAs {
+                (size: Int) -> () in
+                self.sizeField.text = String(size)
+        }
+        
         NotificationHelper.observeNotification("lock", object: nil, owner: self) {
              notify in //passed in NSNotification
             let locked = notify.userInfo["lock"] as! Bool
@@ -64,7 +78,8 @@ class ProcessViewCustom : BaseProcessView {
         
         widthField.rac_textSignal() ~> RAC(viewModel, "width")
         heightField.rac_textSignal() ~> RAC(viewModel, "height")
-                
+        sizeField.rac_textSignal() ~> RAC(viewModel, "size")
+        
         lockAspectButton.rac_command = (viewModel as! ProcessViewModelCustom).lockAspectCommand
     }
 }
