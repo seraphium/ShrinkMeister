@@ -16,7 +16,10 @@ class ProcessViewExport : BaseProcessView {
         super.awakeFromNib()
         
         self.viewModel = mainViewModel.processViewModels[3] as! ProcessViewModelExport
-
+        
+        self.exportButton.tintColor = UIColor.blackColor()
+        self.exportButton.setTitle(NSLocalizedString("ProcessViewExportButtonTitle", comment: ""), forState: .Normal)
+        
         bindViewModel()
     }
     

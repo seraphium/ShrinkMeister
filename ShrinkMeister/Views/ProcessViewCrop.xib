@@ -19,7 +19,7 @@
                     </constraints>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nfV-MW-wCM">
-                    <rect key="frame" x="50" y="11" width="243" height="29"/>
+                    <rect key="frame" x="30" y="11" width="243" height="29"/>
                     <segments>
                         <segment title="First"/>
                         <segment title="Second"/>
@@ -28,14 +28,14 @@
                     </segments>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVd-Mz-sqe">
-                    <rect key="frame" x="353" y="15" width="20" height="20"/>
+                    <rect key="frame" x="293" y="15" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="mfE-wS-07w"/>
                         <constraint firstAttribute="width" constant="20" id="mlb-8r-xSQ"/>
                     </constraints>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geH-JL-YFL">
-                    <rect key="frame" x="313" y="15" width="20" height="20"/>
+                    <rect key="frame" x="333" y="15" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="JMq-Ku-bwH"/>
                         <constraint firstAttribute="width" constant="20" id="L6V-17-5mo"/>
@@ -47,8 +47,10 @@
                 <constraint firstItem="geH-JL-YFL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="98V-0D-I5G"/>
                 <constraint firstAttribute="trailing" secondItem="THv-PM-XBl" secondAttribute="trailing" constant="28" id="N6f-DY-7aP"/>
                 <constraint firstItem="nfV-MW-wCM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qtj-tD-PZp"/>
+                <constraint firstItem="FVd-Mz-sqe" firstAttribute="leading" secondItem="nfV-MW-wCM" secondAttribute="trailing" constant="20" id="WC1-Jw-4Pg"/>
                 <constraint firstItem="FVd-Mz-sqe" firstAttribute="leading" secondItem="geH-JL-YFL" secondAttribute="trailing" constant="20" id="bP1-4v-zku"/>
-                <constraint firstItem="nfV-MW-wCM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="ef0-8f-lr4"/>
+                <constraint firstItem="geH-JL-YFL" firstAttribute="leading" secondItem="FVd-Mz-sqe" secondAttribute="trailing" constant="20" id="cot-rT-cZd"/>
+                <constraint firstItem="nfV-MW-wCM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="ef0-8f-lr4"/>
                 <constraint firstItem="FVd-Mz-sqe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g8l-fr-fAs"/>
                 <constraint firstItem="nfV-MW-wCM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k7y-94-nLR"/>
                 <constraint firstItem="THv-PM-XBl" firstAttribute="leading" secondItem="FVd-Mz-sqe" secondAttribute="trailing" constant="26" id="qlB-eL-cVP"/>
@@ -60,7 +62,9 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Qtj-tD-PZp"/>
+                    <exclude reference="bP1-4v-zku"/>
                     <exclude reference="ydf-mu-IeA"/>
+                    <exclude reference="u7u-DW-pap"/>
                     <exclude reference="qlB-eL-cVP"/>
                 </mask>
             </variation>

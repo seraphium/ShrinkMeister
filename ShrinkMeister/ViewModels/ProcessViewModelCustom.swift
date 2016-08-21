@@ -69,11 +69,15 @@ class ProcessViewModelCustom : BaseProcessViewModel {
         self.parameters = [width, height]
     }
     
+
+    
     override func imageDidSet() {
         if let sourceImage = self.sourceImageViewModel?.image {
+            autoSetting = true
             width = Int(sourceImage.size.width)
             height = Int(sourceImage.size.height)
             sourceAspect = Double(width) / Double(height)
+            autoSetting = false
         }
 
     }
