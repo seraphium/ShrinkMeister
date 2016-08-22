@@ -14,6 +14,15 @@ func rad(deg : Double) -> CGFloat {
 
 extension UIImage {
     
+    //get image size by bytes
+    var imageSizeByte :  Int {
+        let imgData = UIImageJPEGRepresentation(self, 1.0)!
+        let data = imgData
+        let length = data.length
+        return length
+    }
+    
+    
     //crop image by rect
     func cropTo(sourceImageFrame: CGRect, rect: CGRect) -> UIImage? {
         
@@ -80,7 +89,7 @@ extension UIImage {
     }
     
     //resize image by pixel width x height
-    func ResizeImageByPixel(targetSize: CGSize) -> UIImage? {
+    func resizeImageByPixel(targetSize: CGSize) -> UIImage? {
         
         let rect = CGRectMake(0, 0, targetSize.width, targetSize.height)
         
@@ -92,7 +101,9 @@ extension UIImage {
         return newImage
     }
     
-    func ResizeImageByLevel(level : Int) -> UIImage? {
+    
+    //resize image by level
+    func resizeImageByLevel(level : Int) -> UIImage? {
         let sizeRate : CGFloat
         let rate : CGFloat
         switch level {
@@ -112,21 +123,63 @@ extension UIImage {
         
         //scale down first
         let targetSize = CGSizeMake(self.size.width / sizeRate,self.size.height / sizeRate)
-        let scaledImage = self.ResizeImageByPixel(targetSize)
+        let scaledImage = self.resizeImageByPixel(targetSize)
         
         //compression
         if let scaled = scaledImage {
-            if let resultImageData = UIImageJPEGRepresentation(scaled, rate) {
-                return UIImage(data: resultImageData)
-                
-            } else {
-                return nil
-            }
+            return scaled.compressTo(rate)
+        } else {
+            return nil
+        }
+    }
+
+    func compressTo(rate : CGFloat) -> UIImage?{
+        if let resultImageData = UIImageJPEGRepresentation(self, rate)
+        {
+            return UIImage(data: resultImageData)
+
         } else {
             return nil
         }
         
+    }
+    
+    func resizeBySize(size : Int) -> UIImage? {
+        
+        let baseCompressionRate :CGFloat = 0.75
+        
+        var imgData=UIImageJPEGRepresentation(self, baseCompressionRate)!
+        
+        var compressionRate :CGFloat = 10.0;
+        
+        let actualSize = size - 10  //reduce image header size
+        
+        while (imgData.length > actualSize * 1024)
+        {
+            if (compressionRate>0)
+            {
+                compressionRate=compressionRate-0.5;
+                imgData=UIImageJPEGRepresentation(self, compressionRate/10)!;
+                print("new image data length:\(imgData.length / 1024) kb")
+            }
+            else
+            {
+                break;
+            }
+        }
 
+        //debug
+            
+        // Save image.
+       /* let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let filePath = NSURL(fileURLWithPath: paths[0]).URLByAppendingPathComponent("temp.jpg")
+            */
+         let data = UIImageJPEGRepresentation(self, compressionRate / 10)!
+            //write image data to URL
+       // data.writeToURL(filePath, atomically: true)
+ 
+        
+        return UIImage(data: data, scale: self.scale)
     }
 
 }

@@ -148,15 +148,3 @@ class MainViewModel : ViewModel {
     }
 }
 
-extension UIImage {
-    func imageSizeByte() -> Int? {
-        let imgData = UIImageJPEGRepresentation(self, 1);
-        if let data = imgData {
-            let length = data.length / 1024
-            return length
-        } else {
-            return nil
-        }
-    }
-    
-}

@@ -23,7 +23,7 @@ class ProcessImageBasic : ProcessServiceProtocol {
         }
         let level = op[0] as! Int
         
-        return image.ResizeImageByLevel(level)
+        return image.resizeImageByLevel(level)
     }
 
 }

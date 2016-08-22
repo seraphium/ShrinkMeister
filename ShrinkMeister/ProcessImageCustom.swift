@@ -22,7 +22,7 @@ class ProcessImageCustom : ProcessServiceProtocol {
             let height = op[2] as! Int
             print("custom pixel:\(width):\(height)")
 
-            if let destImage = image.ResizeImageByPixel(CGSizeMake(CGFloat(width), CGFloat(height))){
+            if let destImage = image.resizeImageByPixel(CGSizeMake(CGFloat(width), CGFloat(height))){
                return destImage
             } else {
                 return nil
@@ -31,9 +31,8 @@ class ProcessImageCustom : ProcessServiceProtocol {
         } else {
             let size = op[1] as! Int
             print("Size:\(size)")
-            
-            
-            return image
+            return image.resizeBySize(size)
+        
         }
         
     }

@@ -18,7 +18,7 @@ class  ImageStore : ResourceStore {
         //create full url for image
         let imageURL = resourceURLForKey(key, suffix: kSuffix)
         
-        if let data = UIImageJPEGRepresentation(image, 0.5) {
+        if let data = UIImageJPEGRepresentation(image, 1.0) {
             //write image data to URL
             data.writeToURL(imageURL, atomically: true)
         }

@@ -97,9 +97,9 @@ class ProcessViewModelCustom : BaseProcessViewModel {
             sourceAspect = Double(width) / Double(height)
             autoSetting = false
             
-            if let imageSize = sourceImage.imageSizeByte() {
-                size = imageSize
-            }
+            let imageSize = sourceImage.imageSizeByte / 1024
+            size = imageSize
+            
         }
 
     }

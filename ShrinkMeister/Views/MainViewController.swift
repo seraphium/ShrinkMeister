@@ -162,12 +162,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         self.photoResolutionLabel.text = String("\(width)X\(height)")
         
         
-        if let size = imageViewModel.image.imageSizeByte() {
-            self.photoSizeLabel.text = String("\(size) KB")
-        } else {
-             self.photoSizeLabel.text = ""
-        }
-
+        let size = imageViewModel.image.imageSizeByte / 1024
+        self.photoSizeLabel.text = String("\(size) KB")
+      
 
         let rect = self.view.convertRect(imageView.frame, fromView: self.imageScrollView)
         self.cropView.sourceImageFrame = rect
@@ -426,6 +423,13 @@ extension MainViewController : UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         //get image from info directory
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+     /*   let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let imagePath =  imageURL.path!
+        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imagePath)
+
+        print(localPath)
+       */
         
         mainViewModel.addPhotoCommand?.execute(image)
         
