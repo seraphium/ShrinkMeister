@@ -16,12 +16,20 @@ class ProcessImageCustom : ProcessServiceProtocol {
             return nil
         } 
         print ("process image custom for \(options):")
-        let width = op[0] as! Int
-        let height = op[1] as! Int
+        let toggleSize = op[0] as! Bool
+        var destImage : UIImage
+        if !toggleSize {
+            let width = op[1] as! Int
+            let height = op[2] as! Int
+            print("custom pixel:\(width):\(height)")
+
+            destImage = image.ResizeImage(CGSizeMake(CGFloat(width), CGFloat(height)))
+        } else {
+            let size = op[1] as! Int
+            print("Size:\(size)")
+            destImage = image
+        }
         
-        let destImage = image.ResizeImage(CGSizeMake(CGFloat(width), CGFloat(height)))
-        
-        print ("finished process ,dest image: \(destImage.size.width): \(destImage.size.height)")
         return destImage
     }
     
