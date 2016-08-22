@@ -53,12 +53,17 @@ class MainViewModel : ViewModel {
         
         let processViewModelExport = ProcessViewModelExport()    
         
+        processViewModels.append(processViewModelBasic)
+        processViewModels.append(processViewModelCrop)
+        processViewModels.append(processViewModelCustom)
+        processViewModels.append(processViewModelExport)
+        
         RACObserve(self, keyPath: "imageViewModel").skip(1).subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
-            processViewModelCrop.sourceImageViewModel = imageViewModel
-            processViewModelBasic.sourceImageViewModel = imageViewModel
-            processViewModelCustom.sourceImageViewModel = imageViewModel
-            processViewModelExport.sourceImageViewModel = imageViewModel
+            
+            for vm in self.processViewModels {
+                vm.sourceImageViewModel = imageViewModel
+            }
             
             NSUserDefaults.standardUserDefaults().removeObjectForKey("latestImageKey")
 
@@ -72,18 +77,15 @@ class MainViewModel : ViewModel {
             } .subscribeNextAs {
             (imageViewModel:ImageViewModel) -> () in
 
-            processViewModelCrop.sourceImageViewModel = imageViewModel
-            processViewModelBasic.sourceImageViewModel = imageViewModel
-            processViewModelCustom.sourceImageViewModel = imageViewModel
-            processViewModelExport.sourceImageViewModel = imageViewModel
+            for vm in self.processViewModels {
+                    vm.sourceImageViewModel = imageViewModel
+            }
+                
             self.imageStore.setImage(imageViewModel.image, forKey: imageViewModel.key)
 
         }
         
-        processViewModels.append(processViewModelBasic)
-        processViewModels.append(processViewModelCrop)
-        processViewModels.append(processViewModelCustom)
-        processViewModels.append(processViewModelExport)
+      
     }
     
     override init() {
