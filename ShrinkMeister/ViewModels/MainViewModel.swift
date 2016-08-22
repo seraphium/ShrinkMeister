@@ -59,8 +59,10 @@ class MainViewModel : ViewModel {
             processViewModelBasic.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
-            self.imageStore.setImage(imageViewModel.image, forKey: imageViewModel.key)
+            
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("latestImageKey")
 
+            NotificationHelper.postNotification("loaded", objects: self, userInfo: nil)
         }
         
         RACObserve(self, keyPath: "processedImageViewModel")
@@ -90,8 +92,6 @@ class MainViewModel : ViewModel {
         initProcessViewModel()
         
         imageStore = AppDelegate.imageStore
-        
-        loadImage()
         
         addPhotoCommand = RACCommand() {
             (any: AnyObject!) -> RACSignal in

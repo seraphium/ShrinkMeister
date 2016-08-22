@@ -72,6 +72,11 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         sizeView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
         sizeView.layer.zPosition = 800
         
+        resolutionView.hidden = true
+        
+        sizeView.hidden = true
+        
+        
         self.imageScrollView.layer.zPosition = -1000
         
         initNavigationBar()
@@ -207,6 +212,14 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             self.keyboardNotification(obj as! NSNotification)
         })
         
+        NotificationHelper.observeNotification("loaded", object: nil, owner: self) {
+            _ in //passed in NSNotification
+            self.resolutionView.hidden = false
+            self.sizeView.hidden = false
+        }
+        
+        
+        
         NotificationHelper.observeNotification("PushAddPhoto", object: nil, owner: self) {
             _ in //passed in NSNotification
             self.viewService?.pushViewController(AddPhotoViewController(), animated: true)
@@ -268,11 +281,14 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         bindViewModel()
 
         initUI()
 
         initNotification()
+        
+        mainViewModel.loadImage()
         
     }
     
