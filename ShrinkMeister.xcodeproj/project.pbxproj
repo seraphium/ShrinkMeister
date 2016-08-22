@@ -30,6 +30,7 @@
 		4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67A40F1D53490C00519610 /* Launch Screen.storyboard */; };
 		4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */; };
 		4B7F53C11D659B2A00DCD573 /* ProcessImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */; };
+		4B8DD2A11D6ACBBA00E41120 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD2A01D6ACBBA00E41120 /* UIImageExtension.swift */; };
 		4BC418861D54E0C000FC7BBD /* ProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */; };
 		4BC418871D54E0DD00FC7BBD /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */; };
 		4BC418881D54E0EF00FC7BBD /* ResourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0DEB41D54647B000D2665 /* ResourceStore.swift */; };
@@ -90,6 +91,7 @@
 		4B67A40F1D53490C00519610 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProcessViewModel.swift; sourceTree = "<group>"; };
 		4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCrop.swift; sourceTree = "<group>"; };
+		4B8DD2A01D6ACBBA00E41120 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4BE16E021D537BFE00AD1B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BE8FD4F1D57122600183F12 /* ProcessViewBasic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewBasic.xib; sourceTree = "<group>"; };
 		4BE8FD531D571A4C00183F12 /* ProcessViewBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewBasic.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				4B2A80861D5C586200D7BFDD /* ProcessServices */,
 				4BEE12121D518B4D00A84EC1 /* ImageStore.swift */,
 				4BF0DEB41D54647B000D2665 /* ResourceStore.swift */,
+				4B8DD2A01D6ACBBA00E41120 /* UIImageExtension.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */,
 				4BE8FD541D571A4C00183F12 /* ProcessViewBasic.swift in Sources */,
 				4BEE12221D51E97800A84EC1 /* ViewLocator.swift in Sources */,
+				4B8DD2A11D6ACBBA00E41120 /* UIImageExtension.swift in Sources */,
 				4BE8FD5D1D57209B00183F12 /* BaseProcessView.swift in Sources */,
 				4BEE12281D51F4BE00A84EC1 /* AddPhotoViewController.swift in Sources */,
 				4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */,

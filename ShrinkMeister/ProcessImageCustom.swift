@@ -17,36 +17,27 @@ class ProcessImageCustom : ProcessServiceProtocol {
         } 
         print ("process image custom for \(options):")
         let toggleSize = op[0] as! Bool
-        var destImage : UIImage
         if !toggleSize {
             let width = op[1] as! Int
             let height = op[2] as! Int
             print("custom pixel:\(width):\(height)")
 
-            destImage = image.ResizeImage(CGSizeMake(CGFloat(width), CGFloat(height)))
+            if let destImage = image.ResizeImageByPixel(CGSizeMake(CGFloat(width), CGFloat(height))){
+               return destImage
+            } else {
+                return nil
+            }
+            
         } else {
             let size = op[1] as! Int
             print("Size:\(size)")
-            destImage = image
+            
+            
+            return image
         }
         
-        return destImage
     }
     
    
 
-}
-
-extension UIImage {
-    func ResizeImage(targetSize: CGSize) -> UIImage {
-        
-        let rect = CGRectMake(0, 0, targetSize.width, targetSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(targetSize, false, 1.0)
-        self.drawInRect(rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
 }
