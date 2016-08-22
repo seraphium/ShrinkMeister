@@ -59,6 +59,8 @@ class MainViewModel : ViewModel {
             processViewModelBasic.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
+            self.imageStore.setImage(imageViewModel.image, forKey: imageViewModel.key)
+
         }
         
         RACObserve(self, keyPath: "processedImageViewModel")
@@ -72,6 +74,8 @@ class MainViewModel : ViewModel {
             processViewModelBasic.sourceImageViewModel = imageViewModel
             processViewModelCustom.sourceImageViewModel = imageViewModel
             processViewModelExport.sourceImageViewModel = imageViewModel
+            self.imageStore.setImage(imageViewModel.image, forKey: imageViewModel.key)
+
         }
         
         processViewModels.append(processViewModelBasic)
@@ -138,11 +142,6 @@ class MainViewModel : ViewModel {
     func addPhotoToStore(image: UIImage, forKey key: String)
     {
         imageViewModel = ImageViewModel(image: image, key: key)
-        
-        imageStore.setImage(image, forKey: key)
-        
-        //set userdefault with image key
-        NSUserDefaults.standardUserDefaults().setValue(key, forKey: "latestImageKey")
         
 
     }

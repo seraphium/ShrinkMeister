@@ -146,40 +146,29 @@ extension UIImage {
     
     func resizeBySize(size : Int) -> UIImage? {
         
-        let baseCompressionRate :CGFloat = 0.75
-        
-        var imgData=UIImageJPEGRepresentation(self, baseCompressionRate)!
-        
-        var compressionRate :CGFloat = 10.0;
-        
-        let actualSize = size - 10  //reduce image header size
-        
-        while (imgData.length > actualSize * 1024)
+        var image = self
+        let maxAspect : CGFloat = 10
+        var aspect : CGFloat = maxAspect - 1
+        var nowSize : Int = image.imageSizeByte
+        while (nowSize > size * 1024)
         {
-            if (compressionRate>0)
+            if (aspect > 0)
             {
-                compressionRate=compressionRate-0.5;
-                imgData=UIImageJPEGRepresentation(self, compressionRate/10)!;
-                print("new image data length:\(imgData.length / 1024) kb")
+                aspect = aspect - 1
+                let newSize = CGSizeMake(image.size.width * aspect / maxAspect, image.size.height * aspect / maxAspect)
+                image = image.resizeImageByPixel(newSize)!
+                nowSize = image.imageSizeByte
+                print("size:\(nowSize)")
+                print("new image size width:\(image.size.width)x\(image.size.height)")
             }
             else
             {
                 break;
             }
+           
         }
 
-        //debug
-            
-        // Save image.
-       /* let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let filePath = NSURL(fileURLWithPath: paths[0]).URLByAppendingPathComponent("temp.jpg")
-            */
-         let data = UIImageJPEGRepresentation(self, compressionRate / 10)!
-            //write image data to URL
-       // data.writeToURL(filePath, atomically: true)
- 
-        
-        return UIImage(data: data, scale: self.scale)
+        return image
     }
 
 }

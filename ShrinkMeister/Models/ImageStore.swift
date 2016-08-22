@@ -21,8 +21,11 @@ class  ImageStore : ResourceStore {
         if let data = UIImageJPEGRepresentation(image, 1.0) {
             //write image data to URL
             data.writeToURL(imageURL, atomically: true)
+            print ("saved image to \(imageURL)")
         }
     
+        //set userdefault with image key
+        NSUserDefaults.standardUserDefaults().setValue(key, forKey: "latestImageKey")
         
     }
     
