@@ -229,8 +229,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         NotificationHelper.observeNotification("ExportPhotoSucceed", object: nil, owner: self) {
             _ in //passed in NSNotification
             
-            let alertController = UIAlertController(title: "Saved", message: "Saved to Album", preferredStyle:.ActionSheet)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            let alertController = UIAlertController(title: NSLocalizedString("ExportAlertControllerTitle", comment: ""), message:
+                NSLocalizedString("ExportAlertControllerMessage", comment: "")  , preferredStyle:.ActionSheet)
+            let OKAction = UIAlertAction(title: NSLocalizedString("ExportAlertControllerConfirm", comment: ""), style: .Default) { (action) in
                 // ...
             }
             alertController.addAction(OKAction)

@@ -12,3 +12,6 @@
 "ProcessViewConfirmButtonTitle" = "OK";
 "ProcessViewExportButtonTitle" = "Export to System Album";
 "MainViewProgressTitle" = "Processing";
+"ExportAlertControllerTitle" = "Succeeded";
+"ExportAlertControllerMessage" = "Saved to System Album";
+"ExportAlertControllerConfirm" = "OK";
