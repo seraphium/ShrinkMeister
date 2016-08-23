@@ -147,19 +147,20 @@ extension UIImage {
     func resizeBySize(size : Int) -> UIImage? {
         
         var image = self
-        let maxAspect : CGFloat = 500
-        var aspect : CGFloat = maxAspect - 1
+        let maxAspect : CGFloat = 200
+        var aspect : CGFloat = 1
         var nowSize : Int = image.imageSizeByte
         while (nowSize > size * 1024)
-        {
-            if (aspect > 0)
+        {   //use formula： 1-sqrt(x）/ 10
+            if (aspect < maxAspect)
             {
-                aspect = aspect - 1
-                let newSize = CGSizeMake(image.size.width * aspect / maxAspect, image.size.height * aspect / maxAspect)
+                let weight = 1 - (sqrt(aspect) / 10)
+                let newSize = CGSizeMake(image.size.width * weight, image.size.height * weight)
                 image = image.resizeImageByPixel(newSize)!
                 nowSize = image.imageSizeByte
                 print("size:\(nowSize)")
                 print("new image size width:\(image.size.width)x\(image.size.height)")
+                aspect = aspect + 1
             }
             else
             {
