@@ -147,7 +147,7 @@ extension UIImage {
     func resizeBySize(size : Int) -> UIImage? {
         
         var image = self
-        let maxAspect : CGFloat = 10
+        let maxAspect : CGFloat = 500
         var aspect : CGFloat = maxAspect - 1
         var nowSize : Int = image.imageSizeByte
         while (nowSize > size * 1024)

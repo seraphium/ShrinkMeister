@@ -79,6 +79,8 @@ class ProcessViewModelCustom : BaseProcessViewModel {
      }
     
     override func beforeProcess() {
+        super.beforeProcess()
+        
         if !toggleSize {
             self.parameters = [toggleSize, width, height]
 

@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 import SnapKit
+import MBProgressHUD
 
 class MainViewController: BaseViewController, ViewModelProtocol,UINavigationControllerDelegate {
 
@@ -49,7 +50,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     var addBarButton : UIBarButtonItem!
     
     var reloadBarButton : UIBarButtonItem!
-    
+        
     let collectionCellID = "ProcessCellID"
     let collectionNibName = "ProcessCell"
     
@@ -271,6 +272,22 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
                 self.cropView.resetRectFromAspect()
 
             }
+        }
+        
+        
+        NotificationHelper.observeNotification("beforeProcess", object: nil, owner: self) {
+            _ in
+           let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.color = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+            hud.activityIndicatorColor = UIColor.blackColor()
+            hud.labelText = NSLocalizedString("MainViewProgressTitle", comment: "")
+            hud.labelColor = UIColor.blackColor()
+            
+        }
+
+        NotificationHelper.observeNotification("afterProcess", object: nil, owner: self) {
+            _ in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
         
     }

@@ -45,38 +45,39 @@ class BaseProcessViewModel : ViewModel, ProcessViewModelProtocol {
     }
     
     func beforeProcess() {
-        fatalError("beforeProcess has not been implemented")
+        NotificationHelper.postNotification("beforeProcess", objects: self, userInfo: nil)
+
 
     }
     
     func afterProcess() {
+        NotificationHelper.postNotification("afterProcess", objects: self, userInfo: nil)
 
     }
     
     func executeProcessSignal() -> RACSignal {
         //actual processing logic
         if let sourceImage = self.sourceImageViewModel?.image {
-            
             //set parameters in this delegate
             self.beforeProcess()
             
-            if let destImage = processService.processImage(sourceImage, options: parameters) {
-                //send result to mainviewmodel
-                NotificationHelper.postNotification("FinishProcess", objects: self,
-                                                    userInfo: ["image": destImage])
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
                 
-            } else {
-                return RACSignal.error(processError)
+                let destImage = self.processService.processImage(sourceImage, options: self.parameters)
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.afterProcess()
+
+                    NotificationHelper.postNotification("FinishProcess", objects: self,
+                                                        userInfo: ["image": destImage!])
+                }
             }
             
             
-        } else {
-            print ("no image")
         }
         
-        self.afterProcess()
-        
         return RACSignal.empty()
+
    
     }
     
