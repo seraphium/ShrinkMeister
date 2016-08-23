@@ -65,6 +65,8 @@ class MainViewModel : ViewModel {
                 vm.sourceImageViewModel = imageViewModel
             }
             
+            self.processedImageViewModel = nil
+            
             NSUserDefaults.standardUserDefaults().removeObjectForKey("latestImageKey")
 
             NotificationHelper.postNotification("loaded", objects: self, userInfo: nil)

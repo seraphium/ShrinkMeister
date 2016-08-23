@@ -50,6 +50,10 @@ class ProcessViewModelExport : BaseProcessViewModel {
             
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProcessViewModelExport.image(_:didFinishSavingWithError:contextInfo:)), nil)
 
+        } else if let image = mainViewModel.imageViewModel?.image {
+            
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProcessViewModelExport.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            
         }
         
         return RACSignal.empty()
