@@ -295,7 +295,10 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         NotificationHelper.observeNotification("OpenShare", object: nil, owner: self) {
             _ in
             if let image = self.mainViewModel.currentImage {
-                let items: [AnyObject] = [image]
+                //direct send UIImage will make compressed image sent, so can only send file
+                let imgData = UIImageJPEGRepresentation(image, 1.0)!
+
+                let items: [AnyObject] = [imgData]
                 let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
                 self.presentViewController(activityController, animated: true, completion: nil)
             }
@@ -421,10 +424,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return CGSizeMake(width / 4, width / 4)
     }
-    
- /*   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(5, 2.5, 5, 2.5)
-    }*/
     
 
 }

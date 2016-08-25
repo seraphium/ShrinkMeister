@@ -177,7 +177,7 @@ extension UIImage {
             }
            
         }
-
+        
         return image
     }
 
