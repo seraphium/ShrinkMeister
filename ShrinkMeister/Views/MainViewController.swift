@@ -306,7 +306,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
         initNotification()
         
-        mainViewModel.loadImage()
+        if (!mainViewModel.loadImage()) {
+            AddPhoto()
+        }
         
     }
     
@@ -458,43 +460,30 @@ extension MainViewController : UIImagePickerControllerDelegate {
         //get image from info directory
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-     /*   let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-        let imagePath =  imageURL.path!
-        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imagePath)
-
-        print(localPath)
-       */
-        
         mainViewModel.addPhotoCommand?.execute(image)
         
-               //take imagePicker off screen
+        //take imagePicker off screen
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     
-    func choosePicture(){
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+    func chooseCamera(){
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
     }
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-        let choosePictureString = "Choose"
-        if(imagePicker.sourceType == UIImagePickerControllerSourceType.Camera){
-            let button = UIBarButtonItem(title: choosePictureString, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(choosePicture))
-            viewController.navigationItem.rightBarButtonItem = button
+        let cameraString = NSLocalizedString("ImagePickerCameraTitle", comment: "")
+        if  UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            let button = UIBarButtonItem(title: cameraString, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(chooseCamera))
+            viewController.navigationItem.leftBarButtonItem = button
             viewController.navigationController?.navigationBarHidden = false
             viewController.navigationController?.navigationBar.translucent = true
         }
     }
 
     func AddPhoto() {
-        //see if camera supported, if not , pick from library
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType  = .Camera
-        }
-        else {
-            imagePicker.sourceType = .PhotoLibrary
-        }
-        
+
+        imagePicker.sourceType = .PhotoLibrary
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)
     }

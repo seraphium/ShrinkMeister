@@ -15,3 +15,4 @@
 "ExportAlertControllerTitle" = "成功";
 "ExportAlertControllerMessage" = "照片已存入系统相册";
 "ExportAlertControllerConfirm" = "确定";
+"ImagePickerCameraTitle" = "相机";

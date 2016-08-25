@@ -15,3 +15,4 @@
 "ExportAlertControllerTitle" = "Succeeded";
 "ExportAlertControllerMessage" = "Saved to System Album";
 "ExportAlertControllerConfirm" = "OK";
+"ImagePickerCameraTitle" = "Camera";

@@ -131,15 +131,16 @@ class MainViewModel : ViewModel {
     }
 
     //load last image from imageStore , if not exists, load default
-    func loadImage() {
+    func loadImage() -> Bool {
         if let latestImagekey = NSUserDefaults.standardUserDefaults().stringForKey("latestImageKey") {
             if let latestImage = imageStore.imageForKey(latestImagekey) {
                 imageViewModel = ImageViewModel(image: latestImage, key: latestImagekey)
-
+                return true
             }
 
         }
         
+        return false
         
     }
     
