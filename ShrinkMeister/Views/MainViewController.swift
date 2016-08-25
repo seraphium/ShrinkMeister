@@ -291,6 +291,18 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
             MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
         
+        
+        NotificationHelper.observeNotification("OpenShare", object: nil, owner: self) {
+            _ in
+            if let image = self.mainViewModel.currentImage {
+                let items: [AnyObject] = [image]
+                let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                self.presentViewController(activityController, animated: true, completion: nil)
+            }
+            
+            
+        }
+        
     }
     
     

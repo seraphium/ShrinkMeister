@@ -12,6 +12,7 @@ import ReactiveCocoa
 class ProcessViewModelExport : BaseProcessViewModel {
     
     var exportCommand : RACCommand!
+    var otherCommand : RACCommand!
     
      init() {
         
@@ -20,6 +21,15 @@ class ProcessViewModelExport : BaseProcessViewModel {
         exportCommand  = RACCommand() {
                 (any:AnyObject!) -> RACSignal in
                 return self.executeExportSignal()
+        }
+        
+        otherCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            
+            NotificationHelper.postNotification("OpenShare", objects: self, userInfo: nil)
+            
+            return RACSignal.empty()
+            
         }
 
         
@@ -46,14 +56,10 @@ class ProcessViewModelExport : BaseProcessViewModel {
         
         let mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
 
-        if let image = mainViewModel.processedImageViewModel?.image {
+        if let image = mainViewModel.currentImage {
             
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProcessViewModelExport.image(_:didFinishSavingWithError:contextInfo:)), nil)
 
-        } else if let image = mainViewModel.imageViewModel?.image {
-            
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProcessViewModelExport.image(_:didFinishSavingWithError:contextInfo:)), nil)
-            
         }
         
         return RACSignal.empty()

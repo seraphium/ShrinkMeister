@@ -22,6 +22,16 @@ class MainViewModel : ViewModel {
         }
     }
     
+    var currentImage : UIImage? {
+        var img : UIImage? = nil
+        if let image = self.processedImageViewModel?.image {
+          img = image
+        } else if let image = self.imageViewModel?.image {
+            img = image
+        }
+        return img
+    }
+    
     dynamic var processedImageViewModel : ImageViewModel?
     
     var imageStore : ImageStore!

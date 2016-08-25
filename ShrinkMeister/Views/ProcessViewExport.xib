@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A285a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,16 +15,24 @@
                     <rect key="frame" x="277" y="10" width="46" height="30"/>
                     <state key="normal" title="Export"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgq-2f-AJu">
+                    <rect key="frame" x="504" y="10" width="47" height="30"/>
+                    <state key="normal" title="Others"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="4oZ-j2-ei8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="J3i-dW-sch"/>
+                <constraint firstItem="Cgq-2f-AJu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Mdk-St-DRu"/>
+                <constraint firstAttribute="trailing" secondItem="Cgq-2f-AJu" secondAttribute="trailing" constant="49" id="SrZ-Di-LWA"/>
                 <constraint firstItem="4oZ-j2-ei8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kc6-KE-OCY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="exportButton" destination="4oZ-j2-ei8" id="VcU-ze-Z4o"/>
+                <outlet property="otherButton" destination="Cgq-2f-AJu" id="69T-gk-ReR"/>
             </connections>
+            <point key="canvasLocation" x="121" y="156"/>
         </view>
     </objects>
 </document>
