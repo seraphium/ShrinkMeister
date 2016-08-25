@@ -422,9 +422,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSizeMake(width / 4, width / 4)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+ /*   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(5, 2.5, 5, 2.5)
-    }
+    }*/
+    
 
 }
 
