@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AEE9323600A4B9FCFA3FC4F /* Pods_ShrinkMeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BD50B579385C8716178E9 /* Pods_ShrinkMeister.framework */; };
+		4B01F94D1D6F27C0009C4579 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F94C1D6F27C0009C4579 /* Main.storyboard */; };
 		4B0E0BF51D604D190013A7FD /* ProcessViewCrop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */; };
 		4B0E0BF71D604D3F0013A7FD /* ProcessViewCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */; };
 		4B0E0BF91D604D680013A7FD /* ProcessViewModelCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		19742C88BB2979AA1C4754AD /* Pods-ShrinkMeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.debug.xcconfig"; sourceTree = "<group>"; };
 		32FB6E2520DD988B83B1ACD3 /* Pods-ShrinkMeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShrinkMeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShrinkMeister/Pods-ShrinkMeister.release.xcconfig"; sourceTree = "<group>"; };
+		4B01F94C1D6F27C0009C4579 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4B0E0BF41D604D190013A7FD /* ProcessViewCrop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewCrop.xib; sourceTree = "<group>"; };
 		4B0E0BF61D604D3F0013A7FD /* ProcessViewCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewCrop.swift; sourceTree = "<group>"; };
 		4B0E0BF81D604D680013A7FD /* ProcessViewModelCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelCrop.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				4BE16E021D537BFE00AD1B29 /* Assets.xcassets */,
 				4B40427B1D55B815007E6312 /* Localizable.strings */,
+				4B01F94C1D6F27C0009C4579 /* Main.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				4BFAC1311D5EFB040093A65C /* ProcessViewExport.xib in Resources */,
 				4BF66AAE1D6ED0DB00A4F186 /* LaunchScreenViewController.xib in Resources */,
 				4BE8FD501D57122600183F12 /* ProcessViewBasic.xib in Resources */,
+				4B01F94D1D6F27C0009C4579 /* Main.storyboard in Resources */,
 				4BE8FD5B1D571EDC00183F12 /* ProcessViewCustom.xib in Resources */,
 				4B4042791D55B815007E6312 /* Localizable.strings in Resources */,
 			);
