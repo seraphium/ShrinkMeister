@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A285a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-Aq-FgH">
-                    <rect key="frame" x="30" y="80" width="150" height="30"/>
+                    <rect key="frame" x="30" y="80" width="130" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-3Q-Qv7">
                             <rect key="frame" x="36" y="5" width="77" height="21"/>
@@ -40,11 +40,11 @@
                         <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerY" secondItem="nK5-Aq-FgH" secondAttribute="centerY" id="PdK-T5-0mg"/>
                         <constraint firstItem="sRi-3Q-Qv7" firstAttribute="centerX" secondItem="nK5-Aq-FgH" secondAttribute="centerX" id="jyO-5q-kvM"/>
                         <constraint firstAttribute="height" constant="30" id="nPU-bp-f5o"/>
-                        <constraint firstAttribute="width" constant="150" id="wAS-9p-c80"/>
+                        <constraint firstAttribute="width" constant="130" id="wAS-9p-c80"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-jt-qfY">
-                    <rect key="frame" x="420" y="80" width="150" height="30"/>
+                    <rect key="frame" x="440" y="80" width="130" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-Kf-jux">
                             <rect key="frame" x="54" y="5" width="42" height="21"/>
@@ -58,7 +58,7 @@
                         <constraint firstItem="BkU-Kf-jux" firstAttribute="centerY" secondItem="6IF-jt-qfY" secondAttribute="centerY" id="7xE-zi-nNF"/>
                         <constraint firstItem="BkU-Kf-jux" firstAttribute="centerX" secondItem="6IF-jt-qfY" secondAttribute="centerX" id="AK4-3X-7mE"/>
                         <constraint firstAttribute="height" constant="30" id="nac-sZ-0aK"/>
-                        <constraint firstAttribute="width" constant="150" id="xUR-Ht-XCL"/>
+                        <constraint firstAttribute="width" constant="130" id="xUR-Ht-XCL"/>
                     </constraints>
                 </view>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-8H-JHf" customClass="CroppableImageView" customModule="ShrinkMeister" customModuleProvider="target">

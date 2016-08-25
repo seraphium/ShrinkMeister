@@ -405,7 +405,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(90, 90)
+        let width = UIScreen.mainScreen().bounds.width
+        
+        return CGSizeMake(width / 4, width / 4)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
