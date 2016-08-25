@@ -21,6 +21,7 @@ class ProcessViewExport : BaseProcessView {
         
         self.exportButton.tintColor = UIColor.blackColor()
         self.exportButton.setTitle(NSLocalizedString("ProcessViewExportButtonTitle", comment: ""), forState: .Normal)
+        self.otherButton.setBackgroundImage(UIImage(named: "other"), forState: .Normal)
         
         bindViewModel()
     }

@@ -10,7 +10,7 @@
 "ProcessLevelMediumButtonTitle" = "中型";
 "ProcessLevelSmallButtonTitle" = "小型";
 "ProcessViewConfirmButtonTitle" = "确定";
-"ProcessViewExportButtonTitle" = "导出到系统相册";
+"ProcessViewExportButtonTitle" = "保存到系统相册";
 "MainViewProgressTitle" = "正在处理中";
 "ExportAlertControllerTitle" = "成功";
 "ExportAlertControllerMessage" = "照片已存入系统相册";
