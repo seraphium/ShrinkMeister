@@ -28,6 +28,7 @@ class ViewModelLocator {
     
     init()
     {
+
         self.addViewModel("Main", withViewModel: MainViewModel())
         self.addViewModel("AddPhoto", withViewModel: AddPhotoViewModel())
 

@@ -135,7 +135,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         
         let addButton = UIButton(frame: CGRectMake(0, 0, 22, 22))
         addButton.setBackgroundImage(UIImage(named: "camera"), forState: .Normal)
-        addButton.addTarget(self, action: #selector(AddPhoto), forControlEvents: .TouchUpInside)
+        addButton.addTarget(self, action: #selector(ShowPhotoPicker), forControlEvents: .TouchUpInside)
 
         addBarButton = UIBarButtonItem(customView: addButton)
         navigationItem.rightBarButtonItem = addBarButton
@@ -307,7 +307,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         initNotification()
         
         if (!mainViewModel.loadImage()) {
-            AddPhoto()
+            AddPhoto(false)
         }
         
     }
@@ -482,12 +482,16 @@ extension MainViewController : UIImagePickerControllerDelegate {
             viewController.navigationController?.navigationBar.translucent = true
         }
     }
+    
+    func ShowPhotoPicker() {
+        AddPhoto(true)
+    }
 
-    func AddPhoto() {
+    func AddPhoto(animated: Bool) {
 
         imagePicker.sourceType = .PhotoLibrary
         imagePicker.delegate = self
-        presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: animated, completion: nil)
     }
     
     func ReloadPhoto() {

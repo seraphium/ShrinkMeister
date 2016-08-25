@@ -27,7 +27,6 @@
 		4B67A4081D531A0E00519610 /* ViewControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4071D531A0E00519610 /* ViewControllerService.swift */; };
 		4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */; };
 		4B67A40C1D5321FB00519610 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67A40B1D5321FB00519610 /* NotificationHelper.swift */; };
-		4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67A40F1D53490C00519610 /* Launch Screen.storyboard */; };
 		4B6FEB371D55EBBE005D7DA5 /* BaseProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */; };
 		4B7F53C11D659B2A00DCD573 /* ProcessImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */; };
 		4B8DD2A11D6ACBBA00E41120 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD2A01D6ACBBA00E41120 /* UIImageExtension.swift */; };
@@ -57,6 +56,8 @@
 		4BEE122A1D51F4DE00A84EC1 /* AddPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE12291D51F4DE00A84EC1 /* AddPhotoViewModel.swift */; };
 		4BEF0D7D1D508BA400E7782A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7C1D508BA400E7782A /* AppDelegate.swift */; };
 		4BEF0D7F1D508BA400E7782A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0D7E1D508BA400E7782A /* MainViewController.swift */; };
+		4BF66AAC1D6ED0A600A4F186 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF66AAB1D6ED0A600A4F186 /* LaunchScreenViewController.swift */; };
+		4BF66AAE1D6ED0DB00A4F186 /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF66AAD1D6ED0DB00A4F186 /* LaunchScreenViewController.xib */; };
 		4BFAC12D1D5EFA8C0093A65C /* ProcessViewModelExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFAC12C1D5EFA8C0093A65C /* ProcessViewModelExport.swift */; };
 		4BFAC1311D5EFB040093A65C /* ProcessViewExport.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BFAC1301D5EFB040093A65C /* ProcessViewExport.xib */; };
 		4BFAC1331D5EFB5D0093A65C /* ProcessViewExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFAC1321D5EFB5D0093A65C /* ProcessViewExport.swift */; };
@@ -88,7 +89,6 @@
 		4B67A4071D531A0E00519610 /* ViewControllerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerService.swift; path = ../ViewModels/ViewControllerService.swift; sourceTree = "<group>"; };
 		4B67A4091D531AC400519610 /* ViewControllerServicesImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServicesImp.swift; sourceTree = "<group>"; };
 		4B67A40B1D5321FB00519610 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
-		4B67A40F1D53490C00519610 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4B6FEB361D55EBBE005D7DA5 /* BaseProcessViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProcessViewModel.swift; sourceTree = "<group>"; };
 		4B7F53C01D659B2A00DCD573 /* ProcessImageCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessImageCrop.swift; sourceTree = "<group>"; };
 		4B8DD2A01D6ACBBA00E41120 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 		4BF0DEB91D54759A000D2665 /* ProcessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessCell.xib; sourceTree = "<group>"; };
 		4BF0DEBB1D5477CD000D2665 /* ProcessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessCell.swift; sourceTree = "<group>"; };
 		4BF0DEBD1D5494AF000D2665 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
+		4BF66AAB1D6ED0A600A4F186 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		4BF66AAD1D6ED0DB00A4F186 /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		4BFAC12C1D5EFA8C0093A65C /* ProcessViewModelExport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewModelExport.swift; sourceTree = "<group>"; };
 		4BFAC1301D5EFB040093A65C /* ProcessViewExport.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewExport.xib; sourceTree = "<group>"; };
 		4BFAC1321D5EFB5D0093A65C /* ProcessViewExport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewExport.swift; sourceTree = "<group>"; };
@@ -170,6 +172,8 @@
 				4BEF0D7E1D508BA400E7782A /* MainViewController.swift */,
 				4B4042801D55BA03007E6312 /* MainViewController.xib */,
 				4BEE12271D51F4BE00A84EC1 /* AddPhotoViewController.swift */,
+				4BF66AAB1D6ED0A600A4F186 /* LaunchScreenViewController.swift */,
+				4BF66AAD1D6ED0DB00A4F186 /* LaunchScreenViewController.xib */,
 			);
 			name = ViewControllers;
 			path = Views;
@@ -266,7 +270,6 @@
 		4BEE121A1D518C8300A84EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4B67A40F1D53490C00519610 /* Launch Screen.storyboard */,
 				4BE16E021D537BFE00AD1B29 /* Assets.xcassets */,
 				4B40427B1D55B815007E6312 /* Localizable.strings */,
 			);
@@ -396,8 +399,8 @@
 			files = (
 				4BE16E031D537BFE00AD1B29 /* Assets.xcassets in Resources */,
 				4B0E0BF51D604D190013A7FD /* ProcessViewCrop.xib in Resources */,
-				4B67A4101D53490C00519610 /* Launch Screen.storyboard in Resources */,
 				4BFAC1311D5EFB040093A65C /* ProcessViewExport.xib in Resources */,
+				4BF66AAE1D6ED0DB00A4F186 /* LaunchScreenViewController.xib in Resources */,
 				4BE8FD501D57122600183F12 /* ProcessViewBasic.xib in Resources */,
 				4BE8FD5B1D571EDC00183F12 /* ProcessViewCustom.xib in Resources */,
 				4B4042791D55B815007E6312 /* Localizable.strings in Resources */,
@@ -483,6 +486,7 @@
 				4BE8FD541D571A4C00183F12 /* ProcessViewBasic.swift in Sources */,
 				4BEE12221D51E97800A84EC1 /* ViewLocator.swift in Sources */,
 				4B8DD2A11D6ACBBA00E41120 /* UIImageExtension.swift in Sources */,
+				4BF66AAC1D6ED0A600A4F186 /* LaunchScreenViewController.swift in Sources */,
 				4BE8FD5D1D57209B00183F12 /* BaseProcessView.swift in Sources */,
 				4BEE12281D51F4BE00A84EC1 /* AddPhotoViewController.swift in Sources */,
 				4B67A40A1D531AC400519610 /* ViewControllerServicesImp.swift in Sources */,

@@ -11,15 +11,15 @@ import UIKit
 
 class ViewLocator {
     
-    private var views = [String : BaseViewController]()
+    private var views = [String : UIViewController]()
     
-    internal func addView(name: String, withViewController vc: BaseViewController)
+    internal func addView(name: String, withViewController vc: UIViewController)
     {
         views[name] = vc
     }
     
     
-    internal func getView(name: String) -> BaseViewController? {
+    internal func getView(name: String) -> UIViewController? {
         if let view = views[name] {
             return view
         } else {
@@ -30,6 +30,7 @@ class ViewLocator {
     
     init()
     {
+        self.addView("Navigation", withViewController: UINavigationController())
         self.addView("Main", withViewController: MainViewController(withViewService: AppDelegate.viewService))
         self.addView("AddPhoto", withViewController: AddPhotoViewController(withViewService: AppDelegate.viewService))
     }

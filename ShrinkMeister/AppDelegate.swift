@@ -18,37 +18,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var navigationController : UINavigationController!
     
-    var mainViewModel : ViewModel!
-    var mainViewController : BaseViewController!
+    var mainViewModel : MainViewModel!
+    var mainViewController : MainViewController!
     
     static var viewService : ViewControllerService!
     
     static var imageStore = ImageStore()
     
+    static let launchScreenBackColor = UIColor(red: 26.0/255.0, green: 118.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+
     
     static let collectionBackColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        navigationController = UINavigationController()
-      //  navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
-        AppDelegate.viewService = ViewControllerServicesImp(navigationController: navigationController)
-        
-        //should init service first , then init locator
         
         AppDelegate.viewLocator = ViewLocator()
+        
         AppDelegate.viewModelLocator = ViewModelLocator()
         
-        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main")
-        mainViewController = AppDelegate.viewLocator.getView("Main")
+        let navigationController = AppDelegate.viewLocator.getView("Navigation") as! UINavigationController
+        AppDelegate.viewService = ViewControllerServicesImp(navigationController: navigationController)
+        
+        mainViewModel = AppDelegate.viewModelLocator.getViewModel("Main") as! MainViewModel
+        mainViewController = AppDelegate.viewLocator.getView("Main") as! MainViewController
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.rootViewController = navigationController
+        
+        let launchViewController = LaunchScreenViewController()
+        
+        window!.rootViewController = launchViewController
         window!.makeKeyAndVisible()
-
-        navigationController.pushViewController(mainViewController, animated: false)
-
         
         return true
     }
