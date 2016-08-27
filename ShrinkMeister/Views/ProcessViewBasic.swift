@@ -50,6 +50,19 @@ class ProcessViewBasic : BaseProcessView {
         rotateLeftButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateLeftCommand
         rotateRightButton.rac_command = (viewModel as! ProcessViewModelBasic).rotateRightCommand
         
+        RACObserve(mainViewModel, keyPath: "processEnabled")
+            .subscribeNextAs {
+                (enabled : Bool) -> () in
+                if !enabled {
+                    self.rotateLeftButton.enabled = false
+                    self.rotateRightButton.enabled = false
+                } else {
+                    self.rotateLeftButton.enabled = true
+                    self.rotateRightButton.enabled = true
+                }
+        }
+        
+
 
     }
     

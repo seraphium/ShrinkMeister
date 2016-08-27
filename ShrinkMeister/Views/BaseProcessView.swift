@@ -53,11 +53,9 @@ class BaseProcessView : UIView, ProcessViewProtocol {
             .subscribeNextAs {
                 (enabled : Bool) -> () in
                 if !enabled {
-                    self.confirmButton?.alpha = 0.3
-                    self.confirmButton?.userInteractionEnabled = false
+                    self.confirmButton?.enabled = false
                 } else {
-                    self.confirmButton?.alpha = 1.0
-                    self.confirmButton?.userInteractionEnabled = true
+                    self.confirmButton?.enabled = true
                     
                 }
         }

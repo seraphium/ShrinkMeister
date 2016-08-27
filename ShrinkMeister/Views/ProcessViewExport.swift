@@ -32,6 +32,19 @@ class ProcessViewExport : BaseProcessView {
         exportButton.rac_command = (self.viewModel as! ProcessViewModelExport).exportCommand
      
         otherButton.rac_command = (self.viewModel as! ProcessViewModelExport).otherCommand
+        
+        RACObserve(mainViewModel, keyPath: "processEnabled")
+            .subscribeNextAs {
+                (enabled : Bool) -> () in
+                if !enabled {
+                    self.exportButton.enabled = false
+                    self.otherButton.enabled = false
+                } else {
+                    self.exportButton.enabled = true
+                    self.otherButton.enabled = true
+                }
+        }
+
 
     }
 }

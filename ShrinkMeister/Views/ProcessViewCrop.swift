@@ -106,6 +106,8 @@ class ProcessViewCrop : BaseProcessView, CroppableImageViewDelegateProtocol {
 
                 }
         }
+        
+       
 
     }
 }
