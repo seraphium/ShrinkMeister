@@ -63,6 +63,9 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     func initUI()
     {
         
+        self.navigationController?.navigationBar.topItem?.title =
+            NSLocalizedString("NavigationTitle", comment:"")
+                
         self.view.backgroundColor = UIColor.whiteColor()
         photoResolutionLabel.textColor = UIColor.blackColor()
         photoResolutionLabel.layer.zPosition = 1000
