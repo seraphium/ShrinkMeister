@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A285a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -27,14 +27,14 @@
                     </segments>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir5-nO-qAB">
-                    <rect key="frame" x="100" y="10" width="30" height="30"/>
+                    <rect key="frame" x="60" y="10" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="dKr-i4-GtP"/>
                         <constraint firstAttribute="width" constant="30" id="lFr-s1-qPc"/>
                     </constraints>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8F-6y-jKx">
-                    <rect key="frame" x="50" y="10" width="30" height="30"/>
+                    <rect key="frame" x="20" y="10" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="1HT-Nv-jEi"/>
                         <constraint firstAttribute="height" constant="30" id="NKO-b6-cC8"/>
@@ -44,8 +44,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Nlv-Nm-unl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1Fg-Sf-lES"/>
-                <constraint firstItem="l8F-6y-jKx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="6BI-oG-gTZ"/>
-                <constraint firstItem="ir5-nO-qAB" firstAttribute="leading" secondItem="l8F-6y-jKx" secondAttribute="trailing" constant="20" id="6GR-4Y-CWe"/>
+                <constraint firstItem="l8F-6y-jKx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6BI-oG-gTZ"/>
+                <constraint firstItem="ir5-nO-qAB" firstAttribute="leading" secondItem="l8F-6y-jKx" secondAttribute="trailing" constant="10" id="6GR-4Y-CWe"/>
                 <constraint firstItem="l8F-6y-jKx" firstAttribute="leading" secondItem="Nlv-Nm-unl" secondAttribute="trailing" constant="50" id="9D9-j7-1xg"/>
                 <constraint firstItem="Nlv-Nm-unl" firstAttribute="leading" secondItem="ir5-nO-qAB" secondAttribute="trailing" constant="50" id="HBw-zT-AWt"/>
                 <constraint firstItem="l8F-6y-jKx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K8A-pV-pHH"/>

@@ -21,6 +21,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     
     @IBOutlet weak var processCollection: UICollectionView!
 
+    @IBOutlet var placeHolderImageView: UIImageView!
     
     @IBOutlet var cropView: CroppableImageView!
     
@@ -77,6 +78,10 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
         
         sizeView.hidden = true
         
+        let imageName = NSLocalizedString("PlaceholderImageName", comment: "")
+        placeHolderImageView.image = UIImage(named: imageName)
+        
+        placeHolderImageView.hidden = false
         
         self.imageScrollView.layer.zPosition = -1000
         
@@ -174,6 +179,8 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
 
         let rect = self.view.convertRect(imageView.frame, fromView: self.imageScrollView)
         self.cropView.sourceImageFrame = rect
+        
+        self.placeHolderImageView.hidden = true
     }
     
     func bindViewModel() {

@@ -5,10 +5,11 @@
   Created by Jackie Zhang on 16/8/6.
   Copyright © 2016年 Jackie Zhang. All rights reserved.
 */
+"PlaceholderImageName" = "shrinkMeiterInstruct_cn";
 "NavigationTitle" = "缩图大师";
-"ProcessLevelLargeButtonTitle" = "大型";
-"ProcessLevelMediumButtonTitle" = "中型";
-"ProcessLevelSmallButtonTitle" = "小型";
+"ProcessLevelLargeButtonTitle" = "大尺寸";
+"ProcessLevelMediumButtonTitle" = "中等";
+"ProcessLevelSmallButtonTitle" = "小尺寸";
 "ProcessViewConfirmButtonTitle" = "确定";
 "ProcessViewExportButtonTitle" = "保存到系统相册";
 "MainViewProgressTitle" = "正在处理中";

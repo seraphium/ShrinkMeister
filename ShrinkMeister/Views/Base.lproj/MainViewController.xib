@@ -13,6 +13,7 @@
                 <outlet property="imageView" destination="JP5-8N-f06" id="rgk-xH-5CX"/>
                 <outlet property="photoResolutionLabel" destination="sRi-3Q-Qv7" id="yp6-LK-U3a"/>
                 <outlet property="photoSizeLabel" destination="BkU-Kf-jux" id="EaC-IX-e9O"/>
+                <outlet property="placeHolderImageView" destination="qWn-sM-wiE" id="css-CB-14n"/>
                 <outlet property="processCollection" destination="CAt-ZF-fx6" id="lGg-1W-nhY"/>
                 <outlet property="resolutionView" destination="nK5-Aq-FgH" id="ENT-E4-RyF"/>
                 <outlet property="sizeView" destination="6IF-jt-qfY" id="mAh-0f-7lp"/>
@@ -28,8 +29,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-Aq-FgH">
                     <rect key="frame" x="30" y="80" width="130" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-3Q-Qv7">
-                            <rect key="frame" x="36" y="5" width="77" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRi-3Q-Qv7">
+                            <rect key="frame" x="65" y="15" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -46,8 +47,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-jt-qfY">
                     <rect key="frame" x="440" y="80" width="130" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-Kf-jux">
-                            <rect key="frame" x="54" y="5" width="42" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-Kf-jux">
+                            <rect key="frame" x="65" y="15" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -65,11 +66,14 @@
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWn-sM-wiE">
+                    <rect key="frame" x="150" y="250" width="300" height="100"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZ2-xc-5AQ" customClass="ImageScrollView" customModule="ShrinkMeister" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="590" height="495"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
-                            <rect key="frame" x="0.0" y="0.0" width="1080" height="1920"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-8N-f06">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -108,10 +112,12 @@
                 <constraint firstAttribute="bottom" secondItem="SZ2-xc-5AQ" secondAttribute="bottom" constant="100" id="JdQ-Fe-zmj"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="236" id="M9l-ow-qoN"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="centerX" secondItem="SZ2-xc-5AQ" secondAttribute="centerX" id="ToC-yV-f55"/>
+                <constraint firstItem="qWn-sM-wiE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TrD-Cx-wcd"/>
                 <constraint firstItem="6IF-jt-qfY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="Uv1-a4-qM9"/>
                 <constraint firstItem="CAt-ZF-fx6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vzv-qd-MUt"/>
                 <constraint firstItem="nK5-Aq-FgH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="ZxK-QI-AZs"/>
                 <constraint firstItem="SZ2-xc-5AQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="c8X-hK-727"/>
+                <constraint firstItem="qWn-sM-wiE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="cnJ-8X-eeW"/>
                 <constraint firstItem="nK5-Aq-FgH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="fEz-Vo-zOw"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="centerY" secondItem="SZ2-xc-5AQ" secondAttribute="centerY" id="i80-qb-SQn"/>
                 <constraint firstItem="HeW-8H-JHf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="180" id="rL4-rt-Zio"/>
@@ -139,7 +145,4 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
-    <resources>
-        <image name="sample" width="1080" height="1920"/>
-    </resources>
 </document>

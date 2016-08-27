@@ -31,7 +31,8 @@ class ProcessImageCustom : ProcessServiceProtocol {
         } else {
             let size = op[1] as! Int
             print("Size:\(size)")
-            return image.resizeBySize(size)
+            let destSize = size <= 30 ? size : size - 30
+            return image.resizeBySize(destSize) // leave some space so reduce 30 kb
         
         }
         
