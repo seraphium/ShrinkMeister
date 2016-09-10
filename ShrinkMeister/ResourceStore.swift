@@ -27,7 +27,7 @@ class ResourceStore {
     func resourceURLForKey(key: String, suffix: String) ->NSURL {
         let documentDirectories = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let documentDirectory = documentDirectories.first!
-        return documentDirectory.URLByAppendingPathComponent(key + suffix)
+        return documentDirectory.URLByAppendingPathComponent(key + suffix)!
         
     }
     

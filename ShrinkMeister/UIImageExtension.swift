@@ -59,7 +59,7 @@ extension UIImage {
         
         rectTransform = CGAffineTransformScale(rectTransform, self.scale, self.scale);
         let translatedCropRect = CGRectApplyAffineTransform(cropRect, rectTransform)
-        let imageRef = CGImageCreateWithImageInRect(self.CGImage, translatedCropRect);
+        let imageRef = CGImageCreateWithImageInRect(self.CGImage!, translatedCropRect);
         let result = UIImage(CGImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
         
         return result

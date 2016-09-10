@@ -210,7 +210,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   
   func handleDragInView(thePanner: UIPanGestureRecognizer)
   {
-    var newPoint = thePanner.locationInView(self)
+    let newPoint = thePanner.locationInView(self)
     switch thePanner.state
     {
     case UIGestureRecognizerState.Began:
@@ -287,7 +287,7 @@ class CroppableImageView: UIView, CornerpointClientProtocol
   func cornerHasChanged(newCornerPoint: CornerpointView)
   {
     var pointIndex: Int?
-    var newPoint = newCornerPoint
+    let newPoint = newCornerPoint
     
     //Find the cornerpoint the user dragged in the array.
     for (index, aCornerpoint) in cornerpoints.enumerate()

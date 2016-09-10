@@ -379,6 +379,7 @@
 					4BEF0D781D508BA100E7782A = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 7TXG2EZRXQ;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -652,6 +653,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackiezhang.ShrinkMeister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -666,6 +668,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackiezhang.ShrinkMeister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

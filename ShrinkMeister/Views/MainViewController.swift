@@ -100,7 +100,7 @@ class MainViewController: BaseViewController, ViewModelProtocol,UINavigationCont
     func initProcessViews(){
         
         for index in 0 ..< processViewCount{
-            let processView = NSBundle.mainBundle().loadNibNamed(processViewClasses[index], owner: nil, options: nil).first as! BaseProcessView
+            let processView = NSBundle.mainBundle().loadNibNamed(processViewClasses[index], owner: nil, options: nil)!.first as! BaseProcessView
             
             processViews.append(processView)
             
